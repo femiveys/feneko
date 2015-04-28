@@ -340,7 +340,8 @@ function feneko_calculator_form_commerce_cart_add_to_cart_form_alter(&$form, &$f
       $form['line_item_fields']['field_lakzijde']['und']['#ajax'] = $ajax;
       $form['line_item_fields']['field_lengte']['und'][0]['value']['#ajax'] = $ajax;
 
-      $typeBewerking = $form['line_item_fields']['field_type_bewerking']['und']['#default_value'][0];
+      $typeBewerking = $form['line_item_fields']['field_type_bewerking']['und']
+                                                          ['#default_value'][0];
 
       // Special is totally different
       if($typeBewerking === FC_PB_SPECIAL) {
@@ -676,6 +677,8 @@ function _fc_check_afwerking(&$form, &$form_state, $options = array()) {
       $attributes['field_sandwichpaneel_afwerking_2'] = $bicolor_new;
     }
 
+
+    $form_state['input']['attributes'] = $attributes;
     $form_state['values']['attributes'] = $attributes;
     $form_state['values']['unchanged_attributes'] = $attributes;
     $form_state['rebuild'] = true;
