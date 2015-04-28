@@ -15,7 +15,7 @@ function feneko_calculator_rules_action_info() {
           'label' => t('The line item.'),
           'description' => t('The line item on which to apply the Lengte-Breedte optimalisatie.'),
           'wrapped' => true, // This is nice, it will be wrapped for us
-          'save' => true,     // And saved too!
+          'save' => true,    // And saved too!
         ),
       ),
       'module' => 'feneko_calculator',
@@ -29,7 +29,7 @@ function feneko_calculator_rules_action_info() {
           'label' => t('Commerce order'),
           'description' => t('The order on which to apply the minimum invoice amount difference.'),
           'wrapped' => true, // This is nice, it will be wrapped for us
-          'save' => true,    // And saved too!
+          'save' => true,    // And saved too!
         ),
       ),
       'module' => 'feneko_calculator',
@@ -43,7 +43,7 @@ function feneko_calculator_rules_action_info() {
           'label' => t('The line item.'),
           'description' => t('Calculates the price for niet-stock standaardprofiel, including the optimisation.'),
           'wrapped' => true, // This is nice, it will be wrapped for us
-          'save' => true,    // And saved too!
+          'save' => true,    // And saved too!
         ),
       ),
       'module' => 'feneko_calculator',
