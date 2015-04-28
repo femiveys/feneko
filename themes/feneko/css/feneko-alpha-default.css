@@ -1,0 +1,170 @@
+.page-forms .form-type-date,
+.page-forms .form-type-radios,
+.page-forms .form-type-textarea,
+.page-forms .form-type-textfield {
+  padding-top: 15px;
+  float: left;
+}
+
+.page-forms .form-type-checkboxes label,
+.page-forms .form-type-radios label,
+.page-forms .form-type-date label,
+.page-forms .form-type-textarea label,
+.page-forms #edit-frame label,
+.page-forms .form-type-textfield label {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.page-forms label.option {
+  font-weight: normal;
+}
+
+tr.odd td {
+  background: none;
+}
+
+tr:hover {
+  background: #FFFEEE;
+}
+
+.manyform_table thead {
+ background: #EEEEEE;
+}
+
+.manyform_table {
+  clear:both;
+  padding-top: 10px;
+}
+
+.manyform_table th,
+.manyform_table td {
+  text-align: center;
+}
+
+.manyform_table input {
+  font-size: 10px;
+}
+
+.manyform_table .form-item {
+  padding: 0;
+  margin: 0;
+}
+
+.page-forms .form-wrapper .form-item-kleur-text {
+  padding: 0;
+  clear: none;
+  margin-top: -10px;
+  margin-bottom: 0;
+  float: left;
+}
+
+.page-forms input[type=submit] {
+  display: block;
+}
+
+.dep-container {
+  clear: both;
+}
+
+.dep-container.inline {
+  clear: none;
+  float: left;
+  padding-top: 20px;
+}
+
+.form-item-kleur-dep {
+  width: 330px;
+}
+
+.form-item-plint-dep {
+  width: 300px;
+}
+
+.form-wrapper {
+  clear: both;
+}
+
+.kader {
+  border: 8px solid gray;
+  width: 200px;
+  padding: 20px 40px;
+  text-align: center;
+  position: relative;
+}
+
+#edit-frame .form-type-checkbox,
+#edit-frame .form-type-textfield {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+#edit-frame .form-type-checkbox {
+  position: absolute;
+}
+
+.form-item-kader-top {
+  top: -14px;
+  left: 48%;
+}
+
+.form-item-kader-left {
+  top: 35%;
+  left: -10px;
+}
+
+.form-item-kader-right {
+  top: 35%;
+  right: -11px;
+}
+
+.form-item-kader-bottom {
+  bottom: -13px;
+  left: 48%;
+}
+
+#edit-frame > div {
+  float: left;
+  clear: none;
+}
+
+#edit-measures {
+  padding-left: 10px;
+}
+
+#edit-measures input {
+  width: 100px;
+}
+
+.form-item-afgewerkte {
+  clear: both;
+}
+
+.form-type-radios .description,
+.form-type-checkbox .description {
+  margin: 0;
+}
+
+.manyform_table caption {
+  text-align: left;
+  color: #6A6A6A;
+}
+.manyform_table caption .text {
+  display: none;
+  border: 2px dotted #22689B;
+  padding: 10px 1%;
+}
+
+.manyform_table caption .help {
+  width: 32px;
+  height: 32px;
+  background-image: url(../images/help.png);
+  background-size: 100% auto;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.manyform_table caption .help:hover {
+  background-image: url(../images/help_hover.png);
+}

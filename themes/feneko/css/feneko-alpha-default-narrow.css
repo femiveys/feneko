@@ -1,0 +1,13 @@
+/* This file will hold styles that are loaded using the same media query as the narrow grid. */
+
+
+#main-menu  li a,
+#main-menu li {
+	display:inline-block;
+	width:auto;
+}
+#main-menu li a{
+	padding-left:1em;
+	padding-right:1em;
+}
+
