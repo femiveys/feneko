@@ -14,6 +14,7 @@ function fc_line_item_details($line_item, $text_only = FALSE) {
     'commerce_product' => array(
       'field_mke_type',
       'field_muurkap_type',
+      'field_standaardprofiel_type',
       'field_muurkap_diepte',
       'field_raamtablet_eindstuk_typeiepte',
       'field_plaatbewerking_dikte',
