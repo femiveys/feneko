@@ -22,13 +22,26 @@
       $('.commerce-add-to-cart input:not(.form-autocomplete), .commerce-add-to-cart select').change(function(e) {
         $(this).trigger('fc_change');
       });
+
       $('.commerce-add-to-cart input.form-autocomplete').blur(function(e) {
         $(this).trigger('fc_change');
       });
 
+      // Prevent tab when bicolor field is not complete
+      // This should be done more elegantly, but we just check if there are parentheses
+      $('.commerce-add-to-cart .field-name-field-bicolor-kleur input').keydown(function(objEvent) {
+        if (objEvent.keyCode == 9) {  //tab pressed
+          if(!$(this).hasClass('default-prevented')) {
+            $(this).addClass('default-prevented')
+            objEvent.preventDefault(); // stops its action
+          }
+        }
+      });
+
+
       // Prevent anything during AJAX call
       $(document).ajaxStart(function(){
-        console.log('prevent triggered.');
+        // console.log('prevent triggered.');
         // $(".commerce-add-to-cart input, .commerce-add-to-cart select").attr('disabled','disabled');
       });
 

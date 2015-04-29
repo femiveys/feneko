@@ -434,11 +434,6 @@ function feneko_calculator_form_commerce_cart_add_to_cart_form_alter(&$form, &$f
         $bicolor_field['#default_value'] = $color['text'];
       }
 
-      // If not RAL, we need to hide the bicolor field
-      // if($color['type'] !== 'ral') {
-      //   $bicolor['#access'] = FALSE;
-      // }
-
       // Make sure the afwerking is set correctly
       $bicolor_text = empty($bicolor_field['#default_value'])
                                ? FC_NO_COLOR : $bicolor_field['#default_value'];
@@ -677,7 +672,6 @@ function _fc_check_afwerking(&$form, &$form_state, $options = array()) {
       $attributes['field_sandwichpaneel_afwerking_2'] = $bicolor_new;
     }
 
-
     $form_state['input']['attributes'] = $attributes;
     $form_state['values']['attributes'] = $attributes;
     $form_state['values']['unchanged_attributes'] = $attributes;
@@ -687,7 +681,6 @@ function _fc_check_afwerking(&$form, &$form_state, $options = array()) {
   }
 
 }
-
 
 
 function fc_cart_init_form($form, $form_state) {
@@ -987,7 +980,7 @@ function fc_cart_init_form_submit($form, $form_state) {
   $cart = commerce_cart_order_load($user->uid);
   $cart_wrapper = entity_metadata_wrapper('commerce_order', $cart);
 
-  if($form_state['values']['confirm']) {
+  if(isset($form_state['values']['confirm']) && $form_state['values']['confirm']) {
     commerce_cart_order_empty($cart);
 
     // Discount items are not deleted, so we force them

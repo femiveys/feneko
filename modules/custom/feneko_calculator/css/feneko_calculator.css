@@ -77,3 +77,7 @@ form.commerce-add-to-cart {
 form.commerce-add-to-cart .form-item.color .value {
   display: inline-block;
 }
+
+.field-name-field-bicolor-kleur input {
+  width: 200px;
+}
