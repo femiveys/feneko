@@ -46,7 +46,7 @@ function manyforms_export_form($form, &$form_state) {
   );
 
   // Get the totals
-  for ($i = 1; $i <= 12; $i++) {
+  for ($i = 1; $i <= FENEKO_SCREENS_NUM; $i++) {
     $form_id = sprintf('%02d', $i);
 
     $query = db_select("manyforms_$form_id", 'f');
@@ -73,7 +73,7 @@ function manyforms_export_form($form, &$form_state) {
   $pager = theme('pager');
 
   // Construct a UNION select query for all forms
-  for ($i = 1; $i <= 12; $i++) {
+  for ($i = 1; $i <= FENEKO_SCREENS_NUM; $i++) {
     $form_id = sprintf('%02d', $i);
     $ff = new FenekoSpecificForm($form_id);
 
@@ -103,7 +103,7 @@ function manyforms_export_form($form, &$form_state) {
         $union = $query;
         break;
 
-      case 12:
+      case FENEKO_SCREENS_NUM:
         $query->orderByHeader($header);                // hack: should not work
         $query->range($page * $page_size, $page_size); // hack: should not work
 

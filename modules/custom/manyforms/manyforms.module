@@ -3,11 +3,12 @@
  * @file
  * Feneko 12 Forms
  */
+define('FENEKO_SCREENS_NUM', 13);
 
 function manyforms_menu() {
   $items = array();
 
-  for ($i = 1; $i <= 12; $i++) {
+  for ($i = 1; $i <= FENEKO_SCREENS_NUM; $i++) {
     $id = sprintf('%02d', $i);
     $items["forms/form$id"] = array(
       'page callback' => 'manyforms_form_callback',
@@ -24,8 +25,8 @@ function manyforms_menu() {
     'access arguments' => array('submit_manyforms'),
   );
 
-  $items['admin/forms12'] = array(
-    'title' => '12 Forms settings',
+  $items['admin/feneko_screens'] = array(
+    'title' => 'Screens Forms settings',
     'type' => MENU_NORMAL_ITEM,
     'page callback' => 'drupal_get_form',
     'page arguments' => array('manyforms_setting_form'),
@@ -33,14 +34,14 @@ function manyforms_menu() {
     'access arguments' => array('admin_manyforms'),
   );
 
-  $items['admin/forms12/overview'] = array(
+  $items['admin/feneko_screens/overview'] = array(
     'title' => 'Overview',
     'type' => MENU_LOCAL_TASK,
     'page callback' => 'manyforms_overview',
     'access arguments' => array('admin_manyforms'),
   );
 
-  $items['admin/forms12/admin'] = array(
+  $items['admin/feneko_screens/admin'] = array(
     'title' => 'Settings',
     'type' => MENU_LOCAL_TASK,
     'page callback' => 'drupal_get_form',
@@ -49,7 +50,7 @@ function manyforms_menu() {
     'access arguments' => array('admin_manyforms'),
   );
 
-  $items['admin/forms12/import'] = array(
+  $items['admin/feneko_screens/import'] = array(
     'title' => 'Importeer',
     'type' => MENU_LOCAL_TASK,
     'page callback' => 'drupal_get_form',
@@ -57,7 +58,7 @@ function manyforms_menu() {
     'access arguments' => array('admin_manyforms'),
   );
 
-  $items['admin/forms12/export'] = array(
+  $items['admin/feneko_screens/export'] = array(
     'title' => 'Exporteer',
     'type' => MENU_LOCAL_TASK,
     'page callback' => 'drupal_get_form',
@@ -66,7 +67,7 @@ function manyforms_menu() {
     'access arguments' => array('admin_manyforms'),
   );
 
-  $items['admin/forms12/archive'] = array(
+  $items['admin/feneko_screens/archive'] = array(
     'title' => 'Archief',
     'type' => MENU_LOCAL_TASK,
     'page callback' => 'drupal_get_form',
@@ -240,7 +241,7 @@ function manyforms_utilo_search_form($form, &$form_state, $search) {
 
 
 function manyforms_aliases() {
-  for ($i = 1; $i <= 12; $i++) {
+  for ($i = 1; $i <= FENEKO_SCREENS_NUM; $i++) {
     $id = sprintf('%02d', $i);
     $ff = new FenekoSpecificForm($id);
 
@@ -270,7 +271,7 @@ function manyforms_aliases() {
 
 
 function manyforms_overview() {
-  for ($i = 1; $i <= 12; $i++) {
+  for ($i = 1; $i <= FENEKO_SCREENS_NUM; $i++) {
     $id = sprintf('%02d', $i);
     $ff = new FenekoSpecificForm($id);
 

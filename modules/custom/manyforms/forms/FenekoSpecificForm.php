@@ -192,6 +192,7 @@ class FenekoSpecificForm extends FenekoForm {
     $html .= $this->parsePDFfullWidthField('table4', $record);
     $html .= $this->parsePDFfullWidthField('uitvoering', $record);
     $html .= $this->parsePDFfullWidthField('ondergeleider', $record);
+    $html .= $this->parsePDFfullWidthField('ondergeleider_anodise', $record);
     $html .= $this->parsePDFfullWidthField('bovengeleider', $record);
     $html .= $this->parsePDFfullWidthField('borstel_kopse_kant', $record);
     $html .= '</div>';
@@ -365,7 +366,7 @@ class FenekoSpecificForm extends FenekoForm {
 
       case '07':
         $this->title = t('Schuifvliegendeuren Basic');
-        $this->remark = t('Breedtemaat van het vliegenschuifdeurblad. Totale hoogte inclusief Geleiders van de schuifdeur. Lengte van de geleiders.');
+        $this->remark = t('Breedtemaat van het vliegenschuifdeurblad.<br />Totale hoogte inclusief geleiders van de schuifdeur.<br />Lengte van de geleiders.');
         $this->removeField('table1');
         $this->addField('table2', 30);
         $this->addField('ondergeleider', 33);
@@ -384,7 +385,7 @@ class FenekoSpecificForm extends FenekoForm {
 
       case '08':
         $this->title = t('Schuifvliegendeuren Classic');
-        $this->remark = t('Breedtemaat van het vliegenschuifdeurblad. Totale hoogte inclusief Geleiders van de schuifdeur. Lengte van de geleiders.');
+        $this->remark = t('Breedtemaat van het vliegenschuifdeurblad.<br />Totale hoogte inclusief geleiders van de schuifdeur.<br />Lengte van de geleiders.');
         $this->removeField('table1');
         $this->addField('table2', 30);
         $this->addField('uitvoering', 33);
@@ -404,7 +405,7 @@ class FenekoSpecificForm extends FenekoForm {
 
       case '09':
         $this->title = t('Schuifvliegendeuren Elegance');
-        $this->remark = t('Breedtemaat van het vliegenschuifdeurblad. Totale hoogte inclusief Geleiders van de schuifdeur. Lengte van de geleiders.');
+        $this->remark = t('Breedtemaat van het vliegenschuifdeurblad.<br />Totale hoogte inclusief geleiders van de schuifdeur.<br />Lengte van de geleiders.');
         $this->removeField('table1');
         $this->addField('table2', 30);
         $this->addField('uitvoering', 33);
@@ -424,7 +425,7 @@ class FenekoSpecificForm extends FenekoForm {
 
       case '10':
         $this->title = t('Schuifvliegendeuren smal');
-        $this->remark = t('Breedtemaat van het vliegenschuifdeurblad. Totale hoogte inclusief Geleiders van de schuifdeur. Lengte van de geleiders.');
+        $this->remark = t('Breedtemaat van het vliegenschuifdeurblad.<br />Totale hoogte inclusief geleiders van de schuifdeur.<br />Lengte van de geleiders.');
         $this->removeField('table1');
         $this->addField('table2', 30);
         $this->addField('uitvoering', 33);
@@ -473,6 +474,27 @@ class FenekoSpecificForm extends FenekoForm {
         $this->url = array(
           'nl' => 'raam-plisse',
           'fr' => 'moustiquaire-pliante',
+        );
+        break;
+
+      case '13':
+        $this->title = t('Schuifvliegendeuren Elegance+');
+        $this->remark = t('Breedtemaat van het vliegenschuifdeurblad.<br />Totale hoogte inclusief geleiders van de schuifdeur.<br />Lengte van de geleiders.');
+        $this->removeField('table1');
+        $this->addField('table3', 30);
+        $this->addField('uitvoering', 33);
+        $this->addField('ondergeleider', 34);
+        $this->addField('ondergeleider_anodise', 35);
+        $this->addField('bovengeleider', 36);
+        $this->addField('borstel_kopse_kant', 45);
+        // $this->addField('plint', 60);
+        // $this->addField('dierendeur', 70);
+        $this->addField('borstel_links', 80);
+        $this->addField('borstel_rechts', 90);
+        $this->addField('eindstoppen', 100);
+        $this->url = array(
+          'nl' => 'schuifvliegendeur-elegance-plus',
+          'fr' => 'porte-coulissante-elegance-plus',
         );
         break;
     }
@@ -660,6 +682,20 @@ class FenekoSpecificForm extends FenekoForm {
           '3/4'   => '3/4',
           'rondom'    => t('rondom'),
         );
+        break;
+
+      case '13':
+        $this->form['ondergeleider']['#options'] = array(
+          'vp1012' => 'vp1012',
+          'vr073'  => 'vr073',
+          'vr074'  => 'vr074',
+          'vp1016' => 'vp1016',
+        );
+        unset($this->form['kleur']['kleur']['#options']['anodise']);
+        unset($this->form['type_gaas']['container']);
+        unset($this->form['type_gaas']['type_gaas']['#options']['soltisdoek']);
+        unset($this->form['type_gaas']['type_gaas']['#options']['inox']);
+
         break;
     }
   }

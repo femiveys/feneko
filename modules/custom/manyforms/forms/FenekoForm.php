@@ -290,14 +290,14 @@ class FenekoForm {
 
 
   /**
-   * Gets the schema needed to be able to tore the fields of the form
+   * Gets the schema needed to be able to store the fields of the form
    * @return array The schema to be used in hook_schema()
    */
-  protected function getSchema() {
+  public function getSchema() {
     $schema['description'] = "Form " . $this->id;
     $schema['primary key'] = array('id');
     $fields = array_merge(
-      array_flip(array('id', 'uid', 'datesubmit', 'exported')),
+      array_flip(array('id', 'uid', 'datesubmit', 'exported', 'klant')),
       $this->fields
     );
 
@@ -372,6 +372,7 @@ class FenekoForm {
         switch ($id) {
           case 8:
           case 9:
+          case 13:
             $u = $section_fields['uitvoering'];
             $b = $section_fields["breedte$i"];
             if(($u === 'enkel' and $b <= 2000) or ($u === 'dubbel' and $b <= 4000)) {
@@ -404,6 +405,11 @@ class FenekoForm {
             break;
         }
         $section .= self::getCode($table_field, $value);
+
+        // Elegance+ doesn't have a tussenstijl, so we need to force P7: 0
+        if($id == 13) {
+          $section .= self::getCode('stand', '0');
+        }
       }
       $section .= $this->getProductFiche($section_fields);
 
@@ -592,6 +598,13 @@ class FenekoForm {
         $fields['hoekverbinding'] = 'geen';
         $product_fiche .= self::getCode("rails", '0');
         break;
+
+      case 13:
+        $fields['pvc'] = 'nvt'; // not sure this is needed
+        if($fields['ondergeleider_anodise'] === 'ja') {
+          $fields['ondergeleider'] .= 'a';
+        }
+        break;
     }
 
     foreach ($fields as $name => $value) {
@@ -636,7 +649,7 @@ class FenekoForm {
 
         case 'kleur':
           list($value, $ral_code) = self::explodeRal($value);
-          if($id >= 4 and $id <=10 and ($value === 'f9001' or $value === 'anodise')) {
+          if(($id >= 4 and $id <=10 or $id === 13) and ($value === 'f9001' or $value === 'anodise')) {
             $value .= '_s';
           }
           if(isset($ral_code)) {
@@ -645,7 +658,7 @@ class FenekoForm {
           break;
 
         case 'ondergeleider':
-          if($id == 7 or $id == 8 or $id == 9) {
+          if($id == 7 or $id == 8 or $id == 9 or $id == 13) {
             if($value === 'vp1016' or $value === 'vp1016a') {
               $product_fiche .= self::getCode("montagediepte", 'Railcorrectie 25mm');
             } else {
@@ -686,6 +699,10 @@ class FenekoForm {
           break;
 
         case 'type_gaas':
+          if($id === 13) {
+            if($value === 'petscreen' or $value === 'clearview')
+            $value .= "###volledig";
+          }
           if(isset($fields['gaas_kleur'])) {
             $value .= "###" . $fields['gaas_kleur'];
           }
@@ -815,6 +832,7 @@ class FenekoForm {
       case 'enkel8':
       case 'enkel9':
       case 'enkel10':
+      case 'enkel13':
         $max = array(
           'breedte' => 3000,
           'hoogte'  => 3000,
@@ -825,6 +843,7 @@ class FenekoForm {
       case 'dubbel8':
       case 'dubbel9':
       case 'dubbel10':
+      case 'dubbel13':
         $max = array(
           'breedte' => 6000,
           'hoogte'  => 3000,
@@ -1132,10 +1151,13 @@ class FenekoForm {
       case 8:
       case 9:
       case 10:
+      case 13:
         return ":UB46003:";
       case 11:
       case 12:
         return ":UB46000:";
+      default:
+        return 'NOT_SET';
     }
   }
 
@@ -1540,15 +1562,16 @@ class FenekoForm {
         $schema['fields']['kader_left'] = $checkbox;
         $schema['fields']['kader_right'] = $checkbox;
         $schema['fields']['kader_bottom'] = $checkbox;
-        // $schema['fields']['kader_hoogte'] = $varchar;
-        // $schema['fields']['kader_breedte'] = $varchar;
         $schema['fields']['kader_top']['description'] = 'Top checkbox of kader';
         $schema['fields']['kader_left']['description'] = 'Left checkbox of kader';
         $schema['fields']['kader_right']['description'] = 'Right checkbox of kader';
         $schema['fields']['kader_bottom']['description'] = 'Bottom checkbox of kader';
-        // $schema['fields']['kader_hoogte']['description'] = 'Hoogte measure of kader';
-        // $schema['fields']['kader_breedte']['description'] = 'Breedte measure of kader';
         break;
+
+        case 'gaas_kleur':
+          $schema['fields'][$name] = $varchar;
+          $schema['fields'][$name]['not null'] = TRUE;
+          break;
 
       case 'id':
         $schema['fields'][$name] = array(
@@ -1865,6 +1888,7 @@ class FenekoForm {
       'kader_left',
       'kader_right',
       'kader_bottom',
+      'ondergeleider_anodise',
     );
 
     $mapping = array(
@@ -1890,6 +1914,8 @@ class FenekoForm {
         'enkel11'  => 1,
         'dubbel11' => 2,
         'enkel12'  => 3,
+        'enkel13'   => 7,
+        'dubbel13'  => 88,
         'basic'    => 17,
       ),
       'scharnierkant' => array(
@@ -2734,6 +2760,13 @@ class FenekoForm {
           'vr073a'  => 'vr073 (anodise)',
           'vr074a'  => 'vr074 (anodise)',
         ),
+      ),
+      'ondergeleider_anodise' => array(
+        '#title' => t('ondergeleider anodisé'),
+        '#type' => 'radios',
+        '#weight' => $weight,
+        '#required' => TRUE,
+        '#options' => $ja_nee_options,
       ),
       'opties' => array(
         '#title' => t('opties'),

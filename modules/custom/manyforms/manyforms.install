@@ -655,3 +655,19 @@ function manyforms_update_7040() {
     }
   }
 }
+
+/**
+ * Create elegance+ table
+ */
+function manyforms_update_7041() {
+  $id = '13';
+  $table = "manyforms_$id";
+
+  if(!db_table_exists($table)) {
+    $ff = new FenekoSpecificForm($id);
+    $schema = $ff->getSchema();
+
+    db_create_table($table, $schema);
+  }
+}
+
