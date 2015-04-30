@@ -1570,7 +1570,7 @@ class FenekoForm {
 
         case 'gaas_kleur':
           $schema['fields'][$name] = $varchar;
-          $schema['fields'][$name]['not null'] = TRUE;
+          $schema['fields'][$name]['not null'] = FALSE;
           break;
 
       case 'id':
