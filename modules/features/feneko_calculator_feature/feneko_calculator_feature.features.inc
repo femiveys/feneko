@@ -110,8 +110,8 @@ function feneko_calculator_feature_default_commerce_discount() {
     "name" : "discount_global_discount_0_200",
     "label" : "Global discount 0-200",
     "type" : "order_discount",
-    "status" : "1",
     "component_title" : "Korting: -30%",
+    "export_status" : "1",
     "commerce_discount_offer" : {
       "type" : "percentage",
       "commerce_percentage" : { "und" : [ { "value" : "30.00" } ] }
@@ -142,8 +142,8 @@ function feneko_calculator_feature_default_commerce_discount() {
     "name" : "discount_global_discount_1200_16",
     "label" : "Global discount 1200-1600",
     "type" : "order_discount",
-    "status" : "1",
     "component_title" : "Korting: -44%",
+    "export_status" : "1",
     "commerce_discount_offer" : {
       "type" : "percentage",
       "commerce_percentage" : { "und" : [ { "value" : "44.00" } ] }
@@ -174,8 +174,8 @@ function feneko_calculator_feature_default_commerce_discount() {
     "name" : "discount_global_discount_1600_2000",
     "label" : "Global discount 1600-2000",
     "type" : "order_discount",
-    "status" : "1",
     "component_title" : "Korting: -47%",
+    "export_status" : "1",
     "commerce_discount_offer" : {
       "type" : "percentage",
       "commerce_percentage" : { "und" : [ { "value" : "47.00" } ] }
@@ -206,8 +206,8 @@ function feneko_calculator_feature_default_commerce_discount() {
     "name" : "discount_global_discount_2000_2400",
     "label" : "Global discount 2000-2400",
     "type" : "order_discount",
-    "status" : "1",
     "component_title" : "Korting: -50%",
+    "export_status" : "1",
     "commerce_discount_offer" : {
       "type" : "percentage",
       "commerce_percentage" : { "und" : [ { "value" : "50.00" } ] }
@@ -238,8 +238,8 @@ function feneko_calculator_feature_default_commerce_discount() {
     "name" : "discount_global_discount_200_400",
     "label" : "Global discount 0200-400",
     "type" : "order_discount",
-    "status" : "1",
     "component_title" : "Korting: -35%",
+    "export_status" : "1",
     "commerce_discount_offer" : {
       "type" : "percentage",
       "commerce_percentage" : { "und" : [ { "value" : "35.00" } ] }
@@ -270,8 +270,8 @@ function feneko_calculator_feature_default_commerce_discount() {
     "name" : "discount_global_discount_2400_",
     "label" : "Global discount 2400+",
     "type" : "order_discount",
-    "status" : "1",
     "component_title" : "Korting: -53%",
+    "export_status" : "1",
     "commerce_discount_offer" : {
       "type" : "percentage",
       "commerce_percentage" : { "und" : [ { "value" : "53.00" } ] }
@@ -293,8 +293,8 @@ function feneko_calculator_feature_default_commerce_discount() {
     "name" : "discount_global_discount_400_800",
     "label" : "Global discount 0400-800",
     "type" : "order_discount",
-    "status" : "1",
     "component_title" : "Korting: -38%",
+    "export_status" : "1",
     "commerce_discount_offer" : {
       "type" : "percentage",
       "commerce_percentage" : { "und" : [ { "value" : "38.00" } ] }
@@ -325,8 +325,8 @@ function feneko_calculator_feature_default_commerce_discount() {
     "name" : "discount_global_discount_800_120",
     "label" : "Global discount 0800-1200",
     "type" : "order_discount",
-    "status" : "1",
     "component_title" : "Korting: -41%",
+    "export_status" : "1",
     "commerce_discount_offer" : {
       "type" : "percentage",
       "commerce_percentage" : { "und" : [ { "value" : "41.00" } ] }
@@ -554,7 +554,7 @@ function feneko_calculator_feature_node_info() {
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Titel'),
       'help' => '',
     ),
     'dorpel_hoek' => array(
@@ -610,7 +610,7 @@ function feneko_calculator_feature_node_info() {
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Titel'),
       'help' => '',
     ),
     'stuk' => array(
@@ -618,7 +618,7 @@ function feneko_calculator_feature_node_info() {
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Titel'),
       'help' => '',
     ),
     'unit' => array(

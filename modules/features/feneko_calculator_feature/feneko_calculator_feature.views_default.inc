@@ -812,7 +812,6 @@ function feneko_calculator_feature_views_default_views() {
   $handler->display->display_options['fields']['mail']['table'] = 'users';
   $handler->display->display_options['fields']['mail']['field'] = 'mail';
   $handler->display->display_options['fields']['mail']['relationship'] = 'uid';
-  $handler->display->display_options['fields']['mail']['label'] = 'E-mail';
   $handler->display->display_options['fields']['mail']['link_to_user'] = '0';
   /* Veld: Commerce-bestelling: Order total */
   $handler->display->display_options['fields']['commerce_order_total']['id'] = 'commerce_order_total';
@@ -922,7 +921,7 @@ function feneko_calculator_feature_views_default_views() {
     t('ID'),
     t('Aangemaakt'),
     t('Name/Email'),
-    t('E-mail'),
+    t('E-mailadres'),
     t('Totaal'),
     t('Status'),
     t('Bewerkingen'),
