@@ -1176,3 +1176,36 @@ input[type="submit"]{
 .form-required {
 	display: none;
 }
+
+.node-type-product .group-left {
+  width: 250px;
+  background-color: #fff;
+  padding-left: 10px;
+  text-align: center;
+}
+
+.node-type-product .group-right {
+  width: 730px;
+  padding-left: 10px;
+}
+
+.node-type-product .field-name-field-basic-product .field-label {
+  font-size: 2em;
+  margin-top: 1em;
+}
+
+.node-type-product .field-name-field-basic-product .node-product {
+  position: relative;
+}
+
+.node-type-product .field-name-field-basic-product .node-product .field-name-title {
+  top: 40px;
+  left: 0;
+  right: 0;
+  position: absolute;
+  font-size: 1.2em;
+}
+
+.node-type-product .field-name-field-basic-product .node-product:hover .field-name-title {
+  background-color: #fff;
+}
