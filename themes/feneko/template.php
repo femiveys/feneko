@@ -39,3 +39,13 @@ function feneko_preprocess_views_view($vars) {
   if($view->name == 'terms'){
   }
 }
+
+function feneko_preprocess_html(&$vars) {
+  $body_classes = array($vars['classes_array']);
+  if ($vars['user']) {
+    foreach($vars['user']->roles as $key => $role){
+      $role_class = 'role-' . str_replace(' ', '-', $role);
+      $vars['attributes_array']['class'][] = $role_class;
+    }
+  }
+}
