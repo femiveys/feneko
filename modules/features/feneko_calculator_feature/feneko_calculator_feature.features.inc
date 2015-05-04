@@ -102,261 +102,6 @@ function feneko_calculator_feature_commerce_features_default_checkout_panes() {
 }
 
 /**
- * Implements hook_default_commerce_discount().
- */
-function feneko_calculator_feature_default_commerce_discount() {
-  $items = array();
-  $items['discount_global_discount_0_200'] = entity_import('commerce_discount', '{
-    "name" : "discount_global_discount_0_200",
-    "label" : "Global discount 0-200",
-    "type" : "order_discount",
-    "status" : "1",
-    "component_title" : "Korting: -30%",
-    "commerce_discount_offer" : {
-      "type" : "percentage",
-      "commerce_percentage" : { "und" : [ { "value" : "30.00" } ] }
-    },
-    "inline_conditions" : { "und" : [
-        {
-          "condition_name" : "commerce_order_compare_order_amount",
-          "condition_settings" : {
-            "operator" : "\\u003E",
-            "total" : { "amount" : 0, "currency_code" : "EUR" },
-            "condition_logic_operator" : null
-          },
-          "condition_negate" : 0
-        },
-        {
-          "condition_name" : "commerce_order_compare_order_amount",
-          "condition_settings" : {
-            "operator" : "\\u003E",
-            "total" : { "amount" : 20000000, "currency_code" : "EUR" }
-          },
-          "condition_negate" : 1,
-          "condition_logic_operator" : "1"
-        }
-      ]
-    }
-  }');
-  $items['discount_global_discount_1200_16'] = entity_import('commerce_discount', '{
-    "name" : "discount_global_discount_1200_16",
-    "label" : "Global discount 1200-1600",
-    "type" : "order_discount",
-    "status" : "1",
-    "component_title" : "Korting: -44%",
-    "commerce_discount_offer" : {
-      "type" : "percentage",
-      "commerce_percentage" : { "und" : [ { "value" : "44.00" } ] }
-    },
-    "inline_conditions" : { "und" : [
-        {
-          "condition_name" : "commerce_order_compare_order_amount",
-          "condition_settings" : {
-            "operator" : "\\u003E",
-            "total" : { "amount" : 120000000, "currency_code" : "EUR" },
-            "condition_logic_operator" : null
-          },
-          "condition_negate" : 0
-        },
-        {
-          "condition_name" : "commerce_order_compare_order_amount",
-          "condition_settings" : {
-            "operator" : "\\u003E",
-            "total" : { "amount" : 160000000, "currency_code" : "EUR" }
-          },
-          "condition_negate" : 1,
-          "condition_logic_operator" : "1"
-        }
-      ]
-    }
-  }');
-  $items['discount_global_discount_1600_2000'] = entity_import('commerce_discount', '{
-    "name" : "discount_global_discount_1600_2000",
-    "label" : "Global discount 1600-2000",
-    "type" : "order_discount",
-    "status" : "1",
-    "component_title" : "Korting: -47%",
-    "commerce_discount_offer" : {
-      "type" : "percentage",
-      "commerce_percentage" : { "und" : [ { "value" : "47.00" } ] }
-    },
-    "inline_conditions" : { "und" : [
-        {
-          "condition_name" : "commerce_order_compare_order_amount",
-          "condition_settings" : {
-            "operator" : "\\u003E",
-            "total" : { "amount" : 160000000, "currency_code" : "EUR" },
-            "condition_logic_operator" : null
-          },
-          "condition_negate" : 0
-        },
-        {
-          "condition_name" : "commerce_order_compare_order_amount",
-          "condition_settings" : {
-            "operator" : "\\u003E",
-            "total" : { "amount" : 200000000, "currency_code" : "EUR" }
-          },
-          "condition_negate" : 1,
-          "condition_logic_operator" : "1"
-        }
-      ]
-    }
-  }');
-  $items['discount_global_discount_2000_2400'] = entity_import('commerce_discount', '{
-    "name" : "discount_global_discount_2000_2400",
-    "label" : "Global discount 2000-2400",
-    "type" : "order_discount",
-    "status" : "1",
-    "component_title" : "Korting: -50%",
-    "commerce_discount_offer" : {
-      "type" : "percentage",
-      "commerce_percentage" : { "und" : [ { "value" : "50.00" } ] }
-    },
-    "inline_conditions" : { "und" : [
-        {
-          "condition_name" : "commerce_order_compare_order_amount",
-          "condition_settings" : {
-            "operator" : "\\u003E",
-            "total" : { "amount" : 200000000, "currency_code" : "EUR" },
-            "condition_logic_operator" : null
-          },
-          "condition_negate" : 0
-        },
-        {
-          "condition_name" : "commerce_order_compare_order_amount",
-          "condition_settings" : {
-            "operator" : "\\u003E",
-            "total" : { "amount" : 240000000, "currency_code" : "EUR" }
-          },
-          "condition_negate" : 1,
-          "condition_logic_operator" : "1"
-        }
-      ]
-    }
-  }');
-  $items['discount_global_discount_200_400'] = entity_import('commerce_discount', '{
-    "name" : "discount_global_discount_200_400",
-    "label" : "Global discount 0200-400",
-    "type" : "order_discount",
-    "status" : "1",
-    "component_title" : "Korting: -35%",
-    "commerce_discount_offer" : {
-      "type" : "percentage",
-      "commerce_percentage" : { "und" : [ { "value" : "35.00" } ] }
-    },
-    "inline_conditions" : { "und" : [
-        {
-          "condition_name" : "commerce_order_compare_order_amount",
-          "condition_settings" : {
-            "operator" : "\\u003E",
-            "total" : { "amount" : 20000000, "currency_code" : "EUR" },
-            "condition_logic_operator" : null
-          },
-          "condition_negate" : 0
-        },
-        {
-          "condition_name" : "commerce_order_compare_order_amount",
-          "condition_settings" : {
-            "operator" : "\\u003E",
-            "total" : { "amount" : 40000000, "currency_code" : "EUR" }
-          },
-          "condition_negate" : 1,
-          "condition_logic_operator" : "1"
-        }
-      ]
-    }
-  }');
-  $items['discount_global_discount_2400_'] = entity_import('commerce_discount', '{
-    "name" : "discount_global_discount_2400_",
-    "label" : "Global discount 2400+",
-    "type" : "order_discount",
-    "status" : "1",
-    "component_title" : "Korting: -53%",
-    "commerce_discount_offer" : {
-      "type" : "percentage",
-      "commerce_percentage" : { "und" : [ { "value" : "53.00" } ] }
-    },
-    "inline_conditions" : { "und" : [
-        {
-          "condition_name" : "commerce_order_compare_order_amount",
-          "condition_settings" : {
-            "operator" : "\\u003E",
-            "total" : { "amount" : 240000000, "currency_code" : "EUR" },
-            "condition_logic_operator" : null
-          },
-          "condition_negate" : 0
-        }
-      ]
-    }
-  }');
-  $items['discount_global_discount_400_800'] = entity_import('commerce_discount', '{
-    "name" : "discount_global_discount_400_800",
-    "label" : "Global discount 0400-800",
-    "type" : "order_discount",
-    "status" : "1",
-    "component_title" : "Korting: -38%",
-    "commerce_discount_offer" : {
-      "type" : "percentage",
-      "commerce_percentage" : { "und" : [ { "value" : "38.00" } ] }
-    },
-    "inline_conditions" : { "und" : [
-        {
-          "condition_name" : "commerce_order_compare_order_amount",
-          "condition_settings" : {
-            "operator" : "\\u003E",
-            "total" : { "amount" : 40000000, "currency_code" : "EUR" },
-            "condition_logic_operator" : null
-          },
-          "condition_negate" : 0
-        },
-        {
-          "condition_name" : "commerce_order_compare_order_amount",
-          "condition_settings" : {
-            "operator" : "\\u003E",
-            "total" : { "amount" : 80000000, "currency_code" : "EUR" }
-          },
-          "condition_negate" : 1,
-          "condition_logic_operator" : "1"
-        }
-      ]
-    }
-  }');
-  $items['discount_global_discount_800_120'] = entity_import('commerce_discount', '{
-    "name" : "discount_global_discount_800_120",
-    "label" : "Global discount 0800-1200",
-    "type" : "order_discount",
-    "status" : "1",
-    "component_title" : "Korting: -41%",
-    "commerce_discount_offer" : {
-      "type" : "percentage",
-      "commerce_percentage" : { "und" : [ { "value" : "41.00" } ] }
-    },
-    "inline_conditions" : { "und" : [
-        {
-          "condition_name" : "commerce_order_compare_order_amount",
-          "condition_settings" : {
-            "operator" : "\\u003E",
-            "total" : { "amount" : 80000000, "currency_code" : "EUR" },
-            "condition_logic_operator" : null
-          },
-          "condition_negate" : 0
-        },
-        {
-          "condition_name" : "commerce_order_compare_order_amount",
-          "condition_settings" : {
-            "operator" : "\\u003E",
-            "total" : { "amount" : 120000000, "currency_code" : "EUR" }
-          },
-          "condition_negate" : 1,
-          "condition_logic_operator" : "1"
-        }
-      ]
-    }
-  }');
-  return $items;
-}
-
-/**
  * Implements hook_commerce_line_item_default_types().
  */
 function feneko_calculator_feature_commerce_line_item_default_types() {
@@ -554,7 +299,7 @@ function feneko_calculator_feature_node_info() {
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Titel'),
       'help' => '',
     ),
     'dorpel_hoek' => array(
@@ -610,7 +355,7 @@ function feneko_calculator_feature_node_info() {
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Titel'),
       'help' => '',
     ),
     'stuk' => array(
@@ -618,7 +363,7 @@ function feneko_calculator_feature_node_info() {
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Titel'),
       'help' => '',
     ),
     'unit' => array(

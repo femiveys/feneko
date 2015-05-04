@@ -59,23 +59,6 @@ function feneko_calculator_feature_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'commerce_discount_line_item_types';
-  $strongarm->value = array(
-    'dorpel_stuk' => 'dorpel_stuk',
-    'muurkap' => 'muurkap',
-    'plaatbewerking' => 'plaatbewerking',
-    'raamtablet' => 'raamtablet',
-    'raamtablet_eindstuk' => 'raamtablet_eindstuk',
-    'sandwichpaneel' => 'sandwichpaneel',
-    'standaardprofiel' => 'standaardprofiel',
-    'product' => 'product',
-    'product_discount' => 0,
-  );
-  $export['commerce_discount_line_item_types'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'commerce_enabled_currencies';
   $strongarm->value = array(
     'EUR' => 'EUR',
