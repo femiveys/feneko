@@ -1209,3 +1209,8 @@ input[type="submit"]{
 .node-type-product .field-name-field-basic-product .node-product:hover .field-name-title {
   background-color: #fff;
 }
+
+body.context-plaatbewerking:not(.role-administrator) .field-name-field-order-link,
+body.context-colors:not(.role-administrator) .field-name-field-order-link {
+	display: none;
+}
