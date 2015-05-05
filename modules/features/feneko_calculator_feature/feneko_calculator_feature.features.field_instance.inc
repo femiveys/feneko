@@ -6558,76 +6558,6 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_product-standaardprofiel-field_product_image'
-  $field_instances['commerce_product-standaardprofiel-field_product_image'] = array(
-    'bundle' => 'standaardprofiel',
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'module' => 'image',
-        'settings' => array(
-          'image_link' => '',
-          'image_style' => 'medium',
-        ),
-        'type' => 'image',
-        'weight' => 4,
-      ),
-      'line_item' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'node_teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'commerce_product',
-    'field_name' => 'field_product_image',
-    'label' => 'Product Image',
-    'required' => 0,
-    'settings' => array(
-      'alt_field' => 0,
-      'default_image' => 0,
-      'file_directory' => 'calculator',
-      'file_extensions' => 'png gif jpg jpeg',
-      'max_filesize' => '',
-      'max_resolution' => '',
-      'min_resolution' => '',
-      'title_field' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'media',
-      'settings' => array(
-        'allowed_schemes' => array(
-          'private' => 'private',
-          'public' => 'public',
-        ),
-        'allowed_types' => array(
-          'audio' => 0,
-          'document' => 0,
-          'image' => 'image',
-          'video' => 0,
-        ),
-        'browser_plugins' => array(
-          'media_default--media_browser_1' => 0,
-          'media_default--media_browser_my_files' => 0,
-          'upload' => 0,
-        ),
-      ),
-      'type' => 'media_generic',
-      'weight' => 8,
-    ),
-  );
-
-  // Exported field_instance:
   // 'commerce_product-standaardprofiel-field_standaardprofiel_afwerking'
   $field_instances['commerce_product-standaardprofiel-field_standaardprofiel_afwerking'] = array(
     'bundle' => 'standaardprofiel',
@@ -7846,7 +7776,6 @@ function feneko_calculator_feature_field_default_field_instances() {
   t('Price');
   t('Prijs');
   t('Product');
-  t('Product Image');
   t('Product variations');
   t('Qualité Maritime');
   t('Raamtablet Afwerking');
