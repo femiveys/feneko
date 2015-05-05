@@ -671,3 +671,15 @@ function manyforms_update_7041() {
   }
 }
 
+/**
+ * Remove the uitvoering field for elegance+
+ */
+function manyforms_update_7042() {
+  $field_name = "uitvoering";
+
+  $id = 13;
+  $table = "manyforms_$id";
+  if (db_field_exists($table, $field_name)) {
+    db_drop_field($table, $field_name);
+  }
+}

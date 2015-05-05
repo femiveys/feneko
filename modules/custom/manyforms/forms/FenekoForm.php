@@ -600,7 +600,7 @@ class FenekoForm {
         break;
 
       case 13:
-        $fields['pvc'] = 'nvt'; // not sure this is needed
+        $fields['uitvoering'] = 'enkel';
         if($fields['ondergeleider_anodise'] === 'ja') {
           $fields['ondergeleider'] .= 'a';
         }
@@ -843,7 +843,6 @@ class FenekoForm {
       case 'dubbel8':
       case 'dubbel9':
       case 'dubbel10':
-      case 'dubbel13':
         $max = array(
           'breedte' => 6000,
           'hoogte'  => 3000,
@@ -1914,8 +1913,7 @@ class FenekoForm {
         'enkel11'  => 1,
         'dubbel11' => 2,
         'enkel12'  => 3,
-        'enkel13'   => 7,
-        'dubbel13'  => 88,
+        'enkel13'  => 7,
         'basic'    => 17,
       ),
       'scharnierkant' => array(
