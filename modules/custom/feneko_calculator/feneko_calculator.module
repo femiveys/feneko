@@ -729,6 +729,7 @@ function fc_cart_init_form($form, $form_state) {
       'maritime' => array(
         '#type' => 'checkbox',
         '#title' => t('Qualité maritime'),
+        '#description' => t('Opgepast! Meerprijs.')
       ),
       'submit' => array(
         '#type' => 'submit',
