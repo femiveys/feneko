@@ -6949,7 +6949,7 @@ function feneko_calculator_feature_field_default_field_instances() {
           'show_single_product_attributes' => 1,
         ),
         'type' => 'commerce_cart_add_to_cart_form',
-        'weight' => 3,
+        'weight' => 0,
       ),
       'full' => array(
         'label' => 'hidden',
@@ -7078,7 +7078,7 @@ function feneko_calculator_feature_field_default_field_instances() {
           'show_single_product_attributes' => 1,
         ),
         'type' => 'commerce_cart_add_to_cart_form',
-        'weight' => 3,
+        'weight' => 0,
       ),
       'full' => array(
         'label' => 'hidden',
@@ -7423,7 +7423,7 @@ function feneko_calculator_feature_field_default_field_instances() {
           'show_single_product_attributes' => 1,
         ),
         'type' => 'commerce_cart_add_to_cart_form',
-        'weight' => 3,
+        'weight' => 0,
       ),
       'full' => array(
         'label' => 'hidden',
@@ -7492,7 +7492,7 @@ function feneko_calculator_feature_field_default_field_instances() {
           'show_single_product_attributes' => 1,
         ),
         'type' => 'commerce_cart_add_to_cart_form',
-        'weight' => 2,
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -7545,7 +7545,7 @@ function feneko_calculator_feature_field_default_field_instances() {
           'show_single_product_attributes' => 1,
         ),
         'type' => 'commerce_cart_add_to_cart_form',
-        'weight' => 1,
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',

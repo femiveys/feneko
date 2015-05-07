@@ -401,19 +401,22 @@ function feneko_calculator_feature_strongarm() {
       'teaser_right' => array(
         'custom_settings' => FALSE,
       ),
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
       'display' => array(
         'product:sku' => array(
           'default' => array(
-            'weight' => '-10',
+            'weight' => '1',
             'visible' => FALSE,
           ),
         ),
         'product:title' => array(
           'default' => array(
-            'weight' => '-5',
+            'weight' => '3',
             'visible' => FALSE,
           ),
         ),
@@ -425,13 +428,19 @@ function feneko_calculator_feature_strongarm() {
         ),
         'product:commerce_price' => array(
           'default' => array(
-            'weight' => '0',
+            'weight' => '4',
             'visible' => FALSE,
           ),
         ),
         'product:field_anti_dreunstrook' => array(
           'default' => array(
-            'weight' => '37',
+            'weight' => '6',
+            'visible' => FALSE,
+          ),
+        ),
+        'language' => array(
+          'default' => array(
+            'weight' => '2',
             'visible' => FALSE,
           ),
         ),
@@ -470,6 +479,9 @@ function feneko_calculator_feature_strongarm() {
       'teaser_right' => array(
         'custom_settings' => FALSE,
       ),
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -486,13 +498,13 @@ function feneko_calculator_feature_strongarm() {
       'display' => array(
         'product:sku' => array(
           'default' => array(
-            'weight' => '-10',
+            'weight' => '2',
             'visible' => FALSE,
           ),
         ),
         'product:title' => array(
           'default' => array(
-            'weight' => '-5',
+            'weight' => '3',
             'visible' => FALSE,
           ),
         ),
@@ -504,19 +516,25 @@ function feneko_calculator_feature_strongarm() {
         ),
         'product:commerce_price' => array(
           'default' => array(
-            'weight' => '0',
+            'weight' => '4',
             'visible' => FALSE,
           ),
         ),
         'product:field_raamtablet_afwerking' => array(
           'default' => array(
-            'weight' => '37',
+            'weight' => '6',
             'visible' => FALSE,
           ),
         ),
         'product:field_raamtablet_eindstuk_type' => array(
           'default' => array(
-            'weight' => '39',
+            'weight' => '7',
+            'visible' => FALSE,
+          ),
+        ),
+        'language' => array(
+          'default' => array(
+            'weight' => '1',
             'visible' => FALSE,
           ),
         ),
@@ -555,19 +573,22 @@ function feneko_calculator_feature_strongarm() {
       'teaser_right' => array(
         'custom_settings' => FALSE,
       ),
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
       'display' => array(
         'product:sku' => array(
           'default' => array(
-            'weight' => '-10',
+            'weight' => '1',
             'visible' => FALSE,
           ),
         ),
         'product:title' => array(
           'default' => array(
-            'weight' => '-5',
+            'weight' => '3',
             'visible' => FALSE,
           ),
         ),
@@ -579,19 +600,25 @@ function feneko_calculator_feature_strongarm() {
         ),
         'product:commerce_price' => array(
           'default' => array(
-            'weight' => '0',
+            'weight' => '4',
             'visible' => FALSE,
           ),
         ),
         'product:field_raamtablet_afwerking' => array(
           'default' => array(
-            'weight' => '37',
+            'weight' => '6',
             'visible' => FALSE,
           ),
         ),
         'product:field_hoek_type' => array(
           'default' => array(
-            'weight' => '38',
+            'weight' => '7',
+            'visible' => FALSE,
+          ),
+        ),
+        'language' => array(
+          'default' => array(
+            'weight' => '2',
             'visible' => FALSE,
           ),
         ),
@@ -699,55 +726,64 @@ function feneko_calculator_feature_strongarm() {
       'teaser_right' => array(
         'custom_settings' => FALSE,
       ),
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
       'display' => array(
         'product:sku' => array(
           'default' => array(
-            'weight' => '2',
+            'weight' => '3',
             'visible' => FALSE,
           ),
         ),
         'product:title' => array(
           'default' => array(
-            'weight' => '3',
+            'weight' => '4',
             'visible' => FALSE,
           ),
         ),
         'product:status' => array(
           'default' => array(
-            'weight' => '4',
+            'weight' => '5',
             'visible' => FALSE,
           ),
         ),
         'product:commerce_price' => array(
           'default' => array(
-            'weight' => '1',
+            'weight' => '2',
             'visible' => FALSE,
           ),
         ),
         'product:field_raamtablet_lengte' => array(
           'default' => array(
-            'weight' => '5',
+            'weight' => '6',
             'visible' => FALSE,
           ),
         ),
         'product:field_muurkap_diepte' => array(
           'default' => array(
-            'weight' => '6',
+            'weight' => '7',
             'visible' => FALSE,
           ),
         ),
         'product:field_standaardprofiel_afwerking' => array(
           'default' => array(
-            'weight' => '7',
+            'weight' => '8',
             'visible' => FALSE,
           ),
         ),
         'product:field_muurkap_type' => array(
           'default' => array(
-            'weight' => '8',
+            'weight' => '9',
+            'visible' => FALSE,
+          ),
+        ),
+        'language' => array(
+          'default' => array(
+            'weight' => '1',
             'visible' => FALSE,
           ),
         ),
@@ -786,49 +822,58 @@ function feneko_calculator_feature_strongarm() {
       'teaser_right' => array(
         'custom_settings' => FALSE,
       ),
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
       'display' => array(
         'product:sku' => array(
           'default' => array(
-            'weight' => '5',
+            'weight' => '6',
             'visible' => FALSE,
           ),
         ),
         'product:title' => array(
           'default' => array(
-            'weight' => '6',
+            'weight' => '7',
             'visible' => FALSE,
           ),
         ),
         'product:status' => array(
           'default' => array(
-            'weight' => '7',
+            'weight' => '8',
             'visible' => FALSE,
           ),
         ),
         'product:commerce_price' => array(
           'default' => array(
-            'weight' => '2',
+            'weight' => '3',
             'visible' => FALSE,
           ),
         ),
         'product:field_plaatbewerking_afwerking' => array(
           'default' => array(
-            'weight' => '1',
+            'weight' => '2',
             'visible' => FALSE,
           ),
         ),
         'product:field_sandwichpaneel_lengte' => array(
           'default' => array(
-            'weight' => '3',
+            'weight' => '4',
             'visible' => FALSE,
           ),
         ),
         'product:field_plaatbewerking_dikte' => array(
           'default' => array(
-            'weight' => '4',
+            'weight' => '5',
+            'visible' => FALSE,
+          ),
+        ),
+        'language' => array(
+          'default' => array(
+            'weight' => '1',
             'visible' => FALSE,
           ),
         ),
@@ -865,6 +910,9 @@ function feneko_calculator_feature_strongarm() {
         'custom_settings' => FALSE,
       ),
       'teaser_right' => array(
+        'custom_settings' => FALSE,
+      ),
+      'diff_standard' => array(
         'custom_settings' => FALSE,
       ),
     ),
@@ -913,6 +961,12 @@ function feneko_calculator_feature_strongarm() {
             'visible' => FALSE,
           ),
         ),
+        'language' => array(
+          'default' => array(
+            'weight' => '0',
+            'visible' => FALSE,
+          ),
+        ),
       ),
     ),
   );
@@ -948,49 +1002,58 @@ function feneko_calculator_feature_strongarm() {
       'teaser_right' => array(
         'custom_settings' => FALSE,
       ),
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
       'display' => array(
         'product:sku' => array(
           'default' => array(
-            'weight' => '-10',
+            'weight' => '1',
             'visible' => FALSE,
           ),
         ),
         'product:title' => array(
           'default' => array(
-            'weight' => '-5',
+            'weight' => '3',
             'visible' => FALSE,
           ),
         ),
         'product:status' => array(
           'default' => array(
-            'weight' => '5',
+            'weight' => '8',
             'visible' => FALSE,
           ),
         ),
         'product:commerce_price' => array(
           'default' => array(
-            'weight' => '3',
+            'weight' => '4',
             'visible' => FALSE,
           ),
         ),
         'product:field_sandwichpaneel_afwerking' => array(
           'default' => array(
-            'weight' => '4',
+            'weight' => '5',
             'visible' => FALSE,
           ),
         ),
         'product:field_sandwichpaneel_lengte' => array(
           'default' => array(
-            'weight' => '5',
+            'weight' => '7',
             'visible' => FALSE,
           ),
         ),
         'product:field_sandwichpaneel_afwerking_2' => array(
           'default' => array(
-            'weight' => '5',
+            'weight' => '6',
+            'visible' => FALSE,
+          ),
+        ),
+        'language' => array(
+          'default' => array(
+            'weight' => '2',
             'visible' => FALSE,
           ),
         ),
@@ -1029,6 +1092,9 @@ function feneko_calculator_feature_strongarm() {
       'teaser_right' => array(
         'custom_settings' => FALSE,
       ),
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -1045,55 +1111,61 @@ function feneko_calculator_feature_strongarm() {
       'display' => array(
         'product:sku' => array(
           'default' => array(
-            'weight' => '0',
+            'weight' => '2',
             'visible' => FALSE,
           ),
         ),
         'product:title' => array(
           'default' => array(
-            'weight' => '1',
+            'weight' => '4',
             'visible' => FALSE,
           ),
         ),
         'product:status' => array(
           'default' => array(
-            'weight' => '5',
+            'weight' => '7',
             'visible' => FALSE,
           ),
         ),
         'product:commerce_price' => array(
           'default' => array(
-            'weight' => '3',
+            'weight' => '5',
             'visible' => FALSE,
           ),
         ),
         'product:field_standaardprofiel_type' => array(
           'default' => array(
-            'weight' => '4',
+            'weight' => '6',
             'visible' => FALSE,
           ),
         ),
         'product:field_standaardprofiel_afwerking' => array(
           'default' => array(
-            'weight' => '6',
+            'weight' => '8',
             'visible' => FALSE,
           ),
         ),
         'product:field_maat' => array(
           'default' => array(
-            'weight' => '7',
+            'weight' => '9',
             'visible' => FALSE,
           ),
         ),
         'product:field_product_image' => array(
           'default' => array(
-            'weight' => '8',
+            'weight' => '1',
             'visible' => TRUE,
           ),
         ),
         'product:field_stockprofiel' => array(
           'default' => array(
-            'weight' => '8',
+            'weight' => '10',
+            'visible' => FALSE,
+          ),
+        ),
+        'language' => array(
+          'default' => array(
+            'weight' => '3',
             'visible' => FALSE,
           ),
         ),
@@ -1132,6 +1204,9 @@ function feneko_calculator_feature_strongarm() {
       'teaser_right' => array(
         'custom_settings' => FALSE,
       ),
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -1148,13 +1223,13 @@ function feneko_calculator_feature_strongarm() {
       'display' => array(
         'product:sku' => array(
           'default' => array(
-            'weight' => '-10',
+            'weight' => '1',
             'visible' => FALSE,
           ),
         ),
         'product:title' => array(
           'default' => array(
-            'weight' => '-5',
+            'weight' => '3',
             'visible' => FALSE,
           ),
         ),
@@ -1166,43 +1241,49 @@ function feneko_calculator_feature_strongarm() {
         ),
         'product:commerce_price' => array(
           'default' => array(
-            'weight' => '0',
+            'weight' => '4',
             'visible' => FALSE,
           ),
         ),
         'product:field_muurkap_type' => array(
           'default' => array(
-            'weight' => '37',
+            'weight' => '7',
             'visible' => FALSE,
           ),
         ),
         'product:field_muurkap_diepte' => array(
           'default' => array(
-            'weight' => '39',
+            'weight' => '8',
             'visible' => FALSE,
           ),
         ),
         'product:field_standaardprofiel_afwerking' => array(
           'default' => array(
-            'weight' => '41',
+            'weight' => '9',
             'visible' => FALSE,
           ),
         ),
         'product:field_mke_type' => array(
           'default' => array(
-            'weight' => '42',
+            'weight' => '10',
             'visible' => FALSE,
           ),
         ),
         'product:field_raamtablet_afwerking' => array(
           'default' => array(
-            'weight' => '37',
+            'weight' => '6',
             'visible' => FALSE,
           ),
         ),
         'product:field_raamtablet_eindstuk_type' => array(
           'default' => array(
             'weight' => '39',
+            'visible' => FALSE,
+          ),
+        ),
+        'language' => array(
+          'default' => array(
+            'weight' => '2',
             'visible' => FALSE,
           ),
         ),
@@ -1241,25 +1322,28 @@ function feneko_calculator_feature_strongarm() {
       'teaser_right' => array(
         'custom_settings' => FALSE,
       ),
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(),
       'display' => array(
         'product:sku' => array(
           'default' => array(
-            'weight' => '2',
+            'weight' => '3',
             'visible' => FALSE,
           ),
         ),
         'product:title' => array(
           'default' => array(
-            'weight' => '3',
+            'weight' => '4',
             'visible' => FALSE,
           ),
         ),
         'product:status' => array(
           'default' => array(
-            'weight' => '4',
+            'weight' => '5',
             'visible' => FALSE,
           ),
         ),
@@ -1269,10 +1353,23 @@ function feneko_calculator_feature_strongarm() {
             'visible' => FALSE,
           ),
         ),
+        'language' => array(
+          'default' => array(
+            'weight' => '2',
+            'visible' => FALSE,
+          ),
+        ),
       ),
     ),
   );
   $export['field_bundle_settings_node__unit'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'i18n_hide_translation_links';
+  $strongarm->value = 1;
+  $export['i18n_hide_translation_links'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
