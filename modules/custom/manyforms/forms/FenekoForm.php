@@ -922,6 +922,14 @@ class FenekoForm {
           break;
       }
     }
+
+    // For the deuren, make sure if plint other is filled in, that it is smaller
+    // than T1 or standt (if checked)
+    $h = $values[$name][$i]['standt'] ? 917 : $values[$name][$i]['t1'];
+    if($values['plint_dep'] > $h) {
+      $msg = t('De plint mag niet hoger zijn dan :h.', array(':h' => $h));
+      form_set_error('plint_dep', $msg);
+    }
   }
 
   /**
