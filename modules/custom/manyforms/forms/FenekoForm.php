@@ -692,9 +692,11 @@ class FenekoForm {
           }
           break;
 
-        case 'soort_bevestiging':
-          if($value === 'op_maat') {
-            $fields['bevestiging'] = 'geen';
+        case 'bevestiging':
+          if(!empty($fields['soort_bevestiging'])) {
+            if(strstr($fields['soort_bevestiging'], 'op_maat') !== FALSE) {
+              $value = 'geen';
+            }
           }
           break;
 
@@ -2089,6 +2091,7 @@ class FenekoForm {
         'sch'   => 31,
         'spie_klemveer' => 54,
         'hoge_lage'     => 55,
+        'op_maat'       => '',
       ),
       'verbreding' => array(
         '#code' => 27,
@@ -2263,6 +2266,12 @@ class FenekoForm {
       'kleur_dep'  => 'P38',
       'montagediepte' => 'P40',
     );
+
+    // When clipsen op maat is chosen, we ignore
+    if($name === 'soort_bevestiging' and strstr($value, 'op_maat###') !== FALSE) {
+      $value = 'op_maat';
+      // return;
+    }
 
     switch ($name) {
       case 'borstels':
