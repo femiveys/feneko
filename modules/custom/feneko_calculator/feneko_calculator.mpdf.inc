@@ -178,9 +178,7 @@ function fc_get_attachment($order_id, $outputAsString = TRUE) {
   $line_items = '';
   $count = $order_wrapper->commerce_line_items->count();
   foreach ($order_wrapper->commerce_line_items as $delta => $line) {
-    if($line->type->value() === 'commerce_discount') {
-      // $count--;
-    } else {
+    if($line->type->value() !== 'commerce_discount') {
       $price = $line->commerce_unit_price->value();
       $total = $line->commerce_total->value();
       $even_odd = $delta % 2 ? 'even' : 'odd';
@@ -191,7 +189,7 @@ function fc_get_attachment($order_id, $outputAsString = TRUE) {
       $line_items .= $line->type->label() . _fc_get_pdf_image($line);
       $line_items .= '</td>';
       $line_items .= '<td class="details">';
-      $line_items .= nl2br(fc_line_item_details($line->value(), TRUE));
+      $line_items .= nl2br(fc_line_item_details($line->value(), 'text'));
       $line_items .= '</td>';
       $line_items .= '<td class="price">';
       $line_items .= commerce_price_decimals_formatter_currency_format(
