@@ -122,10 +122,12 @@ function fc_line_item_details($line_item, $format = 'ra') {
 function _fc_field_output($field_name, $entity, $entity_type, $format) {
   $ra = array();
 
+  $lang = $format === 'xml' ? 'nl' : NULL;
+
   // if($field_name === 'TOREMOVE') {
   // } else {
     if ($info = field_info_field($field_name)) {
-      $raw_values = field_get_items($entity_type, $entity, $field_name);
+      $raw_values = field_get_items($entity_type, $entity, $field_name, $lang);
 
       // Multifields have to be rendered differently
       if ($info['cardinality'] == 1) {
@@ -140,7 +142,7 @@ function _fc_field_output($field_name, $entity, $entity_type, $format) {
               'thousand_separator' => '',
             ),
           );
-          $ra = field_view_field($entity_type, $entity, $field_name, $display);
+          $ra = field_view_field($entity_type, $entity, $field_name, $display, $lang);
 
           // For products, we need to take the label from the ATTRIBUTE FIELD SETTINGS
           if($entity_type === 'commerce_product') {

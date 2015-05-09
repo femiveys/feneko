@@ -67,17 +67,17 @@ function feneko_calculator_menu() {
     'access arguments' => array('admin_manyforms'), // TODO set right permissions
   );
   $items['admin/commerce/orders/%/pdf'] = array(
-    'title' => 'Import',
-    'weight' => 200,
+    'title' => 'PDF',
     'type' => MENU_LOCAL_TASK,
     'file' => 'feneko_calculator.mpdf.inc',
     'page callback' => 'fc_get_attachment',
     'page arguments' => array(3, false),
     'access arguments' => array('admin_manyforms'), // TODO set right permissions
+    'parent' => 'admin/commerce/orders/%commerce_order',
+    'context' => MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE,
   );
   $items['admin/commerce/orders/%commerce_order/export'] = array(
     'title' => 'Export',
-    // 'weight' => 0,
     'type' => MENU_LOCAL_TASK,
     'file' => 'feneko_calculator.admin.inc',
     'page callback' => 'feneko_calculator_export',
