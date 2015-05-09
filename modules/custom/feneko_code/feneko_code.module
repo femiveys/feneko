@@ -12,28 +12,28 @@ function feneko_code_permission() {
 }
 
 function feneko_code_menu(){
-    $items['user/%user/logout'] = array(
-        'title' => 'Log out',
-      'page callback' => 'feneko_user_logout',
-      'page arguments' => array('user_profile_form', 1),
-      'access callback' => 'user_edit_access',
-      'access arguments' => array(1),
-      'type' => MENU_LOCAL_TASK,
-    );
+  $items['user/%user/logout'] = array(
+    'title' => 'Log out',
+    'page callback' => 'feneko_user_logout',
+    'page arguments' => array('user_profile_form', 1),
+    'access callback' => 'user_edit_access',
+    'access arguments' => array(1),
+    'type' => MENU_LOCAL_TASK,
+  );
 
-    $items['catalog/%/%'] = array(
-        'title' => 'Feneko catalog',
-      'page callback' => 'feneko_catalog',
-      'page arguments' => array(1,2,3),
-      'access callback' => 'user_access',
-      'access arguments' => array('see the catalog'),
-      'type' => MENU_LOCAL_TASK,
-      'file' => 'feneko_code.catalog.inc',
-    );
+  $items['catalog/%/%'] = array(
+    'title' => 'Feneko catalog',
+    'page callback' => 'feneko_catalog',
+    'page arguments' => array(1,2,3),
+    'access callback' => 'user_access',
+    'access arguments' => array('see the catalog'),
+    'type' => MENU_LOCAL_TASK,
+    'file' => 'feneko_code.catalog.inc',
+  );
 
   $items['admin/config/feneko_import'] = array(
     'title' => 'Feneko Import',
-    'type' => MENU_LOCAL_TASK,
+    'type' => MENU_NORMAL_ITEM,
     'page callback' => 'drupal_get_form',
     'page arguments' => array('feneko_code_import_form'),
     'access arguments' => array('admin_manyforms'),
