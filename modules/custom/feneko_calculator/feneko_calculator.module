@@ -76,11 +76,11 @@ function feneko_calculator_menu() {
     'parent' => 'admin/commerce/orders/%commerce_order',
     'context' => MENU_CONTEXT_PAGE | MENU_CONTEXT_INLINE,
   );
-  $items['admin/commerce/orders/%commerce_order/export'] = array(
-    'title' => 'Export',
+  $items['admin/commerce/orders/%commerce_order/xml'] = array(
+    'title' => 'XML',
     'type' => MENU_LOCAL_TASK,
     'file' => 'feneko_calculator.admin.inc',
-    'page callback' => 'feneko_calculator_export',
+    'page callback' => 'feneko_calculator_xml',
     'page arguments' => array(3),
     'access arguments' => array('admin_manyforms'), // TODO set right permissions
     'parent' => 'admin/commerce/orders/%commerce_order',

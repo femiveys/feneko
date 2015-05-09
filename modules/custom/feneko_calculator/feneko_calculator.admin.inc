@@ -23,9 +23,9 @@ function feneko_calculator_settings_form($form, &$form_state) {
  *
  * @param stdClass $order
  */
-function feneko_calculator_export(stdClass $order) {
+function feneko_calculator_xml(stdClass $order) {
     header("Content-type: application/octet-stream");
-    header("Content-Disposition: attachment; filename=\"order_" . $order->order_id . ".txt\"");
+    header("Content-Disposition: attachment; filename=\"order_" . $order->order_id . ".xml\"");
     echo feneko_calculator_order_to_xml($order);
     exit;
 }
