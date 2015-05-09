@@ -31,14 +31,13 @@ function feneko_code_menu(){
       'file' => 'feneko_code.catalog.inc',
     );
 
-    $items['admin/config/feneko'] = array(
-      'title' => 'Feneko settings',
-      'page callback' => 'drupal_get_form',
-      'page arguments' => array('feneko_flipper_settings'),
-      'access callback' => 'user_access',
-      'access arguments' => array('administer content'),
-      'type' => MENU_LOCAL_TASK,
-    );
+  $items['admin/config/feneko_import'] = array(
+    'title' => 'Feneko Import',
+    'type' => MENU_LOCAL_TASK,
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('feneko_code_import_form'),
+    'access arguments' => array('admin_manyforms'),
+  );
 
   return $items;
 }
@@ -99,15 +98,6 @@ function feneko_user_logout(){
   drupal_goto('<front>');
 }
 
-
-function feneko_code_preprocess_node(&$vars){
-  if($vars['type'] == 'offerte_xml_data' && $vars['view_mode']=='full') {
-    $node = &$vars['node'];
-    $file = $node->field_data_file['und'][0];
-    $path = file_create_url($file['uri']);
-    drupal_goto($path);
-  }
-}
 
 function feneko_code_form_alter(&$form, &$form_state, $form_id) {
   if ($form_id == 'user_register_form') {
@@ -171,47 +161,138 @@ function feneko_code_mail($key, &$message, $params){
 }
 
 
-/**
- * Administrative forms and related.
- */
-function feneko_flipper_settings() {
-  $form = array();
-
-  $form['screens'] = array(
-    '#type' => 'fieldset',
-    '#title' => t('Screens'),
-    '#weight' => 1,
-    '#collapsible' => TRUE,
-    '#collapsed' => FALSE,
-  );
-  $form['colors'] = array(
-    '#type' => 'fieldset',
-    '#title' => t('Screens'),
-    '#weight' => 1,
-    '#collapsible' => TRUE,
-    '#collapsed' => FALSE,
-  );
-  $form['colors']['feneko_catalogus_flipper_colors_nl'] = array(
-    '#title' => t('Link to NL flipper COLORS'),
-    '#type' => 'textfield',
-    '#default_value' => variable_get('feneko_catalogus_flipper_colors_nl', ''),
-  );
-  $form['colors']['feneko_catalogus_flipper_colors_fr'] = array(
-    '#title' => t('Link to FR flipper COLORS'),
-    '#type' => 'textfield',
-    '#default_value' => variable_get('feneko_catalogus_flipper_colors_fr', ''),
+function feneko_code_import_form($form, &$form_state) {
+  $form['type'] = array(
+    '#type' => "radios",
+    '#title' => 'Type upload',
+    '#options' => array(
+      'ral'     => 'RAL codes',
+      'renolit' => 'Renolit codes',
+      'utilo'   => 'Utilo profielen',
+      'field_data_field_geblokkeerd' => 'Geblokkeerd/EB',
+    ),
+    '#required' => true,
   );
 
-  $form['screens']['feneko_catalogus_flipper_screens_nl'] = array(
-    '#title' => t('Link to NL flipper SCREENS'),
-    '#type' => 'textfield',
-    '#default_value' => variable_get('feneko_catalogus_flipper_screens_nl', ''),
-  );
- $form['screens']['feneko_catalogus_flipper_screens_fr'] = array(
-    '#title' => t('Link to FR flipper SCREENS'),
-    '#type' => 'textfield',
-    '#default_value' => variable_get('feneko_catalogus_flipper_screens_fr', ''),
+  $form['file_upload'] = array(
+    '#title' => 'Bestand',
+    '#type' => 'file',
+    '#description' => 'Upload een bestand in CSV formaat.<br/>'
+                    . 'RAL codes: 3 Velden gescheiden door een ; dus: kleurcode;poedercode;type<br />'
+                    . 'Renolit codes: 3 Velden gescheiden door een ; dus: id;kleurcode;omschrijving<br />'
+                    . 'Utilo profielen: ',
   );
 
-  return system_settings_form($form);
+  $form['header'] = array(
+    '#type' => "checkbox",
+    '#title' => 'De eerste lijn overslaan',
+    '#description' => 'Het kan dat de eerste lijn de kolom namen bevat. Vink deze optie aan indien de eerste lijn overgeslaan moet worden.',
+  );
+
+  $form['submit'] = array(
+    '#type' => "submit",
+    "#value" => "Importeer",
+  );
+
+  return $form;
+}
+
+function feneko_code_import_form_submit($form, &$form_state) {
+  $file = file_save_upload('file_upload', array('file_validate_extensions' => array('csv')));
+
+  if($file) {
+    $table = $form_state['values']['type'];
+
+    // Open the file.
+    $handle = fopen($file->uri, "r");
+
+    // Skip the header if needed
+    if($form_state['values']['header']) {
+      $header = fgetcsv($handle, 0, ';');
+    }
+
+    if($table !== 'field_data_field_geblokkeerd') {
+      // First clear the table.
+      if (db_table_exists($table)) {
+        db_truncate($table)->execute();
+      }
+
+      $mapping = array(
+        'laken std' => 'ral',
+        'laken str' => 'str',
+        'Laken std' => 'ral',
+        'Laken str' => 'str',
+      );
+    }
+
+    $num_updated = 0;
+
+    // Loop through the csv file and insert into database.
+    while ($data = fgetcsv($handle, 0, ';')) {
+      switch ($table) {
+        case 'ral':
+          if(isset($mapping[$data[2]])) {
+            $type = $mapping[$data[2]];
+          } else {
+            $msg = t("Mapping not found for :mapping. Ignored record.", array(':mapping' => $data[2]));
+            drupal_set_message($msg, 'warning');
+            continue 2;
+          }
+
+          $fields = array(
+            'kleur' => drupal_convert_to_utf8($data[0], 'Windows-1252'),
+            'ref'   => drupal_convert_to_utf8($data[1], 'Windows-1252'),
+            'type'  => $type,
+          );
+          break;
+
+        case 'renolit':
+          $fields = array(
+            'kleur' => drupal_convert_to_utf8($data[2], 'Windows-1252'),
+            'ref'   => drupal_convert_to_utf8($data[1], 'Windows-1252'),
+          );
+          break;
+
+        case 'utilo':
+          $fields = array(
+            'ref'   => drupal_convert_to_utf8($data[1], 'Windows-1252'),
+            'descr' => drupal_convert_to_utf8($data[2], 'Windows-1252'),
+            // 'lang'  => drupal_convert_to_utf8($data[3], 'Windows-1252'),
+            'lang'  => 'nl',
+          );
+          break;
+
+        case 'field_data_field_geblokkeerd':
+          $mapping = array('N' => 0, 'J' => 1);
+          $fields = array(
+            'field_geblokkeerd_value' => strtr(strtoupper($data[1]), $mapping),
+          );
+
+          break;
+      }
+
+      if($table === 'field_data_field_geblokkeerd') {
+        $query = db_update($table)->fields($fields)->condition('entity_id', $data[0]);
+      } else {
+        $query = db_insert($table)->fields($fields);
+      }
+
+      $num_updated += $query->execute();
+
+    }
+    fclose($handle);
+
+    if($table === 'field_data_field_geblokkeerd') {
+      if($num_updated > 0) {
+        $msg = t('Er werden :num gebruikers aangepast.', array(':num' => $num_updated));
+      }
+    } else {
+      $msg = t(':num records werden succesvol geïmporteerd.', array(':num' => $num_updated));
+    }
+
+    drupal_set_message($msg);
+
+  } else {
+    drupal_set_message(t('Er werd geen bestand meegegeven.'));
+  }
 }

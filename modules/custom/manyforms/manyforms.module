@@ -50,14 +50,6 @@ function manyforms_menu() {
     'access arguments' => array('admin_manyforms'),
   );
 
-  $items['admin/feneko_screens/import'] = array(
-    'title' => 'Importeer',
-    'type' => MENU_LOCAL_TASK,
-    'page callback' => 'drupal_get_form',
-    'page arguments' => array('manyforms_import_form'),
-    'access arguments' => array('admin_manyforms'),
-  );
-
   $items['admin/feneko_screens/export'] = array(
     'title' => 'Exporteer',
     'type' => MENU_LOCAL_TASK,
@@ -357,110 +349,6 @@ function manyforms_form_submit($form, &$form_state) {
   $ff->submit($form_state['values']);
 }
 
-function manyforms_import_form($form, &$form_state) {
-  $form['type'] = array(
-    '#type' => "radios",
-    '#title' => 'Type upload',
-    '#options' => array(
-      'ral'     => 'RAL codes',
-      'renolit' => 'Renolit codes',
-      'utilo'   => 'Utilo profielen',
-    ),
-    '#required' => true,
-  );
-
-  $form['file_upload'] = array(
-    '#title' => 'Bestand',
-    '#type' => 'file',
-    '#description' => 'Upload een bestand in CSV formaat.<br/>'
-                    . 'RAL codes: 3 Velden gescheiden door een ; dus: kleurcode;poedercode;type<br />'
-                    . 'Renolit codes: 3 Velden gescheiden door een ; dus: id;kleurcode;omschrijving<br />'
-                    . 'Utilo profielen: ',
-  );
-
-  $form['header'] = array(
-    '#type' => "checkbox",
-    '#title' => 'De eerste lijn overslaan',
-    '#description' => 'Het kan dat de eerste lijn de kolom namen bevat. Vink deze optie aan indien de eerste lijn overgeslaan moet worden.',
-  );
-
-  $form['submit'] = array(
-    '#type' => "submit",
-    "#value" => "Importeer",
-  );
-
-  return $form;
-}
-
-function manyforms_import_form_submit($form, &$form_state) {
-  $file = file_save_upload('file_upload', array('file_validate_extensions' => array('csv')));
-
-  if($file) {
-    $table = $form_state['values']['type'];
-    $mapping = array(
-      'laken std' => 'ral',
-      'laken str' => 'str',
-      'Laken std' => 'ral',
-      'Laken str' => 'str',
-    );
-
-    // Open the file.
-    $handle = fopen($file->uri, "r");
-
-    // Skip the header if needed
-    if($form_state['values']['header']) {
-      $header = fgetcsv($handle, 0, ';');
-    }
-
-    // First clear the table.
-    if (db_table_exists($table)) {
-      db_truncate($table)->execute();
-    }
-
-    // Loop through the csv file and insert into database.
-    while ($data = fgetcsv($handle, 0, ';')) {
-      switch ($form_state['values']['type']) {
-        case 'ral':
-          if(isset($mapping[$data[2]])) {
-            $type = $mapping[$data[2]];
-          } else {
-            $msg = t("Mapping not found for :mapping. Ignored record.", array(':mapping' => $data[2]));
-            drupal_set_message($msg, 'warning');
-            continue 2;
-          }
-
-          $fields = array(
-            'kleur' => drupal_convert_to_utf8($data[0], 'Windows-1252'),
-            'ref'   => drupal_convert_to_utf8($data[1], 'Windows-1252'),
-            'type'  => $type,
-          );
-          break;
-
-        case 'renolit':
-          $fields = array(
-            'kleur' => drupal_convert_to_utf8($data[2], 'Windows-1252'),
-            'ref'   => drupal_convert_to_utf8($data[1], 'Windows-1252'),
-          );
-          break;
-
-        case 'utilo':
-          $fields = array(
-            'ref'   => drupal_convert_to_utf8($data[1], 'Windows-1252'),
-            'descr' => drupal_convert_to_utf8($data[2], 'Windows-1252'),
-            // 'lang'  => drupal_convert_to_utf8($data[3], 'Windows-1252'),
-            'lang'  => 'nl',
-          );
-          break;
-      }
-      db_insert($table)->fields($fields)->execute();
-    }
-    fclose($handle);
-    drupal_set_message(t('De records werden succesvol geïmporteerd.'));
-
-  } else {
-    drupal_set_message(t('Er werd geen bestand meegegeven.'));
-  }
-}
 
 function manyforms_opties_callback($form, &$form_state) {
   $ff = $form_state['build_info']['args'][0];
