@@ -275,7 +275,7 @@ function feneko_code_import_form_submit($form, &$form_state) {
         $subquery = db_select('field_data_field_klantennummer', 'knr')
                       ->condition('knr.field_klantennummer_value', $data[0])
                       ->fields('knr', array('entity_id'));
-        db_update('field_revision_field_geblokkeerd')->fields($fields)->condition('entity_id', $subquery, 'IN');
+        db_update('field_revision_field_geblokkeerd')->fields($fields)->condition('entity_id', $subquery, 'IN')->execute();
         $query = db_update($table)->fields($fields)->condition('entity_id', $subquery, 'IN');
       } else {
         $query = db_insert($table)->fields($fields);
