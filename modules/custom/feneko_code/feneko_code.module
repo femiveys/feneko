@@ -272,7 +272,10 @@ function feneko_code_import_form_submit($form, &$form_state) {
       }
 
       if($table === 'field_data_field_geblokkeerd') {
-        $query = db_update($table)->fields($fields)->condition('entity_id', $data[0]);
+        $subquery = db_select('field_data_field_klantennummer', 'knr')
+                      ->condition('knr.field_klantennummer_value', $data[0])
+                      ->fields('knr', array('entity_id'));
+        $query = db_update($table)->fields($fields)->condition('entity_id', $subquery);
       } else {
         $query = db_insert($table)->fields($fields);
       }
