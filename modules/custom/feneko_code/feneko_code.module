@@ -223,6 +223,8 @@ function feneko_code_import_form_submit($form, &$form_state) {
         'Laken std' => 'ral',
         'Laken str' => 'str',
       );
+    } else {
+      $mapping = array('N' => 0, 'J' => 1);
     }
 
     $num_updated = 0;
@@ -244,6 +246,7 @@ function feneko_code_import_form_submit($form, &$form_state) {
             'ref'   => drupal_convert_to_utf8($data[1], 'Windows-1252'),
             'type'  => $type,
           );
+          $num_updated += db_insert($table)->fields($fields)->execute();
           break;
 
         case 'renolit':
@@ -251,6 +254,7 @@ function feneko_code_import_form_submit($form, &$form_state) {
             'kleur' => drupal_convert_to_utf8($data[2], 'Windows-1252'),
             'ref'   => drupal_convert_to_utf8($data[1], 'Windows-1252'),
           );
+          $num_updated += db_insert($table)->fields($fields)->execute();
           break;
 
         case 'utilo':
@@ -260,24 +264,28 @@ function feneko_code_import_form_submit($form, &$form_state) {
             // 'lang'  => drupal_convert_to_utf8($data[3], 'Windows-1252'),
             'lang'  => 'nl',
           );
+          $num_updated += db_insert($table)->fields($fields)->execute();
           break;
 
         case 'field_data_field_geblokkeerd':
-          $mapping = array('N' => 0, 'J' => 1);
-          $fields = array(
-            'field_geblokkeerd_value' => strtr(strtoupper($data[1]), $mapping),
-          );
+          $query = new EntityFieldQuery();
+          $query->entityCondition('entity_type', 'user')
+            ->fieldCondition('field_klantennummer', 'value', $data[0]);
+
+          $result = $query->execute();
+          $users_ids = array_keys($result['user']);
+
+          foreach ($users_ids as $uid) {
+            $user = user_load($uid);
+            $wrapper = entity_metadata_wrapper('user', $user);
+            $wrapper->field_geblokkeerd = strtr(strtoupper($data[1]), $mapping);
+            $wrapper->save();
+            $num_updated++;
+          }
 
           break;
       }
 
-      if($table === 'field_data_field_geblokkeerd') {
-        $query = db_update($table)->fields($fields)->condition('entity_id', $data[0]);
-      } else {
-        $query = db_insert($table)->fields($fields);
-      }
-
-      $num_updated += $query->execute();
 
     }
     fclose($handle);
