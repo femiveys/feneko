@@ -1225,6 +1225,6 @@ body:not(.role-administrator) .field-name-field-orderable-products {
 	margin-right: 10px;
 }
 
-.field-name-field-orderable-products .field-item:not(:nth-child(1)) {
+.field-name-field-orderable-products .field-item:not(:nth-child(1)) a {
 	padding: 0 10px;
 }
