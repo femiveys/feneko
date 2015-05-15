@@ -1221,7 +1221,7 @@ body:not(.role-administrator) .field-name-field-orderable-products {
 }
 
 .node-teaser .field-name-field-orderable-products .field-item {
-	display: inline-block;
+	float: right;
 	margin-right: 10px;
 }
 
