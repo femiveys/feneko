@@ -67,8 +67,22 @@ function feneko_features_strongarm() {
         'metatags' => array(
           'weight' => '40',
         ),
+        'language' => array(
+          'weight' => '0',
+        ),
       ),
-      'display' => array(),
+      'display' => array(
+        'language' => array(
+          'default' => array(
+            'weight' => '15',
+            'visible' => FALSE,
+          ),
+          'teaser' => array(
+            'weight' => '13',
+            'visible' => FALSE,
+          ),
+        ),
+      ),
     ),
   );
   $export['field_bundle_settings_node__product'] = $strongarm;

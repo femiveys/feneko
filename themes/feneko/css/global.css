@@ -895,6 +895,7 @@ width: 80px;
 	text-align: center;
 }
 
+.field-name-field-orderable-products a,
 .html .rodeknop,
 .html .rodeknop:link{
 	background-image: linear-gradient(right , rgb(176,4,21) 17%, rgb(240,73,71) 59%);
@@ -919,6 +920,7 @@ width: 80px;
 	display: inline-block;
 	margin-bottom: 10px;
 }
+.field-name-field-orderable-products a:hover,
 .html .rodeknop:hover{
 	background-image: linear-gradient(right , rgb(176,4,21) 17%, rgb(240,73,71) 59%);
 	background-image: -o-linear-gradient(right , rgb(176,4,21) 17%, rgb(240,73,71) 59%);
@@ -1213,4 +1215,12 @@ input[type="submit"]{
 body.context-plaatbewerking:not(.role-administrator) .field-name-field-order-link,
 body.context-colors:not(.role-administrator) .field-name-field-order-link {
 	display: none;
+}
+body:not(.role-administrator) .field-name-field-orderable-products {
+	display: none;
+}
+
+.node-teaser .field-name-field-orderable-products .field-item {
+	display: inline-block;
+	margin-right: 10px;
 }

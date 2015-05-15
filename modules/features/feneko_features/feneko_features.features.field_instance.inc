@@ -246,7 +246,7 @@ function feneko_features_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 15,
+        'weight' => 17,
       ),
       'teaser_left' => array(
         'label' => 'above',
@@ -317,7 +317,7 @@ function feneko_features_field_default_field_instances() {
           'node_reference_view_mode' => 'icon',
         ),
         'type' => 'node_reference_node',
-        'weight' => 3,
+        'weight' => 4,
       ),
       'full' => array(
         'label' => 'above',
@@ -338,7 +338,7 @@ function feneko_features_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 16,
+        'weight' => 18,
       ),
       'teaser_left' => array(
         'label' => 'above',
@@ -396,7 +396,7 @@ function feneko_features_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 13,
+        'weight' => 15,
       ),
       'teaser_left' => array(
         'label' => 'above',
@@ -464,7 +464,7 @@ function feneko_features_field_default_field_instances() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_default',
-        'weight' => 2,
+        'weight' => 3,
       ),
       'icon' => array(
         'label' => 'above',
@@ -476,7 +476,7 @@ function feneko_features_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 12,
+        'weight' => 14,
       ),
       'teaser_left' => array(
         'label' => 'above',
@@ -565,7 +565,7 @@ function feneko_features_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 14,
+        'weight' => 16,
       ),
       'teaser_left' => array(
         'label' => 'above',
@@ -693,6 +693,75 @@ function feneko_features_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-product-field_orderable_products'
+  $field_instances['node-product-field_orderable_products'] = array(
+    'bundle' => 'product',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => 1,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 2,
+      ),
+      'icon' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'hidden',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => 1,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 4,
+      ),
+      'teaser_left' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser_right' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_orderable_products',
+    'label' => 'Bestelbare producten',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'inline_entity_form',
+      'settings' => array(
+        'fields' => array(),
+        'type_settings' => array(
+          'allow_existing' => 1,
+          'delete_references' => 0,
+          'label_plural' => 'nodes',
+          'label_singular' => 'node',
+          'match_operator' => 'CONTAINS',
+          'override_labels' => 0,
+        ),
+      ),
+      'type' => 'inline_entity_form',
+      'weight' => 41,
+    ),
+  );
+
   // Exported field_instance: 'node-product-field_productcategorie'
   $field_instances['node-product-field_productcategorie'] = array(
     'bundle' => 'product',
@@ -704,7 +773,7 @@ function feneko_features_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 18,
+        'weight' => 19,
       ),
       'full' => array(
         'label' => 'hidden',
@@ -722,7 +791,7 @@ function feneko_features_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 20,
+        'weight' => 22,
       ),
       'teaser_left' => array(
         'label' => 'above',
@@ -783,7 +852,7 @@ function feneko_features_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 18,
+        'weight' => 20,
       ),
       'teaser_left' => array(
         'label' => 'above',
@@ -859,7 +928,7 @@ function feneko_features_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 19,
+        'weight' => 21,
       ),
       'teaser_left' => array(
         'label' => 'above',
@@ -941,7 +1010,7 @@ function feneko_features_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 17,
+        'weight' => 19,
       ),
       'teaser_left' => array(
         'label' => 'above',
@@ -1290,6 +1359,7 @@ function feneko_features_field_default_field_instances() {
   // Included for use with string extractors like potx.
   t('Afbeeldingen');
   t('Bestel meteen');
+  t('Bestelbare producten');
   t('Body');
   t('Catalogus link');
   t('Geef hier de link in naar de catalogus met de gerelateerde producten.');
