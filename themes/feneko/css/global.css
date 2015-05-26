@@ -1211,7 +1211,7 @@ input[type="submit"]{
 .node-type-product .field-name-field-basic-product .node-product:hover .field-name-title {
   background-color: #fff;
 }
-
+/*
 body.context-plaatbewerking:not(.role-administrator) .field-name-field-order-link,
 body.context-colors:not(.role-administrator) .field-name-field-order-link {
 	display: none;
@@ -1219,7 +1219,7 @@ body.context-colors:not(.role-administrator) .field-name-field-order-link {
 body:not(.role-administrator) .field-name-field-orderable-products {
 	display: none;
 }
-
+*/
 .node-teaser .field-name-field-orderable-products .field-item {
 	float: right;
 	margin-right: 10px;
