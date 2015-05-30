@@ -914,6 +914,8 @@ function fc_colors_search($string) {
   // Union
   $rs = $ral->union($renolit)->execute();
 
+  $result = array();
+
   foreach ($rs as $record) {
     $key = $record->kleur . ' (' . $record->ref . ')';
     $result[$key] = $key;

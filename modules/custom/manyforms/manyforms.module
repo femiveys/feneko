@@ -164,6 +164,7 @@ function manyforms_ral_validate($name, $value) {
 }
 
 function manyforms_utilo_search_page($search) {
+  $search = check_plain($search);
   $ra = array(
     'form' => drupal_get_form('manyforms_utilo_search_form', $search),
     'table' => manyforms_utilo_search_table($search),

@@ -927,10 +927,12 @@ class FenekoForm {
 
     // For the deuren, make sure if plint other is filled in, that it is smaller
     // than T1 or standt (if checked)
-    $h = $values[$name][$i]['standt'] ? 917 : $values[$name][$i]['t1'];
-    if($values['plint_dep'] > $h) {
-      $msg = t('De plint mag niet hoger zijn dan :h.', array(':h' => $h));
-      form_set_error('plint_dep', $msg);
+    if(isset($values[$name][$i]['standt']) and isset($values[$name][$i]['t1'])) {
+      $h = $values[$name][$i]['standt'] ? 917 : $values[$name][$i]['t1'];
+      if(isset($values['plint_dep']) && $values['plint_dep'] > $h) {
+        $msg = t('De plint mag niet hoger zijn dan :h.', array(':h' => $h));
+        form_set_error('plint_dep', $msg);
+      }
     }
   }
 
