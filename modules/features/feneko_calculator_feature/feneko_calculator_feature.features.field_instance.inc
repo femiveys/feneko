@@ -3357,6 +3357,41 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'commerce_order-commerce_order-field_order_type'
+  $field_instances['commerce_order-commerce_order-field_order_type'] = array(
+    'bundle' => 'commerce_order',
+    'default_value' => array(
+      0 => array(
+        'value' => 'order',
+      ),
+    ),
+    'deleted' => 0,
+    'description' => 'Geef hier aan of u gewoon een offerte wil, of een bestelling wilt plaatsen',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 7,
+      ),
+    ),
+    'entity_type' => 'commerce_order',
+    'field_name' => 'field_order_type',
+    'label' => 'Type',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_buttons',
+      'weight' => 3,
+    ),
+  );
+
   // Exported field_instance: 'commerce_order-commerce_order-field_reference'
   $field_instances['commerce_order-commerce_order-field_reference'] = array(
     'bundle' => 'commerce_order',
@@ -7818,6 +7853,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   t('Display path');
   t('Eenheidsprijs');
   t('Eindstukken');
+  t('Geef hier aan of u gewoon een offerte wil, of een bestelling wilt plaatsen');
   t('Hoek type');
   t('Hoeken');
   t('Isolatie Dikte');
