@@ -68,7 +68,7 @@ function fc_get_attachment($order_id, $outputAsString = TRUE) {
     }
 
     table.total {
-      width: 40%;
+      width: 50%;
     }
 
     td {
@@ -245,10 +245,15 @@ function fc_get_attachment($order_id, $outputAsString = TRUE) {
   $comment = field_view_field('commerce_order', $order, 'field_comment');
   $color = field_view_field('commerce_order', $order, 'field_color');
 
+  $order_type = $order_wrapper->field_order_type->label();
+  if(empty($order_type)) {
+    $order_type = t('Bestelling');
+  }
+
   // Compile the HTML
   $html .= '<body>';
   $html .= drupal_render($client_data);
-  $html .= '<h1>' . t('Bestelling') . '</h1>';
+  $html .= "<h1>$order_type</h1>";
   $html .= drupal_render($reference);
   $html .= drupal_render($color);
   $html .= $maritime;

@@ -37,6 +37,10 @@ function feneko_calculator_feature_default_rules_configuration() {
       "TAGS" : [ "calculator" ],
       "REQUIRES" : [ "rules", "commerce_checkout" ],
       "ON" : { "commerce_checkout_complete" : [] },
+      "IF" : [
+        { "entity_has_field" : { "entity" : [ "commerce-order" ], "field" : "field_order_type" } },
+        { "data_is" : { "data" : [ "commerce-order:field-order-type" ], "value" : "order" } }
+      ],
       "DO" : [
         { "mail" : {
             "to" : "Feneko \\u003Cjeremie@feneko.be\\u003E",
