@@ -125,6 +125,7 @@ function feneko_calculator_mail_alter(&$message) {
   );
   if (strpos($message['id'], $mail_id_patterns['client']) !== false
    or strpos($message['id'], $mail_id_patterns['feneko']) !== false) {
+    // Take the order ID from the title
     preg_match("/(\d+)/", $message['subject'], $matches);
     $order_id = $matches[0];
 

@@ -204,22 +204,30 @@ function _fc_add_minimum_invoice_amount_components($line_item_wrapper, $extra_pr
     TRUE
   );
 
+  // Take into account the -38% for special clients
+  if(_is_special_client()) {
+    $pct = 38;
+    $discount = 'discount_global_discount_400_800';
+  } else {
+    $pct = 30;
+    $discount = 'discount_global_discount_0_200';
+  }
+
   // Add the extra discount component
-  // TODO: make this dynamic and not language dependant
   $line_item_wrapper->commerce_unit_price->data = commerce_price_component_add(
     $line_item_wrapper->commerce_unit_price->value(),
     // Comment 1st out to have the minimum invoice amount also include the discount part
     // Comment 2nd out to add the minimum invoice amount discount part to the global discount
-    "discount|discount_global_discount_0_200",
+    "discount|$discount",
     // 'minimum_invoice_amount',
     array(
-      'amount' => -1 * 0.3 * $extra_price,
+      'amount' => $pct * $extra_price / -100,
       'currency_code' => 'EUR',
       // Comment 1st out to have the minimum invoice amount also include the discount part
       // Comment 2nd out to add the minimum invoice amount discount part to the global discount
       'data' => array(
-        'discount_name' =>  'discount_global_discount_0_200',
-        'discount_component_title' => t('Korting: -30%'),
+        'discount_name' => $discount,
+        'discount_component_title' => t('Korting: -!pct%', array('!pct' => $pct)),
       ),
       // 'data' => array(),
     ),
@@ -229,6 +237,13 @@ function _fc_add_minimum_invoice_amount_components($line_item_wrapper, $extra_pr
   // Finally save the line item
   $line_item_wrapper->save();
 }
+
+function _is_special_client() {
+  global $user;
+  $user_wrapper = entity_metadata_wrapper('user', $user);
+  return $user_wrapper->field_afwijkende_staffelkorting->value() == 1;
+}
+
 
 
 /**
