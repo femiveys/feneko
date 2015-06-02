@@ -105,7 +105,7 @@ class FenekoForm {
             'andere' => $values['plint_dep'],
           );
 
-          $plint_h = $plint_map[$value];
+          $plint_h = isset($plint_map[$value]) ? $plint_map[$value] : 0;
 
           // Check the minima of the dierendeur
           $ref = array(
