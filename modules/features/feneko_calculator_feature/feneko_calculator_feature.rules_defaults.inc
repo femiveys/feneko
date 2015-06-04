@@ -83,125 +83,6 @@ function feneko_calculator_feature_default_rules_configuration() {
       ]
     }
   }');
-  $items['feneko_global_discount_0_200'] = entity_import('rules_config', '{ "feneko_global_discount_0_200" : {
-      "LABEL" : "Global discount 0-200",
-      "PLUGIN" : "reaction rule",
-      "OWNER" : "rules",
-      "TAGS" : [ "Commerce Discount", "Korting op bestelling" ],
-      "REQUIRES" : [ "commerce_discount", "rules" ],
-      "ON" : { "commerce_discount_order" : [] },
-      "IF" : [
-        { "AND" : [
-            { "NOT commerce_order_compare_order_amount" : {
-                "operator" : "\\u003E",
-                "total" : { "value" : { "amount" : 20000000, "currency_code" : "EUR" } }
-              }
-            },
-            { "commerce_order_compare_order_amount" : {
-                "operator" : "\\u003E",
-                "total" : { "value" : { "amount" : 0, "currency_code" : "EUR" } }
-              }
-            },
-            { "NOT data_is" : {
-                "data" : [ "commerce-order:owner:field-afwijkende-staffelkorting" ],
-                "value" : "1"
-              }
-            }
-          ]
-        }
-      ],
-      "DO" : [
-        { "commerce_discount_percentage" : {
-            "entity" : [ "commerce_order" ],
-            "commerce_discount" : "discount_global_discount_0_200"
-          }
-        }
-      ]
-    }
-  }');
-  $items['feneko_global_discount_200_400'] = entity_import('rules_config', '{ "feneko_global_discount_200_400" : {
-      "LABEL" : "Global discount 0200-400",
-      "PLUGIN" : "reaction rule",
-      "OWNER" : "rules",
-      "TAGS" : [ "Commerce Discount", "Korting op bestelling" ],
-      "REQUIRES" : [ "commerce_discount", "rules" ],
-      "ON" : { "commerce_discount_order" : [] },
-      "IF" : [
-        { "AND" : [
-            { "NOT commerce_order_compare_order_amount" : {
-                "operator" : "\\u003E",
-                "total" : { "value" : { "amount" : 40000000, "currency_code" : "EUR" } }
-              }
-            },
-            { "commerce_order_compare_order_amount" : {
-                "operator" : "\\u003E",
-                "total" : { "value" : { "amount" : 20000000, "currency_code" : "EUR" } }
-              }
-            },
-            { "NOT data_is" : {
-                "data" : [ "commerce-order:owner:field-afwijkende-staffelkorting" ],
-                "value" : "1"
-              }
-            }
-          ]
-        }
-      ],
-      "DO" : [
-        { "commerce_discount_percentage" : {
-            "entity" : [ "commerce_order" ],
-            "commerce_discount" : "discount_global_discount_200_400"
-          }
-        }
-      ]
-    }
-  }');
-  $items['feneko_global_discount_400_800'] = entity_import('rules_config', '{ "feneko_global_discount_400_800" : {
-      "LABEL" : "Global discount 0400-800",
-      "PLUGIN" : "reaction rule",
-      "OWNER" : "rules",
-      "TAGS" : [ "Commerce Discount", "Korting op bestelling" ],
-      "REQUIRES" : [ "commerce_discount", "rules" ],
-      "ON" : { "commerce_discount_order" : [] },
-      "IF" : [
-        { "NOT commerce_order_compare_order_amount" : {
-            "operator" : "\\u003E",
-            "total" : { "value" : { "amount" : 80000000, "currency_code" : "EUR" } }
-          }
-        },
-        { "OR" : [
-            { "AND" : [
-                { "commerce_order_compare_order_amount" : {
-                    "operator" : "\\u003E",
-                    "total" : { "value" : { "amount" : 40000000, "currency_code" : "EUR" } }
-                  }
-                },
-                { "NOT data_is" : {
-                    "data" : [ "commerce-order:owner:field-afwijkende-staffelkorting" ],
-                    "value" : "1"
-                  }
-                }
-              ]
-            },
-            { "AND" : [
-                { "data_is" : {
-                    "data" : [ "commerce-order:owner:field-afwijkende-staffelkorting" ],
-                    "value" : "1"
-                  }
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "DO" : [
-        { "commerce_discount_percentage" : {
-            "entity" : [ "commerce_order" ],
-            "commerce_discount" : "discount_global_discount_400_800"
-          }
-        }
-      ]
-    }
-  }');
   $items['rules_add_knippen_price'] = entity_import('rules_config', '{ "rules_add_knippen_price" : {
       "LABEL" : "Standaardprofiel (stock) Add Knippen Price",
       "PLUGIN" : "reaction rule",
@@ -1225,6 +1106,16 @@ function feneko_calculator_feature_default_rules_configuration() {
       "DO" : [
         { "commerce_rules_extra_change_page" : { "page_id" : "checkout", "submit_value" : "Plaats bestelling" } }
       ]
+    }
+  }');
+  $items['rules_staffelkorting'] = entity_import('rules_config', '{ "rules_staffelkorting" : {
+      "LABEL" : "Staffelkorting",
+      "PLUGIN" : "reaction rule",
+      "OWNER" : "rules",
+      "TAGS" : [ "calculator" ],
+      "REQUIRES" : [ "feneko_calculator", "commerce_discount" ],
+      "ON" : { "commerce_discount_order" : [] },
+      "DO" : [ { "fc_apply_staffel_korting" : { "order" : [ "commerce-order" ] } } ]
     }
   }');
   $items['rules_standaarprofiel'] = entity_import('rules_config', '{ "rules_standaarprofiel" : {

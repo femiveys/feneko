@@ -48,6 +48,19 @@ function feneko_calculator_rules_action_info() {
       ),
       'module' => 'feneko_calculator',
     ),
+    'fc_apply_staffel_korting' => array(
+      'label' => t('Apply staffel korting'),
+      'group' => t('Feneko'),
+      'parameter' => array(
+        'order' => array(
+          'label' => t('Commerce Order'),
+          'type' => 'commerce_order',
+          'description' => t('Should point to this order.'),
+          'wrapped' => true, // This is nice, it will be wrapped for us
+        ),
+      ),
+      'module' => 'feneko_calculator',
+    ),
   );
 }
 
@@ -163,7 +176,9 @@ function _fc_reset_minimum_invoice_amount_components($line_item_wrapper) {
 
   // First remove all minimum_invoice_amount components
   foreach ($data['components'] as $key => $component) {
-    if($component['name'] === 'minimum_invoice_amount') {
+    if($component['name'] === 'minimum_invoice_amount'
+      // || substr($component['name'], 0, 8) === 'discount'
+    ) {
       unset($data['components'][$key]);
     }
   }
@@ -204,21 +219,17 @@ function _fc_add_minimum_invoice_amount_components($line_item_wrapper, $extra_pr
     TRUE
   );
 
-  // Take into account the -38% for special clients
-  if(_is_special_client()) {
-    $pct = 38;
-    $discount = 'discount_global_discount_400_800';
-  } else {
-    $pct = 30;
-    $discount = 'discount_global_discount_0_200';
-  }
+  $line_item = $line_item_wrapper->value();
+  $discount_name = $line_item->data['discount_name'];
+  $discount = entity_metadata_wrapper('commerce_discount', $discount_name);
+  $pct = intval($discount->commerce_discount_offer->commerce_percentage->value());
 
   // Add the extra discount component
   $line_item_wrapper->commerce_unit_price->data = commerce_price_component_add(
     $line_item_wrapper->commerce_unit_price->value(),
     // Comment 1st out to have the minimum invoice amount also include the discount part
     // Comment 2nd out to add the minimum invoice amount discount part to the global discount
-    "discount|$discount",
+    "discount|$discount_name",
     // 'minimum_invoice_amount',
     array(
       'amount' => $pct * $extra_price / -100,
@@ -226,7 +237,7 @@ function _fc_add_minimum_invoice_amount_components($line_item_wrapper, $extra_pr
       // Comment 1st out to have the minimum invoice amount also include the discount part
       // Comment 2nd out to add the minimum invoice amount discount part to the global discount
       'data' => array(
-        'discount_name' => $discount,
+        'discount_name' => $discount_name,
         'discount_component_title' => t('Korting: -!pct%', array('!pct' => $pct)),
       ),
       // 'data' => array(),
@@ -237,13 +248,6 @@ function _fc_add_minimum_invoice_amount_components($line_item_wrapper, $extra_pr
   // Finally save the line item
   $line_item_wrapper->save();
 }
-
-function _is_special_client() {
-  global $user;
-  $user_wrapper = entity_metadata_wrapper('user', $user);
-  return $user_wrapper->field_afwijkende_staffelkorting->value() == 1;
-}
-
 
 
 /**
@@ -261,4 +265,84 @@ function _fc_get_total($order_wrapper) {
   }
 
   return $total;
+}
+
+
+function fc_apply_staffel_korting($order_wrapper) {
+  module_load_include('inc', 'commerce_discount', 'commerce_discount.rules');
+  $default = 'discount_global_discount_0_200';
+  $discounts = feneko_calculator_get_discounts();
+
+  // Get the amount in the order
+  $amount = $order_wrapper->commerce_order_total->amount->value();
+
+  // Retrieve the discount (pct) that should be applied normally based on the amount
+  $normal_discount_pct = _feneko_calculator_get_normal_discount($amount, $discounts);
+
+  // Get the staffelkorting (pct) for this user (owner of order)
+  $sk_name = $order_wrapper->owner->field_staffelkorting->value();
+  $sk_name = empty($sk_name) ? $default : $sk_name;
+  $sk_wrapper = entity_metadata_wrapper('commerce_discount', $sk_name);
+  $sk_pct  = intval($sk_wrapper->commerce_discount_offer->commerce_percentage->value());
+
+  foreach ($discounts as $discount_name => $discount) {
+    // Get the discount pct for this discount
+    $discount_pct = intval($discount['wrapper']->commerce_discount_offer
+                                               ->commerce_percentage->value());
+
+    // If the staffelkorting is more than the discount applied normally, the
+    // staffelkorting has to be chosen. Otherwise a normal discount has to be chosen
+    if($sk_pct >= $normal_discount_pct) {
+      // If the staffelkorting has to be chosen, only choose the one if the
+      // current name equals that staffelkorting
+      if($sk_name === $discount_name) {
+        commerce_discount_fixed_amount($order_wrapper, $discount_name);
+        return;
+      }
+    } else {
+      // if normal discount === discount of this discount return true
+      if($normal_discount_pct === $discount_pct) {
+        commerce_discount_fixed_amount($order_wrapper, $discount_name);
+        return;
+      }
+    }
+  }
+}
+
+
+function _feneko_calculator_get_normal_discount($amount, $discounts) {
+  foreach ($discounts as $discount_name => $discount) {
+    if($amount > $discount['low']
+     and ($amount <= $discount['high'] or !$discount['high'])) {
+      return $discounts['pct'];
+    }
+  }
+}
+
+
+function feneko_calculator_get_discounts() {
+  $limits = array();
+
+  // Get all order discounts
+  $results = db_select('commerce_discount')->fields(NULL, array('name'))
+           ->condition('type', 'order_discount')
+           ->orderBy('component_title')
+           ->execute();
+
+  foreach ($results as $discount) {
+    $discount_wrapper = entity_metadata_wrapper('commerce_discount', $discount->name);
+    preg_match("/([0-9]*)-([0-9]*)/", $discount_wrapper->label->value(), $matches);
+
+    $pct = intval($discount_wrapper->commerce_discount_offer
+                                                ->commerce_percentage->value());
+
+    $limits[$discount->name] = array(
+      'low'  => $matches[1]  * 100000,
+      'high' => $matches[2] * 100000,
+      'pct'  => $pct,
+      'wrapper' => $discount_wrapper,
+    );
+  }
+
+  return $limits;
 }

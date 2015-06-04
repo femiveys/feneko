@@ -184,6 +184,7 @@ function feneko_calculator_commerce_price_component_type_info(){
  * Implements hook_form_alter
  */
 function feneko_calculator_form_alter(&$form, &$form_state, $form_id) {
+  // The cart form
   if($form_id === 'views_form_commerce_cart_form_feneko_default') {
     $form['actions']['checkout']['#value'] = t('Bestel');
   }
@@ -211,6 +212,34 @@ function feneko_calculator_form_alter(&$form, &$form_state, $form_id) {
     $form['status']['#attributes'] = array('data-placeholder' => array(t('All statuses')));
     $form['combine']['#attributes'] = array('placeholder' => array(t('Search by username, email, order ID')));
   }
+
+  // Add the korting names to the staffelkorting
+  if($form_id === 'user_profile_form') {
+    if(isset($form['field_staffelkorting']['und']['#options'])) {
+      $options = array();
+
+      // Get all order discounts
+      $result = db_select('commerce_discount')->fields(NULL, array('name'))
+               ->condition('type', 'order_discount')
+               ->orderBy('component_title')
+               ->execute();
+
+      foreach ($result as $discount) {
+        $discount_wrapper = entity_metadata_wrapper('commerce_discount', $discount->name);
+        $options[$discount->name] = $discount_wrapper->component_title->value();
+      }
+
+      // Add the options to the form
+      $form['field_staffelkorting']['und']['#options'] = $options;
+
+      // Set the default value
+      if(isset($form_state['user']->field_staffelkorting['und'][0]['value'])) {
+        $form['field_staffelkorting']['und']['#default_value'] =
+                   $form_state['user']->field_staffelkorting['und'][0]['value'];
+      }
+    }
+  }
+
 }
 
 
@@ -289,8 +318,10 @@ function feneko_calculator_entity_view($entity, $type, $view_mode, $langcode) {
  * Implements hook_commerce_cart_order_empty().
  */
 function feneko_calculator_commerce_cart_order_empty($order) {
-  // dpm("Removing the color from the cart");
   $order->field_color = array();
+  $order->field_reference = array();
+  $order->field_comment = array();
+  $order->field_order_type = array();
   commerce_order_save($order);
 }
 

@@ -268,7 +268,7 @@ function feneko_calculator_feature_default_commerce_discount() {
   }');
   $items['discount_global_discount_2400_'] = entity_import('commerce_discount', '{
     "name" : "discount_global_discount_2400_",
-    "label" : "Global discount 2400+",
+    "label" : "Global discount 2400-",
     "type" : "order_discount",
     "status" : "1",
     "component_title" : "Korting: -53%",
