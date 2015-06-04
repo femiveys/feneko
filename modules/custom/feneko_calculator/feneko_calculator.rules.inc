@@ -296,13 +296,13 @@ function fc_apply_staffel_korting($order_wrapper) {
       // If the staffelkorting has to be chosen, only choose the one if the
       // current name equals that staffelkorting
       if($sk_name === $discount_name) {
-        commerce_discount_fixed_amount($order_wrapper, $discount_name);
+        commerce_discount_percentage($order_wrapper, $discount_name);
         return;
       }
     } else {
       // if normal discount === discount of this discount return true
       if($normal_discount_pct === $discount_pct) {
-        commerce_discount_fixed_amount($order_wrapper, $discount_name);
+        commerce_discount_percentage($order_wrapper, $discount_name);
         return;
       }
     }
@@ -314,7 +314,7 @@ function _feneko_calculator_get_normal_discount($amount, $discounts) {
   foreach ($discounts as $discount_name => $discount) {
     if($amount > $discount['low']
      and ($amount <= $discount['high'] or !$discount['high'])) {
-      return $discounts['pct'];
+      return $discount['pct'];
     }
   }
 }
