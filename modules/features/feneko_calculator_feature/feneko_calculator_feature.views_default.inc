@@ -1013,7 +1013,14 @@ function feneko_calculator_feature_views_default_views() {
   $handler->display->display_options['relationships']['commerce_line_items_line_item_id']['id'] = 'commerce_line_items_line_item_id';
   $handler->display->display_options['relationships']['commerce_line_items_line_item_id']['table'] = 'field_data_commerce_line_items';
   $handler->display->display_options['relationships']['commerce_line_items_line_item_id']['field'] = 'commerce_line_items_line_item_id';
+  $handler->display->display_options['relationships']['commerce_line_items_line_item_id']['label'] = 'Line Items';
   $handler->display->display_options['relationships']['commerce_line_items_line_item_id']['required'] = TRUE;
+  /* Relatie: Commerce factuurregel: Referenced products */
+  $handler->display->display_options['relationships']['commerce_product_product_id']['id'] = 'commerce_product_product_id';
+  $handler->display->display_options['relationships']['commerce_product_product_id']['table'] = 'field_data_commerce_product';
+  $handler->display->display_options['relationships']['commerce_product_product_id']['field'] = 'commerce_product_product_id';
+  $handler->display->display_options['relationships']['commerce_product_product_id']['relationship'] = 'commerce_line_items_line_item_id';
+  $handler->display->display_options['relationships']['commerce_product_product_id']['label'] = 'Product';
   /* Veld: Commerce-factuurregel: Extrafield Detailed description */
   $handler->display->display_options['fields']['detail']['id'] = 'detail';
   $handler->display->display_options['fields']['detail']['table'] = 'commerce_line_item';
@@ -1030,18 +1037,20 @@ function feneko_calculator_feature_views_default_views() {
   $handler->display->display_options['fields']['quantity']['label'] = '';
   $handler->display->display_options['fields']['quantity']['precision'] = '0';
   $handler->display->display_options['fields']['quantity']['suffix'] = ' × ';
-  /* Veld: Commerce-factuurregel: Type */
-  $handler->display->display_options['fields']['type']['id'] = 'type';
-  $handler->display->display_options['fields']['type']['table'] = 'commerce_line_item';
-  $handler->display->display_options['fields']['type']['field'] = 'type';
-  $handler->display->display_options['fields']['type']['relationship'] = 'commerce_line_items_line_item_id';
-  $handler->display->display_options['fields']['type']['label'] = '';
-  $handler->display->display_options['fields']['type']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['type']['alter']['text'] = '<div>
-  <div class="title" title="click to toggle details">[type]</div>
+  /* Veld: Commerce Product: Type */
+  $handler->display->display_options['fields']['type_1']['id'] = 'type_1';
+  $handler->display->display_options['fields']['type_1']['table'] = 'commerce_product';
+  $handler->display->display_options['fields']['type_1']['field'] = 'type';
+  $handler->display->display_options['fields']['type_1']['relationship'] = 'commerce_product_product_id';
+  $handler->display->display_options['fields']['type_1']['label'] = '';
+  $handler->display->display_options['fields']['type_1']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['type_1']['alter']['text'] = '<div>
+  <div class="title" title="click to toggle details">[type_1]</div>
   <div class="detail">[detail]</div>
 </div>';
-  $handler->display->display_options['fields']['type']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['type_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['type_1']['link_to_product'] = 0;
+  $handler->display->display_options['fields']['type_1']['use_raw_value'] = 0;
   /* Veld: Commerce factuurregel: Totaal */
   $handler->display->display_options['fields']['commerce_total']['id'] = 'commerce_total';
   $handler->display->display_options['fields']['commerce_total']['table'] = 'field_data_commerce_total';
@@ -1095,12 +1104,13 @@ function feneko_calculator_feature_views_default_views() {
     t('Sorteren op'),
     t('Oplopend'),
     t('Aflopend'),
-    t('Line items referenced by commerce_line_items'),
+    t('Line Items'),
+    t('Product'),
     t('.'),
     t(','),
     t(' × '),
     t('<div>
-  <div class="title" title="click to toggle details">[type]</div>
+  <div class="title" title="click to toggle details">[type_1]</div>
   <div class="detail">[detail]</div>
 </div>'),
     t('Alle'),
