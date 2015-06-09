@@ -22,6 +22,7 @@ function fc_line_item_details($line_item, $format = 'ra') {
       'field_anti_dreunstrook',
       'field_hoek_type',
       'field_maat',
+      'field_raamtablet_diepte',
     ),
     'commerce_line_item' => array(
       'field_type_bewerking',

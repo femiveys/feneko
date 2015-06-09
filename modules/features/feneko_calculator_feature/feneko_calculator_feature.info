@@ -316,6 +316,7 @@ features[node][] = unit
 features[payment_method][] = no_payment_required
 features[rules_config][] = commerce_checkout_send_e_mail_client
 features[rules_config][] = commerce_checkout_send_e_mail_feneko
+features[rules_config][] = feneko_calculator_feature_plaatbewerking_add_lasbtn_price
 features[rules_config][] = feneko_calculator_feature_standaarprofiel_niet_stock
 features[rules_config][] = rules_add_knippen_price
 features[rules_config][] = rules_calc_knippen
