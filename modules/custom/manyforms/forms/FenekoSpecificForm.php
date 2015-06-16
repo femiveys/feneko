@@ -668,6 +668,7 @@ class FenekoSpecificForm extends FenekoForm {
 
         unset($this->form['borstel_links']['#options']['geen']);
         unset($this->form['borstel_rechts']['#options']['geen']);
+        unset($this->form['plint']['plint']['#options']['f300mm']);
         break;
 
       case '11':
