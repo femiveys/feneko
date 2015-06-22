@@ -660,15 +660,15 @@ class FenekoForm {
         case 'ondergeleider':
           if($id == 7 or $id == 8 or $id == 9 or $id == 13) {
             if($value === 'vp1016' or $value === 'vp1016a') {
-              $product_fiche .= self::getCode("montagediepte", 'Railcorrectie 25mm');
+              $product_fiche .= self::getCode("montagediepte", '25 mm');
             } else {
-              $product_fiche .= self::getCode("montagediepte", 'Railcorrectie 44mm');
+              $product_fiche .= self::getCode("montagediepte", '44 mm');
             }
           } elseif ($id == 10) {
             if($value === 'vp1016' or $value === 'vp1016a') {
-              $product_fiche .= self::getCode("montagediepte", 'Railcorrectie 08mm');
+              $product_fiche .= self::getCode("montagediepte", '08 mm');
             } else {
-              $product_fiche .= self::getCode("montagediepte", 'Railcorrectie 27mm');
+              $product_fiche .= self::getCode("montagediepte", '27 mm');
             }
           }
           break;
