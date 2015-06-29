@@ -1242,7 +1242,6 @@ function fc_line_item_delete_form_submit($form, &$form_state) {
 
 
 function feneko_calculator_commerce_cart_attributes_refresh_alter(&$commands, $form, $form_state) {
-  global $fc_currency_settings;
   $type = $form_state['context']['entity_type'];
   $id   = $form_state['context']['entity_id'];
   $price_selector = ".$type-$id-product-commerce-price";
@@ -1341,4 +1340,28 @@ function fc_add_drawings_attachments($order_id, &$message) {
       }
     }
   }
+}
+
+function _fc_totals_order($order_wrapper) {
+  $total_price = $order_wrapper->commerce_order_total->value();
+
+  $totals['raw'] = array(
+    'subtotal' => $total_price['data']['components'][0]['price']['amount'],
+    'total' => $total_price['amount'],
+  );
+
+  $totals['formatted'] = array(
+    'subtotal' => _fc_format_amount($totals['raw']['subtotal']),
+    'total'    => _fc_format_amount($totals['raw']['total']),
+  );
+
+  return $totals;
+}
+
+function _fc_format_amount($amount) {
+  global $fc_currency_settings;
+  $currency_code = "EUR";
+  return commerce_price_decimals_formatter_currency_format(
+    $amount, $currency_code, $fc_currency_settings
+  );
 }
