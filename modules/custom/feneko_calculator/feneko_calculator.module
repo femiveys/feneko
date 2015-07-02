@@ -184,6 +184,15 @@ function feneko_calculator_commerce_price_component_type_info(){
  * Implements hook_form_alter
  */
 function feneko_calculator_form_alter(&$form, &$form_state, $form_id) {
+  // Add an export button to the orders form, but not to the confirm page
+  if($form_id === 'views_form_feneko_orders_admin_page' and empty($form['confirm'])) {
+    $form['export'] = array(
+      '#type' => 'submit',
+      '#value' => t('Exporteer geselecteerde orders'),
+      '#submit' => array('fc_export_orders_submit'),
+    );
+  }
+
   // The cart form
   if($form_id === 'views_form_commerce_cart_form_feneko_default') {
     $form['actions']['checkout']['#value'] = t('Bestel');
@@ -609,7 +618,6 @@ function feneko_calculator_form_commerce_cart_add_to_cart_form_alter(&$form, &$f
 
       break;
   }
-
 }
 
 function _fc_get_image($path, $title, $weight) {
@@ -1364,4 +1372,34 @@ function _fc_format_amount($amount) {
   return commerce_price_decimals_formatter_currency_format(
     $amount, $currency_code, $fc_currency_settings
   );
+}
+
+function fc_export_orders_submit($form, $form_state) {
+  // Make sure we only react on a click on the export button
+  if($form_state['clicked_button']['#value'] === $form['export']['#value']) {
+    module_load_include('php', 'manyforms', 'zipstream/zipstream');
+    module_load_include('inc', 'feneko_calculator', 'feneko_calculator.admin');
+
+    // Create the zipstream
+    $zip = new ZipStream('orders.zip');
+
+    // Add XMLs of selected orders to zipstream and set the status to completed
+    foreach ($form_state['values']['views_bulk_operations'] as $order_id) {
+      if($order_id) {
+        $order = commerce_order_load($order_id);
+        dpm($order);
+
+        // Add XML of the order to zipstream
+        $xml = feneko_calculator_order_to_xml($order);
+        $zip->add_file("$order_id.xml", $xml);
+
+        // Set the status of the order to completed
+        $order->status = 'completed';
+        commerce_order_save($order);
+      }
+    }
+
+    $zip->finish();
+    exit();
+  }
 }
