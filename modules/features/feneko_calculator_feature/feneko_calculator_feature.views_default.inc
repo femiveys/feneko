@@ -649,14 +649,14 @@ function feneko_calculator_feature_views_default_views() {
       'empty_column' => 0,
     ),
     'created' => array(
-      'sortable' => 0,
+      'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
     ),
     'name' => array(
-      'sortable' => 0,
+      'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '<br />',
@@ -677,7 +677,7 @@ function feneko_calculator_feature_views_default_views() {
       'empty_column' => 0,
     ),
     'status' => array(
-      'sortable' => 0,
+      'sortable' => 1,
       'default_sort_order' => 'asc',
       'align' => '',
       'separator' => '',
@@ -690,6 +690,7 @@ function feneko_calculator_feature_views_default_views() {
     ),
   );
   $handler->display->display_options['style_options']['empty_table'] = TRUE;
+  $handler->display->display_options['style_options']['scroll_padding'] = '120';
   $handler->display->display_options['style_options']['loading_text'] = 'Bezig met laden...';
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Gedrag bij ontbreken van resultaten: Commerce Order: Lege tekst */
