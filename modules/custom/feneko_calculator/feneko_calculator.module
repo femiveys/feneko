@@ -195,7 +195,20 @@ function feneko_calculator_form_alter(&$form, &$form_state, $form_id) {
 
   // The cart form
   if($form_id === 'views_form_commerce_cart_form_feneko_default') {
-    $form['actions']['checkout']['#value'] = t('Bestel');
+    $form['actions']['checkout']['#value'] = t('Bereken korting');
+    $form['actions']['step'] = array(
+      '#markup' => t('Stap !stap', array('!stap' => "1/2")),
+      '#weight' => -100,
+    );
+  }
+
+  // Checkout page
+  if($form_id === 'commerce_checkout_form_checkout'
+    and $form_state['checkout_page']['page_id'] === 'checkout') {
+    $form['buttons']['step'] = array(
+      '#markup' => t('Stap !stap', array('!stap' => "2/2")),
+      '#weight' => -100,
+    );
   }
 
   if (strpos($form_id, 'views_form_commerce_cart_form_') === 0) {
