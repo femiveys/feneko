@@ -241,6 +241,11 @@ function feneko_calculator_feature_default_rules_configuration() {
             "data" : [ "commerce-line-item:commerce-product:field-stockprofiel" ],
             "value" : "1"
           }
+        },
+        { "NOT data_is" : {
+            "data" : [ "commerce-line-item:field-standaardprofiel-lengte" ],
+            "value" : "6000"
+          }
         }
       ],
       "DO" : [
