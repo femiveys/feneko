@@ -1236,7 +1236,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
     'default_value' => array(
       0 => array(
-        'value' => 0,
+        'value' => 90,
       ),
     ),
     'deleted' => 0,
@@ -1260,8 +1260,8 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Hoeken',
     'required' => 1,
     'settings' => array(
-      'max' => 360,
-      'min' => 0,
+      'max' => '',
+      'min' => '',
       'prefix' => '',
       'suffix' => 'graden',
       'user_register_form' => FALSE,

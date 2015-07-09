@@ -876,8 +876,9 @@ function fc_validate_add_to_cart_form($form, &$form_state) {
       $number = fc_get_parts($typeBewerking) - 1;
 
       for ($i=0; $i < $number; $i++) {
-        if(empty($line_item['field_multi_hoek']['und'][$i]['value'])) {
-          $msg = t('Hoek !h moet groter zijn dan 0.', array('!h' => "x" . ($i+1)));
+        $val = $line_item['field_multi_hoek']['und'][$i]['value'];
+        if($val < 30 or $val > 180) {
+          $msg = t('Hoek !h moet minimum 30 zijn en maximum 180.', array('!h' => "x" . ($i+1)));
           form_set_error("line_item_fields][field_multi_hoek][und][$i", $msg);
           $form_state['rebuild'] = true;
         }
@@ -1233,7 +1234,7 @@ function fc_disable_multi_fields(&$form, &$form_state, $number) {
   // For field_multi_hoek
   for($i = $number-1; $i < $multiHoek['#cardinality']; $i++) {
     $form_state['values']['line_item_fields']['field_multi_hoek']['und'][$i]['value'] = 0;
-    $multiHoek[$i]['value']['#default_value'] = 0;
+    $multiHoek[$i]['value']['#default_value'] = 90;
     $multiHoek[$i]['value']['#disabled'] = TRUE;
   }
 }
