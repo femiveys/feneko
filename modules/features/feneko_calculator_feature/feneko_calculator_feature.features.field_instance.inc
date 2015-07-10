@@ -1083,7 +1083,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Breedte',
     'required' => 1,
     'settings' => array(
-      'max' => '',
+      'max' => 4000,
       'min' => '',
       'prefix' => '',
       'suffix' => 'mm',

@@ -861,12 +861,20 @@ function fc_validate_add_to_cart_form($form, &$form_state) {
       $typeBewerking = $line_item['field_type_bewerking']['und'][0]['value'];
       $number = fc_get_parts($typeBewerking);
 
+      $total = 0;
       for ($i=0; $i < $number; $i++) {
-        if(empty($line_item['field_multi_breedte']['und'][$i]['value'])) {
+        $val = $line_item['field_multi_breedte']['und'][$i]['value'];
+        $total += $val;
+        if($val <= 0) {
           $msg = t('Breedte !b moet groter zijn dan 0.', array('!b' => chr(97 + $i)));
           form_set_error("line_item_fields][field_multi_breedte][und][$i", $msg);
           $form_state['rebuild'] = true;
         }
+      }
+      if($total > 4000) {
+        $msg = t('De som van de breedte stukken mag maximaal 4000 zijn.');
+        form_set_error("line_item_fields][field_multi_breedte", $msg);
+        $form_state['rebuild'] = true;
       }
     }
 
