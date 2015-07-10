@@ -1386,11 +1386,9 @@ function feneko_calculator_feature_field_default_field_bases() {
     'module' => 'list',
     'settings' => array(
       'allowed_values' => array(
-        'E' => 'Haakjes Breedte (E)',
-        'D' => 'Haakjes Lengte (D)',
-        'B' => 'Gaatjes Breedte (B)',
-        'H' => 'Gaatjes Lengte (H)',
-        'G' => 'Lasbouten (G)',
+        'haakjes' => 'Haakjes',
+        'gaatjes' => 'Gaatjes',
+        'lasbouten' => 'Lasbouten',
       ),
       'allowed_values_function' => '',
     ),
