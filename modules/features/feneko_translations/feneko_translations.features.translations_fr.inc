@@ -19,6 +19,15 @@ function feneko_translations_translations_fr_defaults() {
     'plural' => 0,
   );
   $translatables[] = t('Borstelprofiel VP1200', array(), array('context' => ''));
+  $translations['fr:default']['1c5a2314986393f826e7b3cb308731ae'] = array(
+    'source' => 'Bereken korting',
+    'context' => '',
+    'location' => '/nl/cart',
+    'translation' => 'Calculer la remise',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Bereken korting', array(), array('context' => ''));
   $translations['fr:default']['2b05b5c27bba6e3b572e41fc7100e765'] = array(
     'source' => 'Opgepast! Meerprijs.',
     'context' => '',
@@ -46,6 +55,15 @@ function feneko_translations_translations_fr_defaults() {
     'plural' => 0,
   );
   $translatables[] = t('Standaardprofiel', array(), array('context' => ''));
+  $translations['fr:default']['8afa46be81acd3d7987f688c0bc3744b'] = array(
+    'source' => 'Bereken korting (Stap 1/2)',
+    'context' => '',
+    'location' => '/nl/cart',
+    'translation' => 'Calculer la remise (Étappe 1/2)',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Bereken korting (Stap 1/2)', array(), array('context' => ''));
   $translations['fr:default']['c11e09df1574eed40e1f075f5fdd717f'] = array(
     'source' => 'Schuifvliegendeuren Elegance+',
     'context' => '',
