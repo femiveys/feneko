@@ -241,7 +241,7 @@ function fc_get_attachment($order_id, $outputAsString = TRUE) {
   // Compile the HTML
   $html .= '<body>';
   $html .= drupal_render($client_data);
-  $html .= "<h1>$order_type</h1>";
+  $html .= "<h1>$order_type $order_id</h1>";
   $html .= drupal_render($reference);
   $html .= drupal_render($color);
   $html .= $maritime;
