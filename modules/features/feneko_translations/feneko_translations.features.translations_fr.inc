@@ -10,6 +10,15 @@
 function feneko_translations_translations_fr_defaults() {
   $translations = array();
   $translatables = array();
+  $translations['fr:default']['09bc5f9df1cb5ea352fb427ef7a8080a'] = array(
+    'source' => 'Plaats bestelling',
+    'context' => '',
+    'location' => '/nl/cart',
+    'translation' => 'Placer la commande',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Plaats bestelling', array(), array('context' => ''));
   $translations['fr:default']['10b9486648b56ba44ab65c59df05dde5'] = array(
     'source' => 'Borstelprofiel VP1200',
     'context' => '',
@@ -82,6 +91,15 @@ function feneko_translations_translations_fr_defaults() {
     'plural' => 0,
   );
   $translatables[] = t('Bestelling', array(), array('context' => 'field_order_type:#allowed_values:order'));
+  $translations['fr:field']['affb9247a339b7a31f3680f2ea1e6a82'] = array(
+    'source' => 'Haakjes',
+    'context' => 'field_ophanging:#allowed_values:haakjes',
+    'location' => 'field:field_ophanging:#allowed_values:haakjes',
+    'translation' => 'Crochets',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Haakjes', array(), array('context' => 'field_ophanging:#allowed_values:haakjes'));
   $translations['fr:field']['ca6b5213eae4d8d0d4cd96dda1d4ed58'] = array(
     'source' => 'Z-profiel',
     'context' => 'field_standaardprofiel_type:#allowed_values:Z',
@@ -109,5 +127,14 @@ function feneko_translations_translations_fr_defaults() {
     'plural' => 0,
   );
   $translatables[] = t('U-profiel', array(), array('context' => 'field_standaardprofiel_type:#allowed_values:U'));
+  $translations['fr:field']['f72c162cd7524cfcd8df67a5a5ed6d39'] = array(
+    'source' => 'Gaatjes',
+    'context' => 'field_ophanging:#allowed_values:gaatjes',
+    'location' => 'field:field_ophanging:#allowed_values:gaatjes',
+    'translation' => 'Trous',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Gaatjes', array(), array('context' => 'field_ophanging:#allowed_values:gaatjes'));
   return $translations;
 }
