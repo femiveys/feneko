@@ -120,8 +120,8 @@ function feneko_calculator_rules_action_info_alter(&$actions) {
  */
 function feneko_calculator_mail_alter(&$message) {
   $mail_id_patterns = array(
-    'client' => 'rules_rules_action_mail_commerce_checkout_send_e_mail_client_3',
-    'feneko' => 'rules_rules_action_mail_commerce_checkout_send_e_mail_feneko_3',
+    'client' => 'rules_rules_action_mail_commerce_checkout_send_e_mail_client',
+    'feneko' => 'rules_rules_action_mail_commerce_checkout_send_e_mail_feneko',
   );
   if (strpos($message['id'], $mail_id_patterns['client']) !== false
    or strpos($message['id'], $mail_id_patterns['feneko']) !== false) {
@@ -144,7 +144,7 @@ function feneko_calculator_mail_alter(&$message) {
       $order = commerce_order_load($order_id);
       $attachment = array(
         'filecontent' => feneko_calculator_order_to_xml($order),
-        'filename' => "order_$order_id.xml",
+        'filename' => "$order_id.xml",
         'filemime' => 'text/xml',
       );
       $message['params']['attachments'][] = $attachment;
