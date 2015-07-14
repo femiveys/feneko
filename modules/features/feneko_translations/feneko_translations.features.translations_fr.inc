@@ -82,6 +82,24 @@ function feneko_translations_translations_fr_defaults() {
     'plural' => 0,
   );
   $translatables[] = t('Schuifvliegendeuren Elegance+', array(), array('context' => ''));
+  $translations['fr:default']['f72c162cd7524cfcd8df67a5a5ed6d39'] = array(
+    'source' => 'Gaatjes',
+    'context' => 'field_ophanging:#allowed_values:gaatjes',
+    'location' => '/nl/admin/structure/features/feneko_translations',
+    'translation' => 'Trous',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Gaatjes', array(), array('context' => 'field_ophanging:#allowed_values:gaatjes'));
+  $translations['fr:field']['0416b5af0fe66004270bbab826dd9727'] = array(
+    'source' => 'Gaatjes in rug',
+    'context' => 'field_gaatjes_rug:raamtablet:label',
+    'location' => 'field:field_gaatjes_rug:raamtablet:label',
+    'translation' => 'Trous dans le dos',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Gaatjes in rug', array(), array('context' => 'field_gaatjes_rug:raamtablet:label'));
   $translations['fr:field']['5fb78386d474916f06fce099e170a82a'] = array(
     'source' => 'Bestelling',
     'context' => 'field_order_type:#allowed_values:order',
