@@ -133,8 +133,11 @@ function _fc_field_output($field_name, $entity, $entity_type, $format) {
 
       // Multifields have to be rendered differently
       if ($info['cardinality'] == 1) {
+        // These fields should be shown even if empty or 0
+        $force_empty = array('field_tekening', 'field_rug');
+
         // We don't render fields having an empty value
-        if (!empty($raw_values[0]['value']) or $field_name === 'field_tekening') {
+        if (!empty($raw_values[0]['value']) or in_array($field_name, $force_empty)) {
           $display = array(
             'label' => 'inline',
             'settings' => array(
