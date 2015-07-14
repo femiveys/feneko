@@ -44,6 +44,7 @@ function fc_line_item_details($line_item, $format = 'ra') {
       'field_aantal_adsn',
       'field_beugels',
       'field_rug',
+      'field_gaatjes_rug',
       'field_kant',
       'field_raamtablet_diepte',
     ),

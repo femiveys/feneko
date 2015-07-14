@@ -1697,7 +1697,7 @@ function feneko_calculator_feature_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 13,
+      'weight' => 14,
     ),
   );
 
@@ -1732,7 +1732,7 @@ function feneko_calculator_feature_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 12,
+      'weight' => 13,
     ),
   );
 
@@ -1817,6 +1817,44 @@ function feneko_calculator_feature_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
+      'weight' => 10,
+    ),
+  );
+
+  // Exported field_instance: 'commerce_line_item-raamtablet-field_gaatjes_rug'
+  $field_instances['commerce_line_item-raamtablet-field_gaatjes_rug'] = array(
+    'bundle' => 'raamtablet',
+    'commerce_cart_settings' => array(
+      'field_access' => 1,
+    ),
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 12,
+      ),
+    ),
+    'entity_type' => 'commerce_line_item',
+    'field_name' => 'field_gaatjes_rug',
+    'label' => 'Gaatjes in rug',
+    'required' => 1,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
       'weight' => 9,
     ),
   );
@@ -1864,7 +1902,7 @@ function feneko_calculator_feature_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 10,
+      'weight' => 11,
     ),
   );
 
@@ -1912,7 +1950,7 @@ function feneko_calculator_feature_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 11,
+      'weight' => 12,
     ),
   );
 
@@ -7853,6 +7891,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   t('Display path');
   t('Eenheidsprijs');
   t('Eindstukken');
+  t('Gaatjes in rug');
   t('Geef hier aan of u gewoon een offerte wil, of een bestelling wilt plaatsen');
   t('Hoek type');
   t('Hoeken');
