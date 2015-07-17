@@ -1212,7 +1212,7 @@ class FenekoForm {
     );
 
     if(!$only_exported or !$single) {
-      module_load_include('php', 'manyforms', 'zipstream/zipstream');
+      libraries_load('zipstream');
       $zip = new ZipStream('fiches.zip');
     }
 
