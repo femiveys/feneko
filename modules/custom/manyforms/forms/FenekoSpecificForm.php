@@ -10,7 +10,7 @@ class FenekoSpecificForm extends FenekoForm {
   }
 
   public function generatePDF($dbId, $outputAsString = FALSE) {
-    module_load_include('php', 'manyforms', 'mpdf/mpdf');
+    libraries_load('mpdf');
 
     $record = $this->getRecord($dbId);
 

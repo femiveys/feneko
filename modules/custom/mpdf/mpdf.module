@@ -1,0 +1,22 @@
+<?php
+/**
+ * Implements hook_libraries_info().
+ */
+
+function mpdf_libraries_info() {
+  $libraries['mpdf'] = array(
+    'name' => 'mPDF',
+    'vendor url' => 'http://www.mpdf1.com',
+    'download url' => 'http://www.mpdf1.com/mpdf/index.php?page=Download',
+    'version arguments' => array(
+      'file' => 'CHANGELOG.txt', // Could be any file with version info
+      'pattern' => '/mPDF (.+)/',
+      'lines' => 2,
+    ),
+    'files' => array(
+      'php' => array('mpdf.php'),
+    ),
+  );
+
+  return $libraries;
+}

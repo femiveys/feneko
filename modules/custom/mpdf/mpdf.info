@@ -1,0 +1,4 @@
+name = mPDF library using libraries
+description = Exposes the mPDF library using libraries
+core = 7.x
+package = Feneko
