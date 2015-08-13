@@ -389,7 +389,6 @@ function feneko_calculator_form_commerce_cart_add_to_cart_form_alter(&$form, &$f
   // Add a validator to prepare some values
   $form['#validate'][] = 'fc_validate_add_to_cart_form';
 
-
   // START PRODUCT SPECIFIC STUFF
   $product = commerce_product_load($form['product_id']['#value']);
   $ajax = array(
