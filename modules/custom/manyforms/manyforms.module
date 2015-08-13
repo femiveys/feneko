@@ -4,6 +4,7 @@
  * Feneko 12 Forms
  */
 define('FENEKO_SCREENS_NUM', 13);
+define('FENEKO_SCREENS_ORDER_STATUSES_TABLE', 'screens_order_statuses');
 
 function manyforms_menu() {
   $items = array();
@@ -56,6 +57,15 @@ function manyforms_menu() {
     'page callback' => 'drupal_get_form',
     'page arguments' => array('manyforms_export_form', FALSE),
     'file' => 'manyforms_export.inc',
+    'access arguments' => array('admin_manyforms'),
+  );
+
+  $items['admin/feneko_screens/import'] = array(
+    'title' => 'Importeer',
+    'type' => MENU_LOCAL_TASK,
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('manyforms_import_form', FALSE),
+    'file' => 'manyforms_import.inc',
     'access arguments' => array('admin_manyforms'),
   );
 
