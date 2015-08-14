@@ -445,11 +445,11 @@ function manyforms_ongoing_orders() {
 
   // $klant = 329;
 
-  $results = db_select(FENEKO_SCREENS_ORDER_STATUSES_TABLE, 's')
-               ->extend('TableSort')
+  $results = db_select(FENEKO_SCREENS_ORDER_STATUSES_TABLE)
                ->condition('klant', $klant)
                ->condition('fase', 'GELEVERD', '<>')
-               ->fields('s', $fields)
+               ->fields(NULL, $fields)
+               ->extend('TableSort')
                ->orderByHeader($header)
                ->execute()
                ->fetchAll(PDO::FETCH_ASSOC)

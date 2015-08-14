@@ -44,16 +44,16 @@ function manyforms_import_form_submit($form, &$form_state) {
     // Loop through the csv file and insert into database.
     while ($data = fgetcsv($handle, 0, $delimiter)) {
       $fields = array(
-        'klant'         => trim($data[0]),
-        'orderbon'      => trim($data[1]),
-        'ref'           => trim($data[4]),
-        'omschrijving'  => trim($data[3]),
-        'order_datum'   => trim($data[2]),
-        'lever_datum'   => trim($data[6]),
-        'fase'          => trim($data[5]),
-        'aantal'        => trim($data[7]),
-        'bedrag'        => str_replace(',', '.', trim($data[8])) ,
-        'leverconditie' => trim($data[9]),
+        'klant'         => trim(drupal_convert_to_utf8($data[0], 'Windows-1252')),
+        'orderbon'      => trim(drupal_convert_to_utf8($data[1], 'Windows-1252')),
+        'ref'           => trim(drupal_convert_to_utf8($data[4], 'Windows-1252')),
+        'omschrijving'  => trim(drupal_convert_to_utf8($data[3], 'Windows-1252')),
+        'order_datum'   => trim(drupal_convert_to_utf8($data[2], 'Windows-1252')),
+        'lever_datum'   => trim(drupal_convert_to_utf8($data[6], 'Windows-1252')),
+        'fase'          => trim(drupal_convert_to_utf8($data[5], 'Windows-1252')),
+        'aantal'        => trim(drupal_convert_to_utf8($data[7], 'Windows-1252')),
+        'bedrag'        => str_replace(',', '.', trim(drupal_convert_to_utf8($data[8], 'Windows-1252'))) ,
+        'leverconditie' => trim(drupal_convert_to_utf8($data[9], 'Windows-1252')),
       );
 
       $dt = DateTime::createFromFormat('d/m/Y', $fields['order_datum']);
