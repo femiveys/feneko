@@ -9,7 +9,7 @@ function feneko_code_import_form($form, &$form_state) {
   $utilo       = "<ul>$csv<li>Velden: ?;referentie;omschrijving</li></ul>";
   $geblokkeerd = "<ul>$csv<li>Velden: klantennummer;geblokkeerd_J/N</li></ul>";
   $statuses    = "<ul>$txt<li>Velden: 'Klant' 'orderbon' 'Datum order' 'Omschrijving' "
-               . "'Referentie' 'Fase leverings' 'Aantal' 'bedrag' 'leverconditie'</li></ul>";
+               . "'Referentie' 'Fase leverings' 'Aantal' 'bedrag' 'leverconditie' 'kleur'</li></ul>";
 
   $mapping = array(
     'ral'                            => $ral,
