@@ -13,7 +13,9 @@ function manyforms_import_form($form, &$form_state) {
     'file_upload' => array(
       '#title' => 'Bestand',
       '#type' => 'file',
-      '#description' => 'De kolommen worden gescheiden door tabs.',
+      '#description' => 'De kolommen worden gescheiden door <strong>tabs</strong>.<br>'
+                      . 'Volgende kolommen worden verwacht en en deze volgorde:<br>'
+                      . '"Klant" "orderbon" "Datum order" "Omschrijving" "Referentie" "Fase leverings" "Aantal"     "bedrag" "leverconditie"',
     ),
     'submit' => array(
       '#type' => "submit",
