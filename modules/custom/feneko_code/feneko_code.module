@@ -1,6 +1,5 @@
 <?php
-
-#feneko.module
+define('FENEKO_CODE_ORDER_STATUSES_TABLE', 'order_statuses');
 
 function feneko_code_permission() {
   return array(
@@ -10,6 +9,7 @@ function feneko_code_permission() {
     ),
   );
 }
+
 
 function feneko_code_menu(){
   $items['user/%user/logout'] = array(
@@ -37,6 +37,14 @@ function feneko_code_menu(){
     'page callback' => 'drupal_get_form',
     'page arguments' => array('feneko_code_import_form'),
     'access arguments' => array('admin_manyforms'),
+    'file' => 'feneko_code.import.inc',
+  );
+
+  $items['user/%/feneko_screens_orders'] = array(
+    'title' => 'Lopende orders',
+    'type' => MENU_LOCAL_TASK,
+    'page callback' => 'feneko_order_statuses',
+    'access arguments' => array('submit_manyforms'),
   );
 
   return $items;
@@ -56,6 +64,7 @@ function feneko_code_block_info() {
   return $blocks;
 }
 
+
 /**
  * Implements hook_block_view().
  */
@@ -66,6 +75,7 @@ function feneko_code_block_view($delta) {
 
   }
 }
+
 
 /**
  * Render block().
@@ -89,7 +99,6 @@ function feneko_code_flipper(){
 }
 
 
-
 function feneko_user_logout(){
   global $user;
   module_invoke_all('user_logout', $user);
@@ -104,6 +113,7 @@ function feneko_code_form_alter(&$form, &$form_state, $form_id) {
     $form['#submit'][]  = 'feneko_code_inform_admin';
   }
 }
+
 
 function feneko_code_inform_admin($form, &$form_state) {
   $values = $form_state['values'];
@@ -157,150 +167,114 @@ function feneko_code_mail($key, &$message, $params){
       // do something specific for mails of type key2
       break;
    }
-
 }
 
 
-function feneko_code_import_form($form, &$form_state) {
-  $form['type'] = array(
-    '#type' => "radios",
-    '#title' => 'Type upload',
-    '#options' => array(
-      'ral'     => 'RAL codes',
-      'renolit' => 'Renolit codes',
-      'utilo'   => 'Utilo profielen',
-      'field_data_field_geblokkeerd' => 'Geblokkeerd/EB',
+function feneko_ongoing_orders() {
+  global $user;
+  global $language;
+  $date_format = "d/m/Y";
+
+  $translations = array(
+    'INGEVOERD'           => 'ENCODÉE',
+    'OFFERTE'             => 'OFFRE',
+    'BACKORDER'           => 'BACKORDER',
+    'BEVESTIGD'           => 'CONFIRMÉE',
+    'BESTELD'             => 'COMMANDÉE',
+    'PRODUCTIE'           => 'PRODUCTION',
+    'GEREED GEMELD'       => 'PRÊT',
+    'KLAAR VOOR LEVERING' => 'PRÊT POUR LIVRAISON',
+    'GELEVERD'            => 'LIVRÉE',
+    'GEFACTUREERD'        => 'FACTURÉE',
+    'ONBEKEND'            => 'INCONNUE',
+  );
+
+  $klant = user_load($user->uid)->field_klantennummer['und'][0]['value'];
+
+  $header = array(
+    'orderbon' => array(
+      'data' => t('Orderbon'),
+      'field' => 'orderbon',
     ),
-    '#required' => true,
+    'ref' => array(
+      'data' => t('Referentie'),
+      'field' => 'ref',
+    ),
+    'omschrijving' => t('Beschrijving'),
+    'kleur' => array(
+      'data' => t('Kleur'),
+      'field' => 'kleur',
+    ),
+    'order_datum' => array(
+      'data' => t('Besteldatum'),
+      'field' => 'order_datum',
+    ),
+    'lever_datum' => array(
+      'data' => t('Leverdatum'),
+      'field' => 'lever_datum',
+    ),
+    'aantal' => t('Aantal'),
+    'fase' => array(
+      'data' => t('Fase'),
+      'field' => 'fase',
+    ),
+    'bedrag' => t('Bedrag'),
+    'leverconditie' => t('Leverconditie'),
   );
 
-  $form['file_upload'] = array(
-    '#title' => 'Bestand',
-    '#type' => 'file',
-    '#description' => 'Upload een bestand in CSV formaat.<br/>'
-                    . 'RAL codes: 3 Velden gescheiden door een ; dus: kleurcode;poedercode;type<br />'
-                    . 'Renolit codes: 3 Velden gescheiden door een ; dus: id;kleurcode;omschrijving<br />'
-                    . 'Utilo profielen: ',
+  $fields = array(
+    'orderbon',
+    'ref',
+    'omschrijving',
+    'kleur',
+    'order_datum',
+    'lever_datum',
+    'aantal',
+    'fase',
+    'bedrag',
+    'leverconditie',
   );
 
-  $form['header'] = array(
-    '#type' => "checkbox",
-    '#title' => 'De eerste lijn overslaan',
-    '#description' => 'Het kan dat de eerste lijn de kolom namen bevat. Vink deze optie aan indien de eerste lijn overgeslaan moet worden.',
-  );
+  // $klant = 329;
 
-  $form['submit'] = array(
-    '#type' => "submit",
-    "#value" => "Importeer",
-  );
+  $results = db_select(FENEKO_CODE_ORDER_STATUSES_TABLE)
+               ->condition('klant', $klant)
+               ->condition('fase', 'GEFACTUREERD', '<>')
+               ->fields(NULL, $fields)
+               ->extend('TableSort')
+               ->orderByHeader($header)
+               ->execute()
+               ->fetchAll(PDO::FETCH_ASSOC)
+              ;
 
-  return $form;
+  // Show a message when nothing has been found
+  if(count($results) === 0) {
+    return array(
+      '#markup' => t('Er zijn geen bestellingen in behandeling.')
+    );
+  }
+
+  // Transform some values
+  $rows = array();
+  foreach ($results as $result) {
+    $result['bedrag'] = "€" . str_replace('.', ',', sprintf("%01.2f", $result['bedrag']));
+    $result['order_datum'] = date($date_format, $result['order_datum']);
+    $result['lever_datum'] = date($date_format, $result['lever_datum']);
+    if($language->language === 'fr') {
+      $result['fase'] = $translations[$result['fase']];
+    }
+    $rows[] = $result;
+  }
+
+  return array(
+    '#theme'  => 'table',
+    '#header' => $header,
+    '#rows'   => $rows,
+  );
 }
 
-function feneko_code_import_form_submit($form, &$form_state) {
-  $file = file_save_upload('file_upload', array('file_validate_extensions' => array('csv')));
-
-  if($file) {
-    $table = $form_state['values']['type'];
-
-    // Open the file.
-    $handle = fopen($file->uri, "r");
-
-    // Skip the header if needed
-    if($form_state['values']['header']) {
-      $header = fgetcsv($handle, 0, ';');
-    }
-
-    if($table !== 'field_data_field_geblokkeerd') {
-      // First clear the table.
-      if (db_table_exists($table)) {
-        db_truncate($table)->execute();
-      }
-
-      $mapping = array(
-        'laken std' => 'ral',
-        'laken str' => 'str',
-        'Laken std' => 'ral',
-        'Laken str' => 'str',
-      );
-    } else {
-      $mapping = array('N' => 0, 'J' => 1);
-    }
-
-    $num_updated = 0;
-
-    // Loop through the csv file and insert into database.
-    while ($data = fgetcsv($handle, 0, ';')) {
-      switch ($table) {
-        case 'ral':
-          if(isset($mapping[$data[2]])) {
-            $type = $mapping[$data[2]];
-          } else {
-            $msg = t("Mapping not found for :mapping. Ignored record.", array(':mapping' => $data[2]));
-            drupal_set_message($msg, 'warning');
-            continue 2;
-          }
-
-          $fields = array(
-            'kleur' => drupal_convert_to_utf8($data[0], 'Windows-1252'),
-            'ref'   => drupal_convert_to_utf8($data[1], 'Windows-1252'),
-            'type'  => $type,
-          );
-          $num_updated += db_insert($table)->fields($fields)->execute();
-          break;
-
-        case 'renolit':
-          $fields = array(
-            'kleur' => drupal_convert_to_utf8($data[2], 'Windows-1252'),
-            'ref'   => drupal_convert_to_utf8($data[1], 'Windows-1252'),
-          );
-          $num_updated += db_insert($table)->fields($fields)->execute();
-          break;
-
-        case 'utilo':
-          $fields = array(
-            'ref'   => drupal_convert_to_utf8($data[1], 'Windows-1252'),
-            'descr' => drupal_convert_to_utf8($data[2], 'Windows-1252'),
-            // 'lang'  => drupal_convert_to_utf8($data[3], 'Windows-1252'),
-            'lang'  => 'nl',
-          );
-          $num_updated += db_insert($table)->fields($fields)->execute();
-          break;
-
-        case 'field_data_field_geblokkeerd':
-          $query = new EntityFieldQuery();
-          $query->entityCondition('entity_type', 'user')
-            ->fieldCondition('field_klantennummer', 'value', $data[0]);
-
-          $result = $query->execute();
-          $users_ids = array_keys($result['user']);
-
-          foreach ($users_ids as $uid) {
-            $user = user_load($uid);
-            $wrapper = entity_metadata_wrapper('user', $user);
-            $wrapper->field_geblokkeerd = strtr(strtoupper($data[1]), $mapping);
-            $wrapper->save();
-            $num_updated++;
-          }
-
-          break;
-      }
-
-
-    }
-    fclose($handle);
-
-    if($table === 'field_data_field_geblokkeerd') {
-      if($num_updated > 0) {
-        $msg = t('Er werden :num gebruikers aangepast.', array(':num' => $num_updated));
-      }
-    } else {
-      $msg = t(':num records werden succesvol geïmporteerd.', array(':num' => $num_updated));
-    }
-
-    drupal_set_message($msg);
-
-  } else {
-    drupal_set_message(t('Er werd geen bestand meegegeven.'));
-  }
+function feneko_order_statuses() {
+  return array(
+    'ongoing' => feneko_ongoing_orders(),
+  );
 }

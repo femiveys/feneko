@@ -24,30 +24,9 @@ function manyforms_schema() {
   }
 */
 
-  $schema[FENEKO_SCREENS_ORDER_STATUSES_TABLE] = array(
-    'description' => 'Holds the statuses of the screens orders',
-    'fields' => array(
-      'klant'         => array('type' => 'int'    , 'not null' => TRUE, 'default' => 0 , 'unsigned' => TRUE),
-      'orderbon'      => array('type' => 'varchar', 'not null' => TRUE, 'default' => '', 'length' => 10,),
-      'ref'           => array('type' => 'varchar', 'not null' => FALSE,'default' => '', 'length' => 255),
-      'omschrijving'  => array('type' => 'varchar', 'not null' => FALSE,'default' => '', 'length' => 255),
-      'order_datum'   => array('type' => 'int'    , 'not null' => TRUE, 'default' => 0 , 'unsigned' => TRUE),
-      'lever_datum'   => array('type' => 'int'    , 'not null' => TRUE, 'default' => 0 , 'unsigned' => TRUE),
-      'fase'          => array('type' => 'varchar', 'not null' => TRUE, 'default' => '', 'length' => 32),
-      'aantal'        => array('type' => 'int'    , 'not null' => TRUE, 'default' => 1 , 'unsigned' => TRUE),
-      'bedrag'        => array('type' => 'float'  , 'not null' => TRUE, 'default' => 0 , 'unsigned' => TRUE),
-      'leverconditie' => array('type' => 'varchar', 'not null' => TRUE, 'default' => '', 'length' => 16),
-    ),
-    'indexes' => array(
-      FENEKO_SCREENS_ORDER_STATUSES_TABLE . '_klant'        => array('klant'),
-      FENEKO_SCREENS_ORDER_STATUSES_TABLE . '_fase'         => array('fase'),
-      FENEKO_SCREENS_ORDER_STATUSES_TABLE . '_order_datum'  => array('order_datum'),
-      FENEKO_SCREENS_ORDER_STATUSES_TABLE . '_lever_datum'  => array('lever_datum'),
-    ),
-    'primary key' => array('orderbon'),
-  );
+  // $schema = array();
 
-  return $schema;
+  // return $schema;
 }
 
 
@@ -712,8 +691,18 @@ function manyforms_update_7042() {
  * Install screens_order_statuses schema
  */
 function manyforms_update_7043() {
-  //Check if table exists, if not install the schema.
-  if(!db_table_exists(FENEKO_SCREENS_ORDER_STATUSES_TABLE)) {
-    drupal_install_schema('manyforms');
+  // //Check if table exists, if not install the schema.
+  // if(!db_table_exists(FENEKO_SCREENS_ORDER_STATUSES_TABLE)) {
+  //   drupal_install_schema('manyforms');
+  // }
+}
+
+/**
+ * Remove screens_order_statuses schema
+ */
+function manyforms_update_7044() {
+  $table = 'screens_order_statuses';
+  if(db_table_exists($table)) {
+    db_drop_table($table);
   }
 }
