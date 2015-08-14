@@ -123,6 +123,13 @@ function manyforms_menu() {
     'type' => MENU_CALLBACK,
   );
 
+  $items['user/%/feneko_screens_orders'] = array(
+    'title' => 'Screens bestellingen',
+    'type' => MENU_LOCAL_TASK,
+    'page callback' => 'manyforms_order_statuses',
+    'access arguments' => array('submit_manyforms'),
+  );
+
   return $items;
 }
 
@@ -389,4 +396,90 @@ function manyforms_variable_info($options) {
   );
 
   return $variable;
+}
+
+function manyforms_ongoing_orders() {
+  global $user;
+  $date_format = "d/m/Y";
+
+  $klant = user_load($user->uid)->field_klantennummer['und'][0]['value'];
+
+  $header = array(
+    'orderbon' => array(
+      'data' => t('Orderbon'),
+      'field' => 'orderbon',
+    ),
+    'ref' => array(
+      'data' => t('Referentie'),
+      'field' => 'ref',
+    ),
+    'omschrijving' => t('Beschrijving'),
+    'order_datum' => array(
+      'data' => t('Besteldatum'),
+      'field' => 'order_datum',
+    ),
+    'lever_datum' => array(
+      'data' => t('Leverdatum'),
+      'field' => 'lever_datum',
+    ),
+    'aantal' => t('Aantal'),
+    'fase' => array(
+      'data' => t('Fase'),
+      'field' => 'fase',
+    ),
+    'bedrag' => t('Bedrag'),
+    'leverconditie' => t('Leverconditie'),
+  );
+
+  $fields = array(
+    'orderbon',
+    'ref',
+    'omschrijving',
+    'order_datum',
+    'lever_datum',
+    'aantal',
+    'fase',
+    'bedrag',
+    'leverconditie',
+  );
+
+  // $klant = 329;
+
+  $results = db_select(FENEKO_SCREENS_ORDER_STATUSES_TABLE, 's')
+               ->extend('TableSort')
+               ->condition('klant', $klant)
+               ->condition('fase', 'GELEVERD', '<>')
+               ->fields('s', $fields)
+               ->orderByHeader($header)
+               ->execute()
+               ->fetchAll(PDO::FETCH_ASSOC)
+              ;
+
+  // Show a message when nothing has been found
+  if(count($results) === 0) {
+    return array(
+      '#markup' => t('Er zijn geen bestellingen in behandeling.')
+    );
+  }
+
+  // Transform some values
+  $rows = array();
+  foreach ($results as $result) {
+    $result['bedrag'] = "€" . str_replace('.', ',', sprintf("%01.2f", $result['bedrag']));
+    $result['order_datum'] = date($date_format, $result['order_datum']);
+    $result['lever_datum'] = date($date_format, $result['lever_datum']);
+    $rows[] = $result;
+  }
+
+  return array(
+    '#theme'  => 'table',
+    '#header' => $header,
+    '#rows'   => $rows,
+  );
+}
+
+function manyforms_order_statuses() {
+  return array(
+    'ongoing' => manyforms_ongoing_orders(),
+  );
 }
