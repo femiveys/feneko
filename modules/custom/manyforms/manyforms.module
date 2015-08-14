@@ -400,7 +400,22 @@ function manyforms_variable_info($options) {
 
 function manyforms_ongoing_orders() {
   global $user;
+  global $language;
   $date_format = "d/m/Y";
+
+  $translations = array(
+    'INGEVOERD'           => 'ENCODÉE',
+    'OFFERTE'             => 'OFFRE',
+    'BACKORDER'           => 'BACKORDER',
+    'BEVESTIGD'           => 'CONFIRMÉE',
+    'BESTELD'             => 'COMMANDÉE',
+    'PRODUCTIE'           => 'PRODUCTION',
+    'GEREED GEMELD'       => 'PRÊT',
+    'KLAAR VOOR LEVERING' => 'PRÊT POUR LIVRAISON',
+    'GELEVERD'            => 'LIVRÉE',
+    'GEFACTUREERD'        => 'FACTURÉE',
+    'ONBEKEND'            => 'INCONNUE',
+  );
 
   $klant = user_load($user->uid)->field_klantennummer['und'][0]['value'];
 
@@ -447,7 +462,7 @@ function manyforms_ongoing_orders() {
 
   $results = db_select(FENEKO_SCREENS_ORDER_STATUSES_TABLE)
                ->condition('klant', $klant)
-               ->condition('fase', 'GELEVERD', '<>')
+               ->condition('fase', 'GEFACTUREERD', '<>')
                ->fields(NULL, $fields)
                ->extend('TableSort')
                ->orderByHeader($header)
@@ -468,6 +483,9 @@ function manyforms_ongoing_orders() {
     $result['bedrag'] = "€" . str_replace('.', ',', sprintf("%01.2f", $result['bedrag']));
     $result['order_datum'] = date($date_format, $result['order_datum']);
     $result['lever_datum'] = date($date_format, $result['lever_datum']);
+    if($language->language === 'fr') {
+      $result['fase'] = $translations[$result['fase']];
+    }
     $rows[] = $result;
   }
 
