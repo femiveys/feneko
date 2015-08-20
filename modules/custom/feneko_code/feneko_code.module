@@ -1,5 +1,6 @@
 <?php
 define('FENEKO_CODE_ORDER_STATUSES_TABLE', 'order_statuses');
+define('FENEKO_CODE_IMPORT_DELIMITER', ';');
 
 function feneko_code_permission() {
   return array(
@@ -208,7 +209,7 @@ function feneko_ongoing_orders() {
       'field' => 'kleur',
     ),
     'order_datum' => array(
-      'data' => t('Besteldatum'),
+      'data' => t('Orderdatum'),
       'field' => 'order_datum',
     ),
     'lever_datum' => array(
