@@ -204,18 +204,24 @@ function feneko_code_import_form_submit($form, &$form_state) {
             'leverconditie' => trim(drupal_convert_to_utf8($data[9], 'Windows-1252')),
           );
 
-// dpm($fields);
+dpm($fields);
 
           // Skip invalid lines
           if(!_feneko_oderline_is_valid($fields)) {
             continue;
           }
 
-          $dt = DateTime::createFromFormat('d-m-y', $fields['order_datum']);
-          $fields['order_datum'] = $dt->getTimestamp();
+          if($dt = DateTime::createFromFormat('d-m-y', $fields['order_datum'])) {
+            $fields['order_datum'] = $dt->getTimestamp();
+          } else {
+            $fields['order_datum'] = 0;
+          }
 
-          $dt = DateTime::createFromFormat('d-m-y', $fields['lever_datum']);
-          $fields['lever_datum'] = $dt->getTimestamp();
+          if($dt = DateTime::createFromFormat('d-m-y', $fields['lever_datum'])) {
+            $fields['lever_datum'] = $dt->getTimestamp();
+          } else {
+            $fields['lever_datum'] = 0;
+          }
 
           $op_type = db_merge($table)->key(array('orderbon' => $fields['orderbon']))
                                      ->fields($fields)->execute();
