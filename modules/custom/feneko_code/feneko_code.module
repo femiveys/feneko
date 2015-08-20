@@ -264,7 +264,8 @@ function feneko_ongoing_orders() {
     $result['order_datum'] = $result['order_datum'] ? date($date_format, $result['order_datum']) : $unknown;
     $result['lever_datum'] = $result['lever_datum'] ? date($date_format, $result['lever_datum']) : $unknown;
     if($language->language === 'fr') {
-      $result['fase'] = $translations[$result['fase']];
+      $result['fase']          = $translations[$result['fase']];
+      $result['leverconditie'] = $translations[$result['leverconditie']];
     }
     $rows[] = $result;
   }
