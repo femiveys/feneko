@@ -204,7 +204,7 @@ function feneko_code_import_form_submit($form, &$form_state) {
             'leverconditie' => trim(drupal_convert_to_utf8($data[9], 'Windows-1252')),
           );
 
-dpm($fields);
+// dpm($fields);
 
           // Skip invalid lines
           if(!_feneko_oderline_is_valid($fields)) {

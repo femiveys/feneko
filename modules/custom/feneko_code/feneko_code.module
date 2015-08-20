@@ -187,6 +187,8 @@ function feneko_ongoing_orders() {
     'GELEVERD'            => 'LIVRÉE',
     'GEFACTUREERD'        => 'FACTURÉE',
     'ONBEKEND'            => 'INCONNUE',
+    'leveren'             => 'livrer',
+    'ophalen'             => 'venir chercher',
   );
 
   $klant = user_load($user->uid)->field_klantennummer['und'][0]['value'];
