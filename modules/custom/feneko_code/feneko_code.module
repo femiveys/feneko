@@ -235,6 +235,7 @@ function feneko_ongoing_orders() {
     'leverconditie',
   );
 
+  $unknown = t("ONBEKEND");
   // $klant = 329;
 
   $results = db_select(FENEKO_CODE_ORDER_STATUSES_TABLE)
@@ -258,8 +259,8 @@ function feneko_ongoing_orders() {
   $rows = array();
   foreach ($results as $result) {
     $result['bedrag'] = "€" . str_replace('.', ',', sprintf("%01.2f", $result['bedrag']));
-    $result['order_datum'] = date($date_format, $result['order_datum']);
-    $result['lever_datum'] = date($date_format, $result['lever_datum']);
+    $result['order_datum'] = $result['order_datum'] ? date($date_format, $result['order_datum']) : $unknown;
+    $result['lever_datum'] = $result['lever_datum'] ? date($date_format, $result['lever_datum']) : $unknown;
     if($language->language === 'fr') {
       $result['fase'] = $translations[$result['fase']];
     }
@@ -277,4 +278,43 @@ function feneko_order_statuses() {
   return array(
     'ongoing' => feneko_ongoing_orders(),
   );
+}
+
+/**
+ * Implements of hook_services_resources().
+ */
+function feneko_code_services_resources() {
+  $api = array(
+    'order_statuses' => array(
+      'operations' => array(
+        'create' => array(
+          'help' => 'Updates the statuses of orders',
+          'callback' => '_feneko_order_statuses_service',
+          'access callback' => TRUE,
+          // 'access arguments' => array('submit_manyforms'),
+          'args' => array(
+          //   array(
+          //     'name' => 'file',
+          //     'type' => 'string',
+          //     'description' => 'File to upload',
+          //     'source' => array('data' => 'file'),
+          //     // 'optional' => FALSE,
+          //   ),
+          ),
+        ),
+      ),
+    ),
+  );
+  return $api;
+}
+
+/**
+ * Callback function for order statuses
+ */
+function _feneko_order_statuses_service($file) {
+echo 'sqsqs';
+  // dpm('called');
+  // dpm($file);
+  return 'hjknlk';
+  echo json_encode(array('ttt' => 'haha'));
 }
