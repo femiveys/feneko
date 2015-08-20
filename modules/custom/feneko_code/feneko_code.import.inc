@@ -8,8 +8,8 @@ function feneko_code_import_form($form, &$form_state) {
   $renolit     = "<ul>$csv<li>Velden: id;kleurcode;omschrijving</li></ul>";
   $utilo       = "<ul>$csv<li>Velden: ?;referentie;omschrijving</li></ul>";
   $geblokkeerd = "<ul>$csv<li>Velden: klantennummer;geblokkeerd_J/N</li></ul>";
-  $statuses    = "<ul>$txt<li>Velden: 'Klant' 'orderbon' 'Datum order' 'Omschrijving' "
-               . "'Referentie' 'Fase leverings' 'Aantal' 'bedrag' 'leverconditie' 'kleur'</li></ul>";
+  $statuses    = "<ul>$txt<li>Velden: 'Klant' 'orderbon' 'Orderdatum' 'Omschrijving' "
+               . "'Referentie' 'Fase' 'Leverdatum' 'Aantal' 'bedrag' 'leverconditie' 'kleur'</li></ul>";
 
   $mapping = array(
     'ral'                            => $ral,
@@ -88,6 +88,7 @@ function feneko_code_import_form_submit($form, &$form_state) {
     'delimiter' => array(
       'all' => ';',
       'statuses' => "\t",
+      'statuses' => ";",
     ),
   );
 
@@ -110,7 +111,7 @@ function feneko_code_import_form_submit($form, &$form_state) {
 
     // Skip the emty line for order statuses
     if($type === 'statuses') {
-      fgetcsv($handle, 0, $settings['delimiter'][$type]);
+      // fgetcsv($handle, 0, $settings['delimiter'][$type]);
     }
 
     if($table !== 'field_data_field_geblokkeerd' and $type === 'all') {
@@ -203,14 +204,21 @@ function feneko_code_import_form_submit($form, &$form_state) {
             'leverconditie' => trim(drupal_convert_to_utf8($data[9], 'Windows-1252')),
           );
 
-          $dt = DateTime::createFromFormat('d/m/Y', $fields['order_datum']);
+// dpm($fields);
+
+          // Skip invalid lines
+          if(!_feneko_oderline_is_valid($fields)) {
+            continue;
+          }
+
+          $dt = DateTime::createFromFormat('d-m-y', $fields['order_datum']);
           $fields['order_datum'] = $dt->getTimestamp();
 
-          $dt = DateTime::createFromFormat('d/m/Y', $fields['lever_datum']);
+          $dt = DateTime::createFromFormat('d-m-y', $fields['lever_datum']);
           $fields['lever_datum'] = $dt->getTimestamp();
 
           $op_type = db_merge($table)->key(array('orderbon' => $fields['orderbon']))
-                                  ->fields($fields)->execute();
+                                     ->fields($fields)->execute();
 
           // Increment the counters
           switch ($op_type) {
@@ -244,4 +252,9 @@ function feneko_code_import_form_submit($form, &$form_state) {
   } else {
     drupal_set_message(t('Er werd geen bestand meegegeven.'));
   }
+}
+
+function _feneko_oderline_is_valid($fields) {
+  if(!ctype_digit($fields['klant'])) return false;
+  return true;
 }
