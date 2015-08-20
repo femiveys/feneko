@@ -195,14 +195,14 @@ function feneko_ongoing_orders() {
 
   $header = array(
     'orderbon' => array(
-      'data' => t('Orderbon'),
+      'data' => t('Ordernummer '),
       'field' => 'orderbon',
     ),
     'ref' => array(
       'data' => t('Referentie'),
       'field' => 'ref',
     ),
-    'omschrijving' => t('Beschrijving'),
+    // 'omschrijving' => t('Beschrijving'),
     'kleur' => array(
       'data' => t('Kleur'),
       'field' => 'kleur',
@@ -259,6 +259,7 @@ function feneko_ongoing_orders() {
 
   // Transform some values
   $rows = array();
+  $count = 0;
   foreach ($results as $result) {
     $result['bedrag'] = "€" . str_replace('.', ',', sprintf("%01.2f", $result['bedrag']));
     $result['order_datum'] = $result['order_datum'] ? date($date_format, $result['order_datum']) : $unknown;
@@ -267,7 +268,20 @@ function feneko_ongoing_orders() {
       $result['fase']          = $translations[$result['fase']];
       $result['leverconditie'] = $translations[$result['leverconditie']];
     }
-    $rows[] = $result;
+
+    // Make the orderbon span over 2 rows
+    $result['orderbon'] = array('data' => $result['orderbon'], 'rowspan' => 2);
+
+    // Set the omschrijving row and remove the omschrijving from the result
+    $omschrijving = array(
+      array('data' => $result['omschrijving'], 'colspan' => count($header) - 1),
+    );
+    unset($result['omschrijving']);
+
+    $evenodd = $count++ % 2 === 0 ? 'even' : 'odd';
+
+    $rows[] = array('data' => $result      , 'no_striping' => TRUE, 'class' => $evenodd);
+    $rows[] = array('data' => $omschrijving, 'no_striping' => TRUE, 'class' => $evenodd);
   }
 
   return array(
