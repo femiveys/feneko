@@ -238,7 +238,7 @@ function feneko_ongoing_orders() {
   );
 
   $unknown = t("ONBEKEND");
-  // $klant = 329;
+  // $klant = 1915;
 
   $results = db_select(FENEKO_CODE_ORDER_STATUSES_TABLE)
                ->condition('klant', $klant)

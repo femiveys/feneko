@@ -1,15 +1,14 @@
 <?php
 function feneko_code_import_form($form, &$form_state) {
-  $csv = '<li>Upload een bestand in <strong>CSV</strong> '
-       . 'formaat (gescheiden door <strong>punt-comma\'s</strong>).</li>';
-  $txt = '<li>Upload een bestand in <strong>.zip</strong> of <strong>.txt</strong> '
-       . 'formaat (gescheiden door een <strong>tabs</strong>).</li>';
+  $formaat = "formaat (gescheiden door <strong>punt-comma's</strong>).</li>";
+  $csv = "<li>Upload een bestand in <strong>CSV</strong> $formaat";
+  $csvzip = "<li>Upload een bestand in <strong>.csv</strong> of <strong>.zip</strong> $formaat";
   $ral         = "<ul>$csv<li>Velden: kleurcode;poedercode;type</li></ul>";
   $renolit     = "<ul>$csv<li>Velden: id;kleurcode;omschrijving</li></ul>";
   $utilo       = "<ul>$csv<li>Velden: ?;referentie;omschrijving</li></ul>";
   $geblokkeerd = "<ul>$csv<li>Velden: klantennummer;geblokkeerd_J/N</li></ul>";
-  $statuses    = "<ul>$txt<li>Velden: 'Klant' 'orderbon' 'Orderdatum' 'Omschrijving' "
-               . "'Referentie' 'Fase' 'Leverdatum' 'Aantal' 'bedrag' 'leverconditie' 'kleur'</li></ul>";
+  $statuses    = "<ul>$csvzip<li>Velden: klant;orderbon;orderdatum;omschrijving;"
+               . "referentie;fase;leverdatum;aantal;bedrag;leverconditie;kleur</li></ul>";
 
   $mapping = array(
     'ral'                            => $ral,
@@ -60,6 +59,9 @@ function feneko_code_import_form($form, &$form_state) {
     'file_upload' => array(
       '#title' => 'Bestand',
       '#type' => 'file',
+      '#states' => array(
+        'invisible' => array('input[name="type"]' => array('value' => FALSE)),
+      ),
     ),
     'header' => array(
       '#type' => "checkbox",
@@ -68,7 +70,10 @@ function feneko_code_import_form($form, &$form_state) {
                       . 'deze optie aan indien de eerste lijn overgeslaan moet worden.',
       '#states' => array(
         'invisible' => array(
-          'input[name="type"]' => array('value' => FENEKO_CODE_ORDER_STATUSES_TABLE),
+          'input[name="type"]' => array(
+            array('value' => FENEKO_CODE_ORDER_STATUSES_TABLE),
+            array('value' => FALSE),
+          )
         ),
       ),
     ),
@@ -83,11 +88,10 @@ function feneko_code_import_form_submit($form, &$form_state) {
   $settings = array(
     'extensions' => array(
       'all' => array('csv'),
-      'statuses' => array('txt', 'zip'),
+      'statuses' => array('csv', 'zip'),
     ),
     'delimiter' => array(
       'all' => ';',
-      'statuses' => "\t",
       'statuses' => ";",
     ),
   );
@@ -107,11 +111,6 @@ function feneko_code_import_form_submit($form, &$form_state) {
     // Skip the header if needed
     if($form_state['values']['header'] or $type === 'statuses') {
       fgetcsv($handle, 0, $settings['delimiter'][$type]);
-    }
-
-    // Skip the emty line for order statuses
-    if($type === 'statuses') {
-      // fgetcsv($handle, 0, $settings['delimiter'][$type]);
     }
 
     if($table !== 'field_data_field_geblokkeerd' and $type === 'all') {
