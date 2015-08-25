@@ -312,8 +312,8 @@ function feneko_code_get_own_order_for_options() {
 function feneko_code_get_klant_string($uid) {
   $user = user_load($uid);
   $wrapper = entity_metadata_wrapper('user', $user);
-  return $wrapper->field_naam_bedrijf->value() . " ("
-       . $wrapper->field_klantennummer->value() . ")";
+  return $wrapper->field_naam_bedrijf->value() . " - "
+       . $wrapper->field_klantennummer->value();
 }
 
 
