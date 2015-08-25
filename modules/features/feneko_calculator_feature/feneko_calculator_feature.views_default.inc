@@ -1130,9 +1130,9 @@ function feneko_calculator_feature_views_default_views() {
   $export['feneko_shopping_cart_block'] = $view;
 
   $view = new view();
-  $view->name = 'orderfor_users';
+  $view->name = 'order4_users';
   $view->description = '';
-  $view->tag = 'feneko';
+  $view->tag = 'default';
   $view->base_table = 'users';
   $view->human_name = 'OrderFor Users';
   $view->core = 7;
@@ -1146,7 +1146,6 @@ function feneko_calculator_feature_views_default_views() {
   $handler->display->display_options['access']['perm'] = 'access user profiles';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
-  $handler->display->display_options['query']['options']['disable_sql_rewrite'] = TRUE;
   $handler->display->display_options['exposed_form']['type'] = 'basic';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['style_plugin'] = 'default';
@@ -1163,170 +1162,28 @@ function feneko_calculator_feature_views_default_views() {
   $handler->display->display_options['fields']['field_klantennummer']['table'] = 'field_data_field_klantennummer';
   $handler->display->display_options['fields']['field_klantennummer']['field'] = 'field_klantennummer';
   $handler->display->display_options['fields']['field_klantennummer']['label'] = '';
-  $handler->display->display_options['fields']['field_klantennummer']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_klantennummer']['alter']['text'] = '([field_klantennummer])';
   $handler->display->display_options['fields']['field_klantennummer']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_klantennummer']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_klantennummer']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_klantennummer']['empty_zero'] = TRUE;
   $handler->display->display_options['fields']['field_klantennummer']['hide_alter_empty'] = FALSE;
   $handler->display->display_options['fields']['field_klantennummer']['type'] = 'text_plain';
   /* Field: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
-  $handler->display->display_options['fields']['name']['label'] = 'Naam';
+  $handler->display->display_options['fields']['name']['label'] = '';
   $handler->display->display_options['fields']['name']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['name']['link_to_user'] = FALSE;
   /* Field: User: Uid */
   $handler->display->display_options['fields']['uid']['id'] = 'uid';
   $handler->display->display_options['fields']['uid']['table'] = 'users';
   $handler->display->display_options['fields']['uid']['field'] = 'uid';
   $handler->display->display_options['fields']['uid']['exclude'] = TRUE;
-  /* Sort criterion: User: Klantennummer (field_klantennummer) */
-  $handler->display->display_options['sorts']['field_klantennummer_value']['id'] = 'field_klantennummer_value';
-  $handler->display->display_options['sorts']['field_klantennummer_value']['table'] = 'field_data_field_klantennummer';
-  $handler->display->display_options['sorts']['field_klantennummer_value']['field'] = 'field_klantennummer_value';
-  $handler->display->display_options['sorts']['field_klantennummer_value']['relationship'] = 'field_orderfor_uid';
-  /* Sort criterion: User: Naam Bedrijf (field_naam_bedrijf) */
-  $handler->display->display_options['sorts']['field_naam_bedrijf_value']['id'] = 'field_naam_bedrijf_value';
-  $handler->display->display_options['sorts']['field_naam_bedrijf_value']['table'] = 'field_data_field_naam_bedrijf';
-  $handler->display->display_options['sorts']['field_naam_bedrijf_value']['field'] = 'field_naam_bedrijf_value';
-  $handler->display->display_options['sorts']['field_naam_bedrijf_value']['relationship'] = 'field_orderfor_uid';
-  /* Filter criterion: User: Active */
-  $handler->display->display_options['filters']['status']['id'] = 'status';
-  $handler->display->display_options['filters']['status']['table'] = 'users';
-  $handler->display->display_options['filters']['status']['field'] = 'status';
-  $handler->display->display_options['filters']['status']['value'] = '1';
-  $handler->display->display_options['filters']['status']['group'] = 1;
-  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: User: Roles */
-  $handler->display->display_options['filters']['rid']['id'] = 'rid';
-  $handler->display->display_options['filters']['rid']['table'] = 'users_roles';
-  $handler->display->display_options['filters']['rid']['field'] = 'rid';
-  $handler->display->display_options['filters']['rid']['value'] = array(
-    5 => '5',
-  );
-  /* Filter criterion: User: Klantennummer (field_klantennummer) */
-  $handler->display->display_options['filters']['field_klantennummer_value']['id'] = 'field_klantennummer_value';
-  $handler->display->display_options['filters']['field_klantennummer_value']['table'] = 'field_data_field_klantennummer';
-  $handler->display->display_options['filters']['field_klantennummer_value']['field'] = 'field_klantennummer_value';
-  $handler->display->display_options['filters']['field_klantennummer_value']['operator'] = 'not empty';
-
-  /* Display: All "Order For" Referentes */
-  $handler = $view->new_display('references', 'All "Order For" Referentes', 'references_1');
-  $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['pager']['type'] = 'some';
-  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'references_style';
-  $handler->display->display_options['defaults']['style_options'] = FALSE;
-  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
-  $handler->display->display_options['row_plugin'] = 'references_fields';
-  $handler->display->display_options['defaults']['row_options'] = FALSE;
-
-  /* Display: Own "Order For" References */
-  $handler = $view->new_display('references', 'Own "Order For" References', 'references_2');
-  $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['pager']['type'] = 'none';
-  $handler->display->display_options['pager']['options']['offset'] = '0';
-  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'references_style';
-  $handler->display->display_options['defaults']['style_options'] = FALSE;
-  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
-  $handler->display->display_options['row_plugin'] = 'references_fields';
-  $handler->display->display_options['row_options']['hide_empty'] = TRUE;
-  $handler->display->display_options['defaults']['row_options'] = FALSE;
-  $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: User: OrderFor */
-  $handler->display->display_options['fields']['field_orderfor']['id'] = 'field_orderfor';
-  $handler->display->display_options['fields']['field_orderfor']['table'] = 'field_data_field_orderfor';
-  $handler->display->display_options['fields']['field_orderfor']['field'] = 'field_orderfor';
-  $handler->display->display_options['fields']['field_orderfor']['label'] = '';
-  $handler->display->display_options['fields']['field_orderfor']['alter']['text'] = '[field_naam_bedrijf] [field_klantennummer]';
-  $handler->display->display_options['fields']['field_orderfor']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_orderfor']['hide_empty'] = TRUE;
-  $handler->display->display_options['fields']['field_orderfor']['empty_zero'] = TRUE;
-  $handler->display->display_options['fields']['field_orderfor']['type'] = 'user_reference_plain';
-  $handler->display->display_options['fields']['field_orderfor']['group_rows'] = FALSE;
-  $handler->display->display_options['fields']['field_orderfor']['delta_offset'] = '0';
-  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
-  $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: User: Current */
-  $handler->display->display_options['filters']['uid_current']['id'] = 'uid_current';
-  $handler->display->display_options['filters']['uid_current']['table'] = 'users';
-  $handler->display->display_options['filters']['uid_current']['field'] = 'uid_current';
-  $handler->display->display_options['filters']['uid_current']['value'] = '1';
-  $translatables['orderfor_users'] = array(
-    t('Master'),
-    t('more'),
-    t('Apply'),
-    t('Reset'),
-    t('Sort by'),
-    t('Asc'),
-    t('Desc'),
-    t('Items per page'),
-    t('- All -'),
-    t('Offset'),
-    t('« first'),
-    t('‹ previous'),
-    t('next ›'),
-    t('last »'),
-    t('([field_klantennummer])'),
-    t('Naam'),
-    t('Uid'),
-    t('All "Order For" Referentes'),
-    t('Own "Order For" References'),
-    t('[field_naam_bedrijf] [field_klantennummer]'),
-  );
-  $export['orderfor_users'] = $view;
-
-  $view = new view();
-  $view->name = 'users';
-  $view->description = '';
-  $view->tag = 'default';
-  $view->base_table = 'users';
-  $view->human_name = 'Users';
-  $view->core = 7;
-  $view->api_version = '3.0';
-  $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
-
-  /* Display: Master */
-  $handler = $view->new_display('default', 'Master', 'default');
-  $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['access']['type'] = 'perm';
-  $handler->display->display_options['access']['perm'] = 'access user profiles';
-  $handler->display->display_options['cache']['type'] = 'none';
-  $handler->display->display_options['query']['type'] = 'views_query';
-  $handler->display->display_options['exposed_form']['type'] = 'basic';
-  $handler->display->display_options['pager']['type'] = 'full';
-  $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['row_plugin'] = 'fields';
-  /* Field: User: Naam Bedrijf */
-  $handler->display->display_options['fields']['field_naam_bedrijf']['id'] = 'field_naam_bedrijf';
-  $handler->display->display_options['fields']['field_naam_bedrijf']['table'] = 'field_data_field_naam_bedrijf';
-  $handler->display->display_options['fields']['field_naam_bedrijf']['field'] = 'field_naam_bedrijf';
-  $handler->display->display_options['fields']['field_naam_bedrijf']['label'] = '';
-  $handler->display->display_options['fields']['field_naam_bedrijf']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_naam_bedrijf']['type'] = 'text_plain';
-  /* Field: User: Klantennummer */
-  $handler->display->display_options['fields']['field_klantennummer']['id'] = 'field_klantennummer';
-  $handler->display->display_options['fields']['field_klantennummer']['table'] = 'field_data_field_klantennummer';
-  $handler->display->display_options['fields']['field_klantennummer']['field'] = 'field_klantennummer';
-  $handler->display->display_options['fields']['field_klantennummer']['label'] = '';
-  $handler->display->display_options['fields']['field_klantennummer']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['field_klantennummer']['alter']['text'] = '([field_klantennummer])';
-  $handler->display->display_options['fields']['field_klantennummer']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_klantennummer']['hide_empty'] = TRUE;
-  $handler->display->display_options['fields']['field_klantennummer']['hide_alter_empty'] = FALSE;
-  $handler->display->display_options['fields']['field_klantennummer']['type'] = 'text_plain';
-  /* Field: User: Name */
-  $handler->display->display_options['fields']['name']['id'] = 'name';
-  $handler->display->display_options['fields']['name']['table'] = 'users';
-  $handler->display->display_options['fields']['name']['field'] = 'name';
-  $handler->display->display_options['fields']['name']['label'] = 'Naam';
-  $handler->display->display_options['fields']['name']['exclude'] = TRUE;
-  /* Field: User: Uid */
-  $handler->display->display_options['fields']['uid']['id'] = 'uid';
-  $handler->display->display_options['fields']['uid']['table'] = 'users';
-  $handler->display->display_options['fields']['uid']['field'] = 'uid';
-  $handler->display->display_options['fields']['uid']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['uid']['link_to_user'] = FALSE;
   /* Sort criterion: User: Klantennummer (field_klantennummer) */
   $handler->display->display_options['sorts']['field_klantennummer_value']['id'] = 'field_klantennummer_value';
   $handler->display->display_options['sorts']['field_klantennummer_value']['table'] = 'field_data_field_klantennummer';
@@ -1342,47 +1199,49 @@ function feneko_calculator_feature_views_default_views() {
   $handler->display->display_options['filters']['status']['value'] = '1';
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: User: Roles */
-  $handler->display->display_options['filters']['rid']['id'] = 'rid';
-  $handler->display->display_options['filters']['rid']['table'] = 'users_roles';
-  $handler->display->display_options['filters']['rid']['field'] = 'rid';
-  $handler->display->display_options['filters']['rid']['value'] = array(
-    5 => '5',
-  );
   /* Filter criterion: User: Klantennummer (field_klantennummer) */
   $handler->display->display_options['filters']['field_klantennummer_value']['id'] = 'field_klantennummer_value';
   $handler->display->display_options['filters']['field_klantennummer_value']['table'] = 'field_data_field_klantennummer';
   $handler->display->display_options['filters']['field_klantennummer_value']['field'] = 'field_klantennummer_value';
   $handler->display->display_options['filters']['field_klantennummer_value']['operator'] = 'not empty';
-  /* Filter criterion: User: Naam Bedrijf (field_naam_bedrijf) */
-  $handler->display->display_options['filters']['field_naam_bedrijf_value']['id'] = 'field_naam_bedrijf_value';
-  $handler->display->display_options['filters']['field_naam_bedrijf_value']['table'] = 'field_data_field_naam_bedrijf';
-  $handler->display->display_options['filters']['field_naam_bedrijf_value']['field'] = 'field_naam_bedrijf_value';
-  $handler->display->display_options['filters']['field_naam_bedrijf_value']['operator'] = 'word';
-  $handler->display->display_options['filters']['field_naam_bedrijf_value']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_naam_bedrijf_value']['expose']['operator_id'] = 'field_naam_bedrijf_value_op';
-  $handler->display->display_options['filters']['field_naam_bedrijf_value']['expose']['label'] = 'Naam Bedrijf (field_naam_bedrijf)';
-  $handler->display->display_options['filters']['field_naam_bedrijf_value']['expose']['operator'] = 'field_naam_bedrijf_value_op';
-  $handler->display->display_options['filters']['field_naam_bedrijf_value']['expose']['identifier'] = 'field_naam_bedrijf_value';
-  $handler->display->display_options['filters']['field_naam_bedrijf_value']['expose']['remember_roles'] = array(
+  $handler->display->display_options['filters']['field_klantennummer_value']['expose']['operator_id'] = 'field_klantennummer_value_op';
+  $handler->display->display_options['filters']['field_klantennummer_value']['expose']['label'] = 'Klantennummer (field_klantennummer)';
+  $handler->display->display_options['filters']['field_klantennummer_value']['expose']['operator'] = 'field_klantennummer_value_op';
+  $handler->display->display_options['filters']['field_klantennummer_value']['expose']['identifier'] = 'field_klantennummer_value';
+  $handler->display->display_options['filters']['field_klantennummer_value']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
     5 => 0,
     4 => 0,
     3 => 0,
   );
+  /* Filter criterion: User: Roles */
+  $handler->display->display_options['filters']['rid']['id'] = 'rid';
+  $handler->display->display_options['filters']['rid']['table'] = 'users_roles';
+  $handler->display->display_options['filters']['rid']['field'] = 'rid';
+  $handler->display->display_options['filters']['rid']['value'] = array(
+    5 => '5',
+  );
 
-  /* Display: Referenties */
-  $handler = $view->new_display('references', 'Referenties', 'references_1');
+  /* Display: Referentie naar een entiteit */
+  $handler = $view->new_display('entityreference', 'Referentie naar een entiteit', 'entityreference_1');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'references_style';
+  $handler->display->display_options['style_plugin'] = 'entityreference_style';
+  $handler->display->display_options['style_options']['search_fields'] = array(
+    'field_naam_bedrijf' => 'field_naam_bedrijf',
+    'field_klantennummer' => 'field_klantennummer',
+    'name' => 'name',
+    'uid' => 'uid',
+  );
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
-  $handler->display->display_options['row_plugin'] = 'references_fields';
+  $handler->display->display_options['row_plugin'] = 'entityreference_fields';
+  $handler->display->display_options['row_options']['hide_empty'] = TRUE;
+  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
-  $translatables['users'] = array(
+  $translatables['order4_users'] = array(
     t('Master'),
     t('more'),
     t('Apply'),
@@ -1397,13 +1256,11 @@ function feneko_calculator_feature_views_default_views() {
     t('‹ previous'),
     t('next ›'),
     t('last »'),
-    t('([field_klantennummer])'),
-    t('Naam'),
     t('Uid'),
-    t('Naam Bedrijf (field_naam_bedrijf)'),
-    t('Referenties'),
+    t('Klantennummer (field_klantennummer)'),
+    t('Referentie naar een entiteit'),
   );
-  $export['users'] = $view;
+  $export['order4_users'] = $view;
 
   return $export;
 }

@@ -2419,6 +2419,8 @@ class FenekoForm {
    * @return array The field definition for the Drupal Forms API
    */
   private static function getField($name, $weight = 0) {
+    global $user;
+
     // Much used options
     $borstel_options = array(
       'geen' => t('geen'),
@@ -2719,7 +2721,7 @@ class FenekoForm {
         '#type' => 'radios',
         '#weight' => $weight,
         '#options' => feneko_code_get_own_order_for_options(),
-        '#default_value' => feneko_code_get_current_klantennummer(),
+        '#default_value' => $user->uid,
       ),
       'kleur' => array(
         '#type' => 'container',

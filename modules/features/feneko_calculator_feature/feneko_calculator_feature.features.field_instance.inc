@@ -3291,16 +3291,18 @@ function feneko_calculator_feature_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'user_reference',
-        'settings' => array(),
-        'type' => 'user_reference_default',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
         'weight' => 12,
       ),
     ),
     'entity_type' => 'commerce_order',
     'field_name' => 'field_bestel_voor',
-    'label' => 'Bestel Voor',
-    'required' => 0,
+    'label' => 'Bestel voor',
+    'required' => 1,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
@@ -3309,7 +3311,7 @@ function feneko_calculator_feature_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 3,
+      'weight' => 12,
     ),
   );
 
@@ -3385,7 +3387,7 @@ function feneko_calculator_feature_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 5,
+      'weight' => 14,
     ),
   );
 
@@ -3457,7 +3459,7 @@ function feneko_calculator_feature_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 6,
+      'weight' => 15,
     ),
   );
 
@@ -3495,7 +3497,7 @@ function feneko_calculator_feature_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 4,
+      'weight' => 13,
     ),
   );
 
@@ -7870,34 +7872,40 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'user-user-field_orderfor'
-  $field_instances['user-user-field_orderfor'] = array(
+  // Exported field_instance: 'user-user-field_order4'
+  $field_instances['user-user-field_order4'] = array(
     'bundle' => 'user',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => '',
+    'description' => 'Scheid de klanten met een comma',
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'user_reference',
-        'settings' => array(),
-        'type' => 'user_reference_default',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
         'weight' => 9,
       ),
     ),
     'entity_type' => 'user',
-    'field_name' => 'field_orderfor',
-    'label' => 'OrderFor',
+    'field_name' => 'field_order4',
+    'label' => 'Bestel Voor',
     'required' => 0,
     'settings' => array(
       'user_register_form' => 1,
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_select',
-      'weight' => 41,
+      'module' => 'entityreference',
+      'settings' => array(
+        'match_operator' => 'CONTAINS',
+        'path' => '',
+        'size' => 60,
+      ),
+      'type' => 'entityreference_autocomplete',
+      'weight' => 10,
     ),
   );
 
@@ -7948,6 +7956,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   t('BTW nummer');
   t('Base Price');
   t('Bestel Voor');
+  t('Bestel voor');
   t('Breedte');
   t('Breedte delen');
   t('Diepte');
@@ -7978,7 +7987,6 @@ function feneko_calculator_feature_field_default_field_instances() {
   t('Ophanging');
   t('Opmerking');
   t('Order total');
-  t('OrderFor');
   t('Plaatbewerking Afwerking');
   t('Plaatbewerking Dikte');
   t('Plooien');
@@ -7996,6 +8004,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   t('Sandwichpaneel Afwerking');
   t('Sandwichpaneel Afwerking 2');
   t('Sandwichpaneel Lengte');
+  t('Scheid de klanten met een comma');
   t('Standaardprofiel Afwerking');
   t('Standaardprofiel Lengte');
   t('Standaardprofiel Type');

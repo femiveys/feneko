@@ -28,45 +28,45 @@ function feneko_calculator_feature_user_default_permissions() {
     'module' => 'commerce',
   );
 
-  // Exported permission: 'create field_orderfor'.
-  $permissions['create field_orderfor'] = array(
-    'name' => 'create field_orderfor',
+  // Exported permission: 'create field_order4'.
+  $permissions['create field_order4'] = array(
+    'name' => 'create field_order4',
     'roles' => array(
       'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
   );
 
-  // Exported permission: 'edit field_orderfor'.
-  $permissions['edit field_orderfor'] = array(
-    'name' => 'edit field_orderfor',
+  // Exported permission: 'edit field_order4'.
+  $permissions['edit field_order4'] = array(
+    'name' => 'edit field_order4',
     'roles' => array(
       'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
   );
 
-  // Exported permission: 'edit own field_orderfor'.
-  $permissions['edit own field_orderfor'] = array(
-    'name' => 'edit own field_orderfor',
+  // Exported permission: 'edit own field_order4'.
+  $permissions['edit own field_order4'] = array(
+    'name' => 'edit own field_order4',
     'roles' => array(
       'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
   );
 
-  // Exported permission: 'view field_orderfor'.
-  $permissions['view field_orderfor'] = array(
-    'name' => 'view field_orderfor',
+  // Exported permission: 'view field_order4'.
+  $permissions['view field_order4'] = array(
+    'name' => 'view field_order4',
     'roles' => array(
       'administrator' => 'administrator',
     ),
     'module' => 'field_permissions',
   );
 
-  // Exported permission: 'view own field_orderfor'.
-  $permissions['view own field_orderfor'] = array(
-    'name' => 'view own field_orderfor',
+  // Exported permission: 'view own field_order4'.
+  $permissions['view own field_order4'] = array(
+    'name' => 'view own field_order4',
     'roles' => array(
       'administrator' => 'administrator',
     ),
