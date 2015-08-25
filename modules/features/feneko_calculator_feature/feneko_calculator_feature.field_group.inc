@@ -90,6 +90,7 @@ function feneko_calculator_feature_field_group_info() {
       0 => 'field_comment',
       1 => 'field_reference',
       2 => 'field_order_type',
+      3 => 'field_bestel_voor',
     ),
     'format_type' => 'html-element',
     'format_settings' => array(

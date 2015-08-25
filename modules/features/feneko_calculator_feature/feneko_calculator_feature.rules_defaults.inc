@@ -43,7 +43,7 @@ function feneko_calculator_feature_default_rules_configuration() {
       ],
       "DO" : [
         { "mail" : {
-            "to" : "Feneko \\u003Cjeremie@feneko.be\\u003E",
+            "to" : "Feneko \\u003Cjeremie@feneko.be\\u003E, femi@itsimplyworks.be",
             "subject" : "Order [commerce-order:order-number] at [site:name]",
             "message" : "[commerce-order:owner:name] van [commerce-order:owner:field-naam-bedrijf] ([commerce-order:owner:field-klantennummer])  heeft net een bestellling geplaatst.\\r\\n\\r\\nIn de bijlage vind je een overzicht van de bestelling.\\r\\n\\r\\nJe kan ook inloggen op de site om de bestelling te bekijken: [commerce-order:url]\\r\\n\\r\\nmvg,\\r\\n\\r\\nFenekO",
             "from" : "Feneko \\u003Cjeremie@feneko.be\\u003E",
