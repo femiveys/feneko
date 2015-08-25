@@ -1132,7 +1132,7 @@ function feneko_calculator_feature_views_default_views() {
   $view = new view();
   $view->name = 'order4_users';
   $view->description = '';
-  $view->tag = 'default';
+  $view->tag = 'feneko';
   $view->base_table = 'users';
   $view->human_name = 'OrderFor Users';
   $view->core = 7;
