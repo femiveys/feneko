@@ -298,28 +298,6 @@ function feneko_order_statuses() {
   );
 }
 
-function feneko_code_get_own_order_for_options() {
-  global $user;
-  $options = array();
-  $wrapper = entity_metadata_wrapper('user', $user);
-  $curren_klantennummer = $wrapper->field_klantennummer->value();
-  $options[$curren_klantennummer] = $wrapper->field_naam_bedrijf->value()
-                                  . " ($curren_klantennummer)";
-  foreach ($wrapper->field_orderfor->value() as $key => $u) {
-    $options[$u->uid] = $u->field_naam_bedrijf['und'][0]['value']
-              . ' (' . $u->field_klantennummer['und'][0]['value'] . ')';
-  }
-  return $options;
-}
-
-function feneko_code_get_current_klantennummer() {
-  global $user;
-  $account = user_load($user->uid);
-  $klantennummer = field_get_items('user', $account, 'field_klantennummer');
-  return $klantennummer[0]['value'];
-}
-
-
 /**
  * Implements of hook_services_resources().
  */

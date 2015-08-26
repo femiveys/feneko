@@ -1079,14 +1079,13 @@ input[type="submit"]{
     width: 13%;
 }
 
-/*.form-item-klant label, .form-item-referentie label{
+.form-item-klant label, .form-item-referentie label{
     float:left;
     margin-right: 5px;
 }
 .form-item-klant input, .form-item-referentie input{
     float:left;
 }
-*/
 .intro_group_1 {
     float: left;
     width: 50%;

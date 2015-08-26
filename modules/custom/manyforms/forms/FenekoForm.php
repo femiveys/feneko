@@ -15,7 +15,6 @@ class FenekoForm {
   public function __construct($id, array $fields = NULL) {
     // Constants
     $basicFields = array(
-      'klant'          => 10,
       'referentie'     => 20,
       'table1'         => 30,
       'kleur'          => 40,
@@ -298,7 +297,7 @@ class FenekoForm {
     $schema['description'] = "Form " . $this->id;
     $schema['primary key'] = array('id');
     $fields = array_merge(
-      array_flip(array('id', 'uid', 'datesubmit', 'exported')),
+      array_flip(array('id', 'uid', 'datesubmit', 'exported', 'klant')),
       $this->fields
     );
 
@@ -1036,10 +1035,13 @@ class FenekoForm {
    */
   private function getSubmitFields($values, $count = 9) {
     global $user;
+    $account = user_load($user->uid);
+    $klant = field_get_items('user', $account, 'field_klantennummer');
 
     $fields = array(
       'uid'        => $user->uid,
       'datesubmit' => REQUEST_TIME,
+      'klant' => $klant[0]['value'],
     );
 
     foreach ($this->fields as $name => $weight) {
@@ -2432,6 +2434,7 @@ class FenekoForm {
       'nee' => t('nee'),
     );
 
+
     $fields = array(
       'afdekdoppen' => array(
         '#title' => t('afdekdoppen op vleugel en kader'),
@@ -2713,13 +2716,6 @@ class FenekoForm {
           'offerte'    => t('offerte'),
         ),
         '#default_value' => 'offerte',
-      ),
-      'klant' => array(
-        '#title' => t('Bestel voor'),
-        '#type' => 'radios',
-        '#weight' => $weight,
-        '#options' => feneko_code_get_own_order_for_options(),
-        '#default_value' => feneko_code_get_current_klantennummer(),
       ),
       'kleur' => array(
         '#type' => 'container',
