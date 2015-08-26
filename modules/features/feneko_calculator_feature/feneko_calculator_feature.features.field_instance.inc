@@ -7877,7 +7877,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'bundle' => 'user',
     'default_value' => NULL,
     'deleted' => 0,
-    'description' => 'Scheid de klanten met een comma',
+    'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'above',
@@ -8004,7 +8004,6 @@ function feneko_calculator_feature_field_default_field_instances() {
   t('Sandwichpaneel Afwerking');
   t('Sandwichpaneel Afwerking 2');
   t('Sandwichpaneel Lengte');
-  t('Scheid de klanten met een comma');
   t('Standaardprofiel Afwerking');
   t('Standaardprofiel Lengte');
   t('Standaardprofiel Type');
