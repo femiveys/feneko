@@ -184,24 +184,6 @@ function feneko_calculator_commerce_price_component_type_info(){
  * Implements hook_form_alter
  */
 function feneko_calculator_form_alter(&$form, &$form_state, $form_id) {
-  // The user
-  if(isset($form['field_order4']['und'])) {
-    foreach ($form['field_order4']['und'] as $key => &$value) {
-      if(is_int($key)) {
-        $val = &$value['target_id']['#default_value'];
-
-        // Get the value between parentheses
-        preg_match("/\((.*)\)$/", $val, $matches);
-        if(isset($matches[1])) {
-          $replace = feneko_code_get_klant_string($matches[1]) . "$2";
-          $val = preg_replace("/(.*)(\ \(.+\))$/", $replace, $val);
-        } else {
-          // Do nothing
-        }
-      }
-    }
-  }
-
   // Add an export button to the orders form, but not to the confirm page
   if($form_id === 'views_form_feneko_orders_admin_page' and empty($form['confirm'])) {
     $form['export'] = array(
@@ -225,10 +207,9 @@ function feneko_calculator_form_alter(&$form, &$form_state, $form_id) {
     and $form_state['checkout_page']['page_id'] === 'checkout') {
 
     // Get own OrderFor fields
-    global $user;
     $bestel_voor = &$form['commerce_fieldgroup_pane__group_order_info']['field_bestel_voor']['und'];
     $bestel_voor['#options'] = feneko_code_get_own_order_for_options();
-    $bestel_voor['#default_value'] = $user->uid;
+    $bestel_voor['#default_value'] = feneko_code_get_current_klantennummer();
 
     // Add the step
     $form['buttons']['step'] = array(
