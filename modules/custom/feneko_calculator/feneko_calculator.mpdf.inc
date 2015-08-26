@@ -165,27 +165,6 @@ function fc_get_attachment($order_id, $outputAsString = TRUE) {
     ),
   );
 
-  // Put Order For section if needed
-  if($bestel_voor = $order_wrapper->field_bestel_voor->value()) {
-    global $user;
-    if($bestel_voor->uid !== $user->uid) {
-      $client_data['left']['orderFor'] =
-                    array('#markup' => '<h4>' . t('Bestelling voor') . '</h4>');
-      $client_data['left']['orderForName'] =
-                   field_view_field('user', $bestel_voor, 'field_naam_bedrijf');
-      $client_data['left']['orderForKlant'] =
-                  field_view_field('user', $bestel_voor, 'field_klantennummer');
-      $client_data['left']['orderFor']['#weight'] = 40;
-      $client_data['left']['orderForName']['#weight'] = 50;
-      $client_data['left']['orderForKlant']['#weight'] = 60;
-    }
-  }
-
-  $client_data['left']['tel']['#weight'] = 0;
-  $client_data['left']['tva']['#weight'] = 10;
-  $client_data['left']['num']['#weight'] = 20;
-  $client_data['left']['name']['#weight'] = 30;
-
   $table_header  = '<thead><tr>';
   $table_header .= '<th class="product">' . t('Product') . '</th>';
   $table_header .= '<th class="details">' . t('Productspecificatie') . '</th>';

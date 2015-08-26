@@ -3282,37 +3282,6 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_order-commerce_order-field_bestel_voor'
-  $field_instances['commerce_order-commerce_order-field_bestel_voor'] = array(
-    'bundle' => 'commerce_order',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'user_reference',
-        'settings' => array(),
-        'type' => 'user_reference_default',
-        'weight' => 12,
-      ),
-    ),
-    'entity_type' => 'commerce_order',
-    'field_name' => 'field_bestel_voor',
-    'label' => 'Bestel Voor',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_select',
-      'weight' => 3,
-    ),
-  );
-
   // Exported field_instance: 'commerce_order-commerce_order-field_color'
   $field_instances['commerce_order-commerce_order-field_color'] = array(
     'bundle' => 'commerce_order',
@@ -3385,7 +3354,7 @@ function feneko_calculator_feature_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 5,
+      'weight' => 2,
     ),
   );
 
@@ -3457,7 +3426,7 @@ function feneko_calculator_feature_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 6,
+      'weight' => 3,
     ),
   );
 
@@ -3495,7 +3464,7 @@ function feneko_calculator_feature_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 4,
+      'weight' => 1,
     ),
   );
 
@@ -7870,37 +7839,6 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'user-user-field_orderfor'
-  $field_instances['user-user-field_orderfor'] = array(
-    'bundle' => 'user',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'user_reference',
-        'settings' => array(),
-        'type' => 'user_reference_default',
-        'weight' => 9,
-      ),
-    ),
-    'entity_type' => 'user',
-    'field_name' => 'field_orderfor',
-    'label' => 'OrderFor',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => 1,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(),
-      'type' => 'options_select',
-      'weight' => 41,
-    ),
-  );
-
   // Exported field_instance: 'user-user-field_telefoon'
   $field_instances['user-user-field_telefoon'] = array(
     'bundle' => 'user',
@@ -7947,7 +7885,6 @@ function feneko_calculator_feature_field_default_field_instances() {
   t('Anti-Dreunstrook');
   t('BTW nummer');
   t('Base Price');
-  t('Bestel Voor');
   t('Breedte');
   t('Breedte delen');
   t('Diepte');
@@ -7978,7 +7915,6 @@ function feneko_calculator_feature_field_default_field_instances() {
   t('Ophanging');
   t('Opmerking');
   t('Order total');
-  t('OrderFor');
   t('Plaatbewerking Afwerking');
   t('Plaatbewerking Dikte');
   t('Plooien');

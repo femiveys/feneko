@@ -52,21 +52,6 @@ function feneko_calculator_order_to_xml(stdClass $order) {
   $xml .= _feneko_calculator_add_xml_field($order_wrapper, 'field_reference');
   $xml .= _feneko_calculator_add_xml_field($order_wrapper, 'field_maritime');
 
-  // Put Order For section if needed
-  if($bestel_voor = $order_wrapper->field_bestel_voor->value()) {
-    global $user;
-    if($bestel_voor->uid !== $user->uid) {
-      $xml .= "<BestelVoor>";
-      $xml .= "<NaamBedrijf>";
-      $xml .= $bestel_voor->field_naam_bedrijf['und'][0]['value'];
-      $xml .= "</NaamBedrijf>";
-      $xml .= "<KlantenNummer>";
-      $xml .= $bestel_voor->field_klantennummer['und'][0]['value'];
-      $xml .= "</KlantenNummer>";
-      $xml .= "</BestelVoor>";
-    }
-  }
-
   $xml .= "<Owner>";
   $xml .= _feneko_calculator_add_xml_field($order_wrapper->owner, 'uid');
   $xml .= _feneko_calculator_add_xml_field($order_wrapper->owner, 'name');

@@ -205,20 +205,6 @@ function feneko_calculator_form_alter(&$form, &$form_state, $form_id) {
   // Checkout page
   if($form_id === 'commerce_checkout_form_checkout'
     and $form_state['checkout_page']['page_id'] === 'checkout') {
-
-    // Get own OrderFor fields
-    global $user;
-    $wrapper = entity_metadata_wrapper('user', $user);
-    $options[''] = $wrapper->field_naam_bedrijf->value()
-         . ' (' . $wrapper->field_klantennummer->value() . ')';
-    foreach ($wrapper->field_orderfor->value() as $key => $u) {
-      $options[$u->uid] = $u->field_naam_bedrijf['und'][0]['value']
-                . ' (' . $u->field_klantennummer['und'][0]['value'] . ')';
-    }
-    $form['commerce_fieldgroup_pane__group_order_info']
-         ['field_bestel_voor']['und']['#options'] = $options;
-
-
     $form['buttons']['step'] = array(
       '#markup' => t('Stap !stap', array('!stap' => "2/2")),
       '#weight' => -100,
