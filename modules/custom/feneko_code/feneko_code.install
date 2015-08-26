@@ -17,7 +17,7 @@ function feneko_code_schema() {
       'lever_datum'   => array('type' => 'int'    , 'not null' => TRUE, 'default' => 0 , 'unsigned' => TRUE),
       'fase'          => array('type' => 'varchar', 'not null' => TRUE, 'default' => '', 'length' => 32),
       'aantal'        => array('type' => 'int'    , 'not null' => TRUE, 'default' => 1 , 'unsigned' => TRUE),
-      'bedrag'        => array('type' => 'float'  , 'not null' => TRUE, 'default' => 0 , 'unsigned' => TRUE),
+      'bedrag'        => array('type' => 'float'  , 'not null' => TRUE, 'default' => 0),
       'leverconditie' => array('type' => 'varchar', 'not null' => TRUE, 'default' => '', 'length' => 16),
     ),
     'indexes' => array(
@@ -61,3 +61,17 @@ function feneko_code_update_7004() {
   $table = FENEKO_CODE_ORDER_STATUSES_TABLE;
   db_add_index($table, $table . '_ref', array('ref'));
 }
+
+/**
+ * Allow negative amounts for order status import
+ */
+function feneko_code_update_7005() {
+  $table = FENEKO_CODE_ORDER_STATUSES_TABLE;
+  $oldname = 'bedrag';
+  $name = $oldname;
+
+  $schema = feneko_code_schema();
+  $conf = $schema[$name];
+  db_change_field($table, $oldname, $name, $conf);
+}
+
