@@ -28,50 +28,5 @@ function feneko_calculator_feature_user_default_permissions() {
     'module' => 'commerce',
   );
 
-  // Exported permission: 'create field_orderfor'.
-  $permissions['create field_orderfor'] = array(
-    'name' => 'create field_orderfor',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'edit field_orderfor'.
-  $permissions['edit field_orderfor'] = array(
-    'name' => 'edit field_orderfor',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'edit own field_orderfor'.
-  $permissions['edit own field_orderfor'] = array(
-    'name' => 'edit own field_orderfor',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'view field_orderfor'.
-  $permissions['view field_orderfor'] = array(
-    'name' => 'view field_orderfor',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'field_permissions',
-  );
-
-  // Exported permission: 'view own field_orderfor'.
-  $permissions['view own field_orderfor'] = array(
-    'name' => 'view own field_orderfor',
-    'roles' => array(
-      'administrator' => 'administrator',
-    ),
-    'module' => 'field_permissions',
-  );
-
   return $permissions;
 }
