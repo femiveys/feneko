@@ -71,7 +71,8 @@ function feneko_code_update_7005() {
   $name = $oldname;
 
   $schema = feneko_code_schema();
-  $conf = $schema[$name];
+  $conf = $schema[FENEKO_CODE_ORDER_STATUSES_TABLE]['fields'][$name];
+
   db_change_field($table, $oldname, $name, $conf);
 }
 
