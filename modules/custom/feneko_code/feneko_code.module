@@ -244,6 +244,7 @@ function feneko_ongoing_orders() {
   $results = db_select(FENEKO_CODE_ORDER_STATUSES_TABLE)
                ->condition('klant', $klant)
                ->condition('fase', 'GEFACTUREERD', '<>')
+               ->condition('fase', 'GEBLOKKEERD', '<>')
                ->fields(NULL, $fields)
                ->extend('TableSort')
                ->orderByHeader($header)
