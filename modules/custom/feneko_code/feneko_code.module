@@ -188,6 +188,8 @@ function feneko_ongoing_orders() {
     'GELEVERD'            => 'LIVRÉE',
     'GEFACTUREERD'        => 'FACTURÉE',
     'ONBEKEND'            => 'INCONNUE',
+    'GEBLOKKEERD'         => 'BLOQUÉE',
+    'GEANNULEERD'         => 'ANNULÉE',
     'leveren'             => 'livrer',
     'ophalen'             => 'venir chercher',
   );
