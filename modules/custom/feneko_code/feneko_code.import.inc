@@ -136,6 +136,9 @@ function _feneko_code_csv_import($filename, $values) {
   $skipHeader = $values['header'];
   $table = $values['type'];
 
+  // Reuse the OrderStatusSchema
+  $orderStatusesSchema = drupal_get_schema(FENEKO_CODE_ORDER_STATUSES_TABLE);
+
   // Open the file.
   $handle = fopen($filename, "r");
 
@@ -239,17 +242,42 @@ function _feneko_code_csv_import($filename, $values) {
           continue;
         }
 
-        if($dt = DateTime::createFromFormat('d-m-y', $fields['order_datum'])) {
+        // Set the dates
+        $format = 'd-m-y';
+        if($dt = DateTime::createFromFormat($format, $fields['order_datum'])) {
           $fields['order_datum'] = $dt->getTimestamp();
         } else {
+          $msg = t("Orderbon: :orderbon: Orderdatum :date is een ongeldige datum. Het verwachte formaat is: :format", array(
+            ':date' => $fields['order_datum'],
+            ':format' => $format,
+            ':orderbon' => $fields['orderbon'],
+          ));
+          drupal_set_message($msg, 'warning');
           $fields['order_datum'] = 0;
         }
 
-        if($dt = DateTime::createFromFormat('d-m-y', $fields['lever_datum'])) {
+        if($dt = DateTime::createFromFormat($format, $fields['lever_datum'])) {
           $fields['lever_datum'] = $dt->getTimestamp();
         } else {
+          $msg = t("Orderbon: :orderbon: Leverdatum :date is een ongeldige datum. Het verwachte formaat is: :format", array(
+            ':date' => $fields['lever_datum'],
+            ':format' => $format,
+            ':orderbon' => $fields['orderbon'],
+          ));
+          drupal_set_message($msg, 'warning');
           $fields['lever_datum'] = 0;
         }
+
+        // Do some checks
+        if($fields['bedrag'] != (string)(float)$fields['bedrag']) {
+          $msg = t("Orderbon: :orderbon: Het bedrag: :bedrag is niet geldig", array(
+            ':orderbon' => $fields['orderbon'],
+            ':bedrag' => $fields['bedrag'],
+          ));
+          drupal_set_message($msg, 'warning');
+        }
+
+        _feneko_code_check_length($fields, $orderStatusesSchema);
 
         $op_type = db_merge($table)->key(array('orderbon' => $fields['orderbon']))
                                    ->fields($fields)->execute();
@@ -284,4 +312,18 @@ function _feneko_code_csv_import($filename, $values) {
     drupal_set_message($msg_upd);
   }
 
+}
+
+function _feneko_code_check_length(&$fields, $schema) {
+  foreach ($schema['fields'] as $fieldname => $field) {
+    if($field['type'] === 'varchar' && strlen($fields[$fieldname]) > $field['length']) {
+      $fields[$fieldname] = substr($fields[$fieldname], 0, $field['length']);
+      $msg = t("Orderbon: :orderbon: :fieldname werd afgekapt op het maximum van :length tekens", array(
+        ':orderbon' => $fields['orderbon'],
+        ':fieldname' => $fieldname,
+        ':length' => $field['length'],
+      ));
+      drupal_set_message($msg, 'warning');
+    }
+  }
 }
