@@ -122,7 +122,6 @@ function feneko_code_get_order4_options() {
   return array_combine($klantennummers, $klantennummers);
 }
 
-
 function feneko_code_inform_admin($form, &$form_state) {
   $values = $form_state['values'];
   $body = 'A user registered on feneko.be.
@@ -201,11 +200,11 @@ function feneko_ongoing_orders() {
     'ophalen'             => 'venir chercher',
   );
 
-  $klant = user_load($user->uid)->field_klantennummer['und'][0]['value'];
+  $klantennummers = feneko_code_get_order4_options();
 
   $header = array(
     'orderbon' => array(
-      'data' => t('Ordernummer '),
+      'data' => t('Ordernummer'),
       'field' => 'orderbon',
     ),
     'ref' => array(
@@ -247,11 +246,18 @@ function feneko_ongoing_orders() {
     'leverconditie',
   );
 
+  if(count($klantennummers) > 1) {
+    $header['klant'] = array(
+      'data' => t('klantennummer'),
+      'field' => 'klant',
+    );
+    $fields[] = 'klant';
+  }
+
   $unknown = t("ONBEKEND");
-  // $klant = 1915;
 
   $results = db_select(FENEKO_CODE_ORDER_STATUSES_TABLE)
-               ->condition('klant', $klant)
+               ->condition('klant', $klantennummers, 'IN')
                ->condition('fase', 'GEFACTUREERD', '<>')
                ->condition('fase', 'GEBLOKKEERD', '<>')
                ->condition('fase', 'GEANNULEERD', '<>')
