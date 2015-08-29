@@ -115,6 +115,13 @@ function feneko_code_form_alter(&$form, &$form_state, $form_id) {
   }
 }
 
+function feneko_code_get_order4_options() {
+  global $user;
+  $wrapper = entity_metadata_wrapper('user', $user);
+  $klantennummers = $wrapper->field_klantennummer->value();
+  return array_combine($klantennummers, $klantennummers);
+}
+
 
 function feneko_code_inform_admin($form, &$form_state) {
   $values = $form_state['values'];
