@@ -192,7 +192,7 @@ function feneko_code_orders_form($form, &$form_state) {
 
   if(count($klantennummers) > 1) {
     $header['klant'] = array(
-      'data' => t('klantennummer'),
+      'data' => t('Klantennummer'),
       'field' => 'klant',
     );
     $fields[] = 'klant';
