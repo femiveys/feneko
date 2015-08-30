@@ -288,24 +288,18 @@ function feneko_code_orders_form($form, &$form_state) {
       '#title' => $header['ref']['data'],
       '#size' => 20,
       '#description' => t('Tekens die in de referentie voorkomen'),
-      '#default_value' => !empty($form_state['input']['filter']['ref']) ?
-                                     $form_state['input']['filter']['ref'] : '',
     ),
     'lever_from' => array(
       '#type' => 'date_popup',
       '#title' => $header['lever_datum']['data'] . " " . t('van'),
       '#attributes' => array('class' => array('lever-from')),
       '#date_format' => $date_format,
-      '#default_value' => !empty($form_state['input']['filter']['lever_from']['date']) ?
-                      $form_state['input']['filter']['lever_from']['date'] : '',
     ),
     'lever_to' => array(
       '#type' => 'date_popup',
       '#title' => $header['lever_datum']['data'] . " " . t('tot'),
       '#attributes' => array('class' => array('lever-to')),
       '#date_format' => $date_format,
-      '#default_value' => !empty($form_state['input']['filter']['lever_to']['date']) ?
-                      $form_state['input']['filter']['lever_to']['date'] : '',
     ),
     'actions' => array(
       '#type' => 'container',
