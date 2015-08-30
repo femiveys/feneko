@@ -2,3 +2,27 @@ form#feneko-code-import-form .manual {
   padding: 5px 10px;
   background-color: #bbb;
 }
+
+.page-user-feneko-screens-orders .help {
+  display: inline-block;
+  width: 20px !important;
+  height: 20px !important;
+  vertical-align: middle;
+  margin-left: 5px !important;
+}
+
+.page-user-feneko-screens-orders .help-text {
+  display: none;
+  border: 1px dotted #22689B;
+  overflow: hidden;
+  padding: 5px 10px;
+}
+
+.page-user-feneko-screens-orders .help-text div {
+  float: left;
+  width: 50%;
+}
+
+.page-user-feneko-screens-orders .help-text .label {
+  font-weight: bold;
+}

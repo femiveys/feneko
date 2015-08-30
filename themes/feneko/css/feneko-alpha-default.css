@@ -156,7 +156,8 @@ tr:hover {
   padding: 10px 1%;
 }
 
-.manyform_table caption .help {
+.manyform_table caption .help,
+.page-user-feneko-screens-orders .help {
   width: 32px;
   height: 32px;
   background-image: url(../images/help.png);
@@ -165,6 +166,7 @@ tr:hover {
   margin-left: auto;
 }
 
-.manyform_table caption .help:hover {
+.manyform_table caption .help:hover,
+.page-user-feneko-screens-orders .help:hover {
   background-image: url(../images/help_hover.png);
 }
