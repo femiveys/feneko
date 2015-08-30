@@ -157,7 +157,7 @@ tr:hover {
 }
 
 .manyform_table caption .help,
-.page-user-feneko-screens-orders .help {
+.page-user-feneko-orders .help {
   width: 32px;
   height: 32px;
   background-image: url(../images/help.png);
@@ -167,6 +167,6 @@ tr:hover {
 }
 
 .manyform_table caption .help:hover,
-.page-user-feneko-screens-orders .help:hover {
+.page-user-feneko-orders .help:hover {
   background-image: url(../images/help_hover.png);
 }

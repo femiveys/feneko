@@ -244,7 +244,7 @@ function _feneko_code_csv_import($filename, $values) {
 
         // Set the dates
         $format = 'd-m-y';
-        if($dt = DateTime::createFromFormat($format, $fields['order_datum'])) {
+        if($dt = DateTime::createFromFormat($format . " H:i", $fields['order_datum'] . " 00:00")) {
           $fields['order_datum'] = $dt->getTimestamp();
         } else {
           $msg = t("Orderbon: :orderbon: Orderdatum :date is een ongeldige datum. Het verwachte formaat is: :format", array(
@@ -256,7 +256,7 @@ function _feneko_code_csv_import($filename, $values) {
           $fields['order_datum'] = 0;
         }
 
-        if($dt = DateTime::createFromFormat($format, $fields['lever_datum'])) {
+        if($dt = DateTime::createFromFormat($format . " H:i", $fields['lever_datum'] . " 00:00")) {
           $fields['lever_datum'] = $dt->getTimestamp();
         } else {
           $msg = t("Orderbon: :orderbon: Leverdatum :date is een ongeldige datum. Het verwachte formaat is: :format", array(

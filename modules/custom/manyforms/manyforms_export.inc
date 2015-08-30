@@ -255,7 +255,6 @@ function manyforms_export_form_filters($filters, $form_state, $header, $query) {
       $query->condition($field, $value, 'LIKE');
     }
   }
-
 }
 
 function manyforms_export_form_submit($form, &$form_state) {
