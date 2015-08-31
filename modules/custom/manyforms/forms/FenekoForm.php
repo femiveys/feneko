@@ -147,7 +147,7 @@ class FenekoForm {
         case 'kleur_dep':
           // Make sure the RAL color has been chosen
           if($values['kleur'] === 'ral') {
-            manyforms_ral_validate($name, $value);
+            manyforms_ral_validate($this->getId(), $name, $value);
           }
           break;
 
@@ -253,9 +253,9 @@ class FenekoForm {
     );
 
     foreach ($this->fields as $name => $weight) {
-      $form[$name] = self::getField($name, $weight);
+      $form[$name] = $this->getField($name, $weight);
     }
-    $form['submit_button'] = self::getField('submit_button', 1200);
+    $form['submit_button'] = $this->getField('submit_button', 1200);
 
     return $form;
   }
@@ -381,11 +381,11 @@ class FenekoForm {
             } elseif(($u === 'enkel' and $b > 2000) or ($u === 'dubbel' and $b < 4000)) {
               $strbr = 'val2';
             }
-            $section .= self::getCode('stootrubber', $strbr);
+            $section .= $this->getCode('stootrubber', $strbr);
             break;
 
           case 10:
-            $section .= self::getCode('stootrubber', $section_fields['stootrubber']);
+            $section .= $this->getCode('stootrubber', $section_fields['stootrubber']);
             break;
 
           case 11:
@@ -405,11 +405,11 @@ class FenekoForm {
             }
             break;
         }
-        $section .= self::getCode($table_field, $value);
+        $section .= $this->getCode($table_field, $value);
 
         // Elegance+ doesn't have a tussenstijl, so we need to force P7: 0
         if($id == 13) {
-          $section .= self::getCode('stand', '0');
+          $section .= $this->getCode('stand', '0');
         }
       }
       $section .= $this->getProductFiche($section_fields);
@@ -488,7 +488,7 @@ class FenekoForm {
     // SchuifVliegendeur "Basic", "Classic", "Elegance", "smal"
     elseif($id > 6 and $id <= 10) {
       // Set the right stootrubber value for the schuifdeuren
-      $section .= self::getCode('stootrubber', 'val2');
+      $section .= $this->getCode('stootrubber', 'val2');
 
       if($value == 0) {
         // Exact 1 of t1 or t2 is filled in
@@ -597,7 +597,7 @@ class FenekoForm {
         $fields['uitvoering'] = 'enkel';
         $fields['ondergeleider'] = 'geen';
         $fields['hoekverbinding'] = 'geen';
-        $product_fiche .= self::getCode("rails", '0');
+        $product_fiche .= $this->getCode("rails", '0');
         break;
 
       case 13:
@@ -613,7 +613,7 @@ class FenekoForm {
       switch ($name) {
         case 'borstel_profiel':
           if($value === 'nee') {
-            $product_fiche .= self::getCode("borstel", 'nvt');
+            $product_fiche .= $this->getCode("borstel", 'nvt');
           }
           break;
 
@@ -635,13 +635,13 @@ class FenekoForm {
           } else {
             $kader_plisse = 'ja';
           }
-          $product_fiche .= self::getCode("kader_plisse", $kader_plisse);
-          $product_fiche .= self::getCode("frame#kader", $bitmap);
+          $product_fiche .= $this->getCode("kader_plisse", $kader_plisse);
+          $product_fiche .= $this->getCode("frame#kader", $bitmap);
           break;
 
         case 'kader':
           if($id === 6 and $value === 'vp1001') {
-            $product_fiche .= self::getCode("hoekverbinding", 'geperst');
+            $product_fiche .= $this->getCode("hoekverbinding", 'geperst');
           }
           if($id === 12) {
             $name = 'kader12';
@@ -654,22 +654,22 @@ class FenekoForm {
             $value .= '_s';
           }
           if(isset($ral_code)) {
-            $product_fiche .= self::getCode("kleur_dep", $ral_code);
+            $product_fiche .= $this->getCode("kleur_dep", $ral_code);
           }
           break;
 
         case 'ondergeleider':
           if($id == 7 or $id == 8 or $id == 9 or $id == 13) {
             if($value === 'vp1016' or $value === 'vp1016a') {
-              $product_fiche .= self::getCode("montagediepte", '25 mm');
+              $product_fiche .= $this->getCode("montagediepte", '25 mm');
             } else {
-              $product_fiche .= self::getCode("montagediepte", '44 mm');
+              $product_fiche .= $this->getCode("montagediepte", '44 mm');
             }
           } elseif ($id == 10) {
             if($value === 'vp1016' or $value === 'vp1016a') {
-              $product_fiche .= self::getCode("montagediepte", '08 mm');
+              $product_fiche .= $this->getCode("montagediepte", '08 mm');
             } else {
-              $product_fiche .= self::getCode("montagediepte", '27 mm');
+              $product_fiche .= $this->getCode("montagediepte", '27 mm');
             }
           }
           break;
@@ -677,13 +677,13 @@ class FenekoForm {
         case 'plint':
           list($value, $dep_val) = self::explodeDep($value);
           if(isset($dep_val)) {
-            $product_fiche .= self::getCode("plint_dep", $dep_val);
+            $product_fiche .= $this->getCode("plint_dep", $dep_val);
           }
           break;
 
         case 'profiel':
           if($value === 'vr060') {
-            $product_fiche .= self::getCode("scharnierkant", 'geen');
+            $product_fiche .= $this->getCode("scharnierkant", 'geen');
           }
           break;
 
@@ -724,7 +724,7 @@ class FenekoForm {
           $value .= $id;
 
           if($value === 'dubbel5')  {
-            $product_fiche .= self::getCode("kader", 'standaard');
+            $product_fiche .= $this->getCode("kader", 'standaard');
           }
           break;
       }
@@ -775,7 +775,7 @@ class FenekoForm {
       if(!in_array($name, $ignore_list)) {
         if(empty($values[$name])) {
           form_set_error($name, t("Het veld @name is verplicht.",
-            array('@name' => self::getFieldTitle($name))));
+            array('@name' => $this->getFieldTitle($name))));
         }
       }
     }
@@ -1794,7 +1794,7 @@ class FenekoForm {
    * @param $weight The weight the field needs to have in the form
    * @return array The field definition for the Drupal Forms API
    */
-  private static function getCode($name, $value) {
+  private function getCode($name, $value) {
     if(trim($value) === '') {
       return;
     }
@@ -2292,7 +2292,7 @@ class FenekoForm {
         );
 
         foreach ($mapping[$name][$value] as $p => $val) {
-          $ret .= self::addCodeComment(":P$p: $p.$val", $orig_name[$p], $orig_val[$p]);
+          $ret .= $this->addCodeComment(":P$p: $p.$val", $orig_name[$p], $orig_val[$p]);
         }
         return $ret;
 
@@ -2303,7 +2303,7 @@ class FenekoForm {
               $p = $mapping[$name]['#code'];
               if(isset($mapping[$name][$value])) {
                 if($mapping[$name][$value] !== '') {
-                  return self::addCodeComment(":P$p: $p." . $mapping[$name][$value], $name, $value);
+                  return $this->addCodeComment(":P$p: $p." . $mapping[$name][$value], $name, $value);
                 }
               } else {
                 drupal_set_message(t("The key :value could not be found for :name.",
@@ -2316,7 +2316,7 @@ class FenekoForm {
           } else { // A textfield
             if(!empty($value) or $value === '0') {
               $code = $mapping[$name];
-              return self::addCodeComment(":$code: $value", $name);
+              return $this->addCodeComment(":$code: $value", $name);
             }
           }
         } else {
@@ -2335,12 +2335,12 @@ class FenekoForm {
   }
 
 
-  private static function getFieldTitle($name) {
+  private function getFieldTitle($name) {
     // Find the field as field or dependant field
-    $field = self::getField($name); // Normal field
+    $field = $this->getField($name); // Normal field
     if(!isset($field)) {
       $orig_name = str_replace('_dep', '', $name);
-      $orig_field = self::getField($orig_name);
+      $orig_field = $this->getField($orig_name);
       if(isset($orig_field['container'][$name])) {
         $field = $orig_field['container'][$name];
       }
@@ -2363,10 +2363,10 @@ class FenekoForm {
   }
 
 
-  private static function addCodeComment($string, $name, $value = NULL) {
+  private function addCodeComment($string, $name, $value = NULL) {
     $colsize = 12;
     $format = '%-' . $colsize . 's %s';
-    $comment = '$$ ' . self::getFieldTitle($name);
+    $comment = '$$ ' . $this->getFieldTitle($name);
 
     // Translate some values
     switch ($value) {
@@ -2418,7 +2418,7 @@ class FenekoForm {
    * @param $weight The weight the field needs to have in the form
    * @return array The field definition for the Drupal Forms API
    */
-  private static function getField($name, $weight = 0) {
+  private function getField($name, $weight = 0) {
     // Much used options
     $borstel_options = array(
       'geen' => t('geen'),
@@ -2653,31 +2653,6 @@ class FenekoForm {
             ),
           ),
         ),
-        // 'measures' => array(
-        //   '#type' => 'container',
-        //   'breedte' => array(
-        //     '#title' => t('breedte'),
-        //     '#type' => 'textfield',
-        //     '#states' => array(
-        //       'visible' => array(
-        //         'input[name="kader[top]"], input[name="kader[bottom]"]' => array(
-        //           array('value' => 1),
-        //         ),
-        //       ),
-        //     ),
-        //   ),
-        //   'hoogte' => array(
-        //     '#title' => t('hoogte'),
-        //     '#type' => 'textfield',
-        //     '#states' => array(
-        //       'visible' => array(
-        //         'input[name="kader[left]"], input[name="kader[right]"]' => array(
-        //           array('value' => 1),
-        //         ),
-        //       ),
-        //     ),
-        //   ),
-        // ),
       ),
       'hoekverbinding' => array(
         '#title' => t('hoekverbinding'),
@@ -2745,7 +2720,7 @@ class FenekoForm {
             '#type' => 'textfield',
             '#description' => t('XXXX-30d** => Standaard voor matkleuren<br />XXXX-70d* => Standaard voor blinkende kleuren'),
             '#title_display' => 'invisible',
-            '#autocomplete_path' => 'manyforms/autocomplete',
+            '#autocomplete_path' => 'manyforms/autocomplete/'.$this->getId(),
             '#attributes' => array(
               'placeholder' => t('Zoek de RAL code'),
             ),
