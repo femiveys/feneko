@@ -3104,7 +3104,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     'label' => 'Lengte',
     'required' => 1,
     'settings' => array(
-      'max' => '',
+      'max' => 6000,
       'min' => '',
       'prefix' => '',
       'suffix' => 'mm',
@@ -7762,7 +7762,6 @@ function feneko_calculator_feature_field_default_field_instances() {
   t('Aantal beugels');
   t('Aantal koppelstukken');
   t('Anti-Dreunstrook');
-  t('BTW nummer');
   t('Base Price');
   t('Breedte');
   t('Breedte delen');
@@ -7777,7 +7776,6 @@ function feneko_calculator_feature_field_default_field_instances() {
   t('Isolatie Dikte');
   t('Kant');
   t('Klantennummer');
-  t('Klantennummers');
   t('Kleur');
   t('Kleur plaat 2');
   t('Knippen');
@@ -7791,7 +7789,6 @@ function feneko_calculator_feature_field_default_field_instances() {
   t('Muurkap Diepte');
   t('Muurkap Lengte');
   t('Muurkap Type');
-  t('Naam Bedrijf');
   t('Ophanging');
   t('Opmerking');
   t('Order total');
@@ -7818,13 +7815,10 @@ function feneko_calculator_feature_field_default_field_instances() {
   t('Stockprofiel');
   t('Stuk Type');
   t('Tekening');
-  t('Telefoonnummer');
   t('Totaal');
   t('Total');
   t('Type');
   t('Unit price');
-  t('Vul hier de klantennummers in voor wie deze persoon bestellingen mag doen en bekijken.<br>
-Het eerste nummer wordt als standaard beschouwd.');
 
   return $field_instances;
 }
