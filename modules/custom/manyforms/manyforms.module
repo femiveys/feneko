@@ -65,7 +65,7 @@ function manyforms_menu() {
     'page callback' => 'drupal_get_form',
     'page arguments' => array('manyforms_export_form', TRUE),
     'file' => 'manyforms_export.inc',
-    'access arguments' => array('admin_manyforms'),
+    'access arguments' => array('archive_manyforms'),
   );
 
   $items['forms/pdf_generator'] = array(
@@ -313,6 +313,10 @@ function manyforms_permission() {
     ),
     'submit_manyforms' => array(
       'title' => 'Submit form',
+      'restrict access' => TRUE,
+    ),
+    'archive_manyforms' => array(
+      'title' => 'Access archive screen forms',
       'restrict access' => TRUE,
     ),
   );
