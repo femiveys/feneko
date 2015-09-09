@@ -37,6 +37,15 @@ function feneko_account_user_default_permissions() {
     'module' => 'field_permissions',
   );
 
+  // Exported permission: 'post api'.
+  $permissions['post api'] = array(
+    'name' => 'post api',
+    'roles' => array(
+      'api' => 'api',
+    ),
+    'module' => 'feneko_code',
+  );
+
   // Exported permission: 'view field_klantennummer'.
   $permissions['view field_klantennummer'] = array(
     'name' => 'view field_klantennummer',
