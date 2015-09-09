@@ -8,6 +8,10 @@ function feneko_code_permission() {
       'title' => t('see the catalog'),
       'description' => t('see the catalog'),
     ),
+    'post api' => array(
+      'title' => t('Post to the API'),
+      'description' => t('Post to the API'),
+    ),
   );
 }
 
@@ -188,31 +192,24 @@ function feneko_code_services_resources() {
         'create' => array(
           'help' => 'Updates the statuses of orders',
           'callback' => '_feneko_order_statuses_service',
-          'access callback' => TRUE,
-          // 'access arguments' => array('submit_manyforms'),
+          'access arguments' => array('post api'),
+          'file' => array(
+            'type' => 'inc',
+            'module' => 'feneko_code',
+            'name' => 'feneko_code.import',
+          ),
           'args' => array(
-          //   array(
-          //     'name' => 'file',
-          //     'type' => 'string',
-          //     'description' => 'File to upload',
-          //     'source' => array('data' => 'file'),
-          //     // 'optional' => FALSE,
-          //   ),
+            array(
+              'name' => 'file',
+              'type' => 'string',
+              'description' => 'File to upload',
+              'source' => array('data' => 'file'),
+              // 'optional' => FALSE,
+            ),
           ),
         ),
       ),
     ),
   );
   return $api;
-}
-
-/**
- * Callback function for order statuses
- */
-function _feneko_order_statuses_service($file) {
-echo 'sqsqs';
-  // dpm('called');
-  // dpm($file);
-  return 'hjknlk';
-  echo json_encode(array('ttt' => 'haha'));
 }

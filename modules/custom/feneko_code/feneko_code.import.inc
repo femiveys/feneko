@@ -327,3 +327,19 @@ function _feneko_code_check_length(&$fields, $schema) {
     }
   }
 }
+
+/**
+ * Callback function for order statuses
+ */
+function _feneko_order_statuses_service($file) {
+  $data = base64_decode($file);
+  $filename = drupal_tempnam("private://", "order_statuses");
+  file_put_contents($filename, $data);
+
+  $arg = array(
+    'type' => FENEKO_CODE_ORDER_STATUSES_TABLE,
+    'header' => false,
+  );
+
+  _feneko_code_csv_import($filename, $arg);
+}
