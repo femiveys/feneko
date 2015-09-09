@@ -8,6 +8,7 @@ dependencies[] = field_group
 dependencies[] = field_permissions
 dependencies[] = list
 dependencies[] = options
+dependencies[] = rest_server
 dependencies[] = services
 dependencies[] = text
 features[ctools][] = field_group:field_group:1

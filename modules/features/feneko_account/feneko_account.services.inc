@@ -54,9 +54,6 @@ function feneko_account_default_services_endpoint() {
             ),
           ),
         ),
-        'token' => array(
-          'enabled' => '1',
-        ),
       ),
     ),
   );
