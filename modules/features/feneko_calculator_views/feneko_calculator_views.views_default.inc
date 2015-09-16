@@ -38,6 +38,8 @@ function feneko_calculator_views_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['style_plugin'] = 'table';
   $handler->display->display_options['style_options']['columns'] = array(
+    'field_maritime' => 'field_maritime',
+    'field_color' => 'field_color',
     'type' => 'type',
     'detail' => 'detail',
     'edit_delete' => 'edit_delete',
@@ -47,10 +49,23 @@ function feneko_calculator_views_views_default_views() {
     'field_base_price' => 'field_base_price',
     'line_item_title' => 'line_item_title',
     'nothing_1' => 'nothing_1',
-    'field_color' => 'field_color',
   );
   $handler->display->display_options['style_options']['default'] = '-1';
   $handler->display->display_options['style_options']['info'] = array(
+    'field_maritime' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_color' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
     'type' => array(
       'sortable' => 0,
       'default_sort_order' => 'asc',
@@ -104,16 +119,7 @@ function feneko_calculator_views_views_default_views() {
       'separator' => '',
       'empty_column' => 0,
     ),
-    'field_color' => array(
-      'sortable' => 0,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-    ),
   );
-  $handler->display->display_options['style_options']['caption'] = 'bb [field_color-value] beschr';
-  $handler->display->display_options['style_options']['summary'] = 'ss [field_color-value] samen';
   /* Header: Global: Unfiltered text */
   $handler->display->display_options['header']['area_text_custom']['id'] = 'area_text_custom';
   $handler->display->display_options['header']['area_text_custom']['table'] = 'views';

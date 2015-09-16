@@ -19,6 +19,15 @@ function feneko_translations_translations_fr_defaults() {
     'plural' => 0,
   );
   $translatables[] = t('Plaats bestelling', array(), array('context' => ''));
+  $translations['fr:default']['0b080119cbf1138edfa9132471e1a661'] = array(
+    'source' => 'tot',
+    'context' => '',
+    'location' => '/nl/user/1/feneko_orders',
+    'translation' => 'au',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('tot', array(), array('context' => ''));
   $translations['fr:default']['10b9486648b56ba44ab65c59df05dde5'] = array(
     'source' => 'Borstelprofiel VP1200',
     'context' => '',
@@ -37,6 +46,24 @@ function feneko_translations_translations_fr_defaults() {
     'plural' => 0,
   );
   $translatables[] = t('Bereken korting', array(), array('context' => ''));
+  $translations['fr:default']['1d03e968c40b69c6e88fefbe5833f517'] = array(
+    'source' => 'Leverdatum',
+    'context' => '',
+    'location' => '/nl/user/1/feneko_screens_orders',
+    'translation' => 'Date de livraison',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Leverdatum', array(), array('context' => ''));
+  $translations['fr:default']['25e3ae7384d662b1039dbd72d4cae42d'] = array(
+    'source' => 'Klantennummer',
+    'context' => 'field_klantennummer:user:label',
+    'location' => '/nl/admin/structure/features/feneko_translations/status',
+    'translation' => 'Numéro de client',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Klantennummer', array(), array('context' => 'field_klantennummer:user:label'));
   $translations['fr:default']['2b05b5c27bba6e3b572e41fc7100e765'] = array(
     'source' => 'Opgepast! Meerprijs.',
     'context' => '',
@@ -46,6 +73,39 @@ function feneko_translations_translations_fr_defaults() {
     'plural' => 0,
   );
   $translatables[] = t('Opgepast! Meerprijs.', array(), array('context' => ''));
+  $translations['fr:default']['2d709a3eeddf7d0b6785b6c2547d3b97'] = array(
+    'source' => 'Het midden van de tussenstijl (VP1005) komt op 917mm.<br />
+                   Indien u de hoogte zelf wenst te kiezen vult u T1 in.<br />
+                   Indien u meerdere tussenstijlen wenst vult u T1,T2, T3 in.',
+    'context' => '',
+    'location' => '/nl/admin/feneko_screens/overview',
+    'translation' => 'Le milieu de la traverse (VP1005) se trouve à 917mm.<br />
+Si vous voulez la traverse sur une autre hauteur, vous remplissez le T1.<br />
+Si vous voulez plusieurs traverses vous remplissez le T1,T2,T3.',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Het midden van de tussenstijl (VP1005) komt op 917mm.<br />
+                   Indien u de hoogte zelf wenst te kiezen vult u T1 in.<br />
+                   Indien u meerdere tussenstijlen wenst vult u T1,T2, T3 in.', array(), array('context' => ''));
+  $translations['fr:default']['4c5c21ffe644c221c6ff6b508587a4da'] = array(
+    'source' => 'Lopende orders',
+    'context' => '',
+    'location' => '/user',
+    'translation' => 'Commandes en cours',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Lopende orders', array(), array('context' => ''));
+  $translations['fr:default']['6b0002988bab985c49e64959cd3f39d3'] = array(
+    'source' => 'Kleur',
+    'context' => 'field_color:commerce_order:label',
+    'location' => '/nl/admin/structure/features/feneko_translations/status',
+    'translation' => 'Couleur',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Kleur', array(), array('context' => 'field_color:commerce_order:label'));
   $translations['fr:default']['6e419ce654124356fd3bd39fb144557a'] = array(
     'source' => 'Breedtemaat van het vliegenschuifdeurblad.<br />Totale hoogte inclusief geleiders van de schuifdeur.<br />Lengte van de geleiders.',
     'context' => '',
@@ -64,6 +124,24 @@ function feneko_translations_translations_fr_defaults() {
     'plural' => 0,
   );
   $translatables[] = t('Standaardprofiel', array(), array('context' => ''));
+  $translations['fr:default']['7fb4910b2b2641a6da46bf06921a2085'] = array(
+    'source' => 'Er zijn geen bestellingen in behandeling.',
+    'context' => '',
+    'location' => '/nl/user/1/feneko_screens_orders',
+    'translation' => 'Il n\'y a pas d\'ordres en cours',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Er zijn geen bestellingen in behandeling.', array(), array('context' => ''));
+  $translations['fr:default']['816a78c8472f3f298a3a7bdf8d8013f2'] = array(
+    'source' => 'Besteldatum',
+    'context' => '',
+    'location' => '/nl/user/1/feneko_screens_orders',
+    'translation' => 'Date d\'ordre',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Besteldatum', array(), array('context' => ''));
   $translations['fr:default']['8afa46be81acd3d7987f688c0bc3744b'] = array(
     'source' => 'Bereken korting (Stap 1/2)',
     'context' => '',
@@ -73,6 +151,33 @@ function feneko_translations_translations_fr_defaults() {
     'plural' => 0,
   );
   $translatables[] = t('Bereken korting (Stap 1/2)', array(), array('context' => ''));
+  $translations['fr:default']['957d2fa52c19a5aff4ccf5d9a959adab'] = array(
+    'source' => 'van',
+    'context' => '',
+    'location' => '/nl/user/1/feneko_orders',
+    'translation' => 'de',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('van', array(), array('context' => ''));
+  $translations['fr:default']['9e35cea985142d1f600543586e2e8ede'] = array(
+    'source' => 'Klantennummers',
+    'context' => '',
+    'location' => '/nl/admin/structure/features',
+    'translation' => 'Numéros de client',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Klantennummers', array(), array('context' => ''));
+  $translations['fr:default']['a9a39524393245a842a5d6694f22ee6f'] = array(
+    'source' => 'Leverconditie',
+    'context' => '',
+    'location' => '/nl/user/1/feneko_screens_orders',
+    'translation' => 'Condition de livraison',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Leverconditie', array(), array('context' => ''));
   $translations['fr:default']['c11e09df1574eed40e1f075f5fdd717f'] = array(
     'source' => 'Schuifvliegendeuren Elegance+',
     'context' => '',
@@ -82,6 +187,69 @@ function feneko_translations_translations_fr_defaults() {
     'plural' => 0,
   );
   $translatables[] = t('Schuifvliegendeuren Elegance+', array(), array('context' => ''));
+  $translations['fr:default']['c5ea47e90c480be70ab8fce6259581ac'] = array(
+    'source' => 'Klantennummer (field_klantennummer)',
+    'context' => '',
+    'location' => '/index.php',
+    'translation' => 'Numéro de client',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Klantennummer (field_klantennummer)', array(), array('context' => ''));
+  $translations['fr:default']['c981adbb277d46d8e3ed26497b7ee096'] = array(
+    'source' => 'Klantennummer',
+    'context' => '',
+    'location' => '/index.php',
+    'translation' => 'Numéro de client',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Klantennummer', array(), array('context' => ''));
+  $translations['fr:default']['d4d537cf9231306d75c5d2aba0c22b00'] = array(
+    'source' => 'Bedrag',
+    'context' => '',
+    'location' => '/nl/user/1/feneko_screens_orders',
+    'translation' => 'Montant',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Bedrag', array(), array('context' => ''));
+  $translations['fr:default']['dea5d1f08521fb3b04397afb1852595b'] = array(
+    'source' => 'Kleur',
+    'context' => '',
+    'location' => '/index.php',
+    'translation' => 'Couleur',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Kleur', array(), array('context' => ''));
+  $translations['fr:default']['e2ee5db3726b7f8f02b1b5c3a782874c'] = array(
+    'source' => 'Tekens die in de referentie voorkomen',
+    'context' => '',
+    'location' => '/nl/user/1/feneko_orders',
+    'translation' => 'Caractères dans la référence',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Tekens die in de referentie voorkomen', array(), array('context' => ''));
+  $translations['fr:default']['e5d49efb309c6145571b8e05c7428e68'] = array(
+    'source' => 'Orderdatum',
+    'context' => '',
+    'location' => '/nl/user/124/feneko_screens_orders',
+    'translation' => 'Date de commande',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Orderdatum', array(), array('context' => ''));
+  $translations['fr:default']['ed36982788a88ca96078aaeb959f9c29'] = array(
+    'source' => 'Screens bestellingen',
+    'context' => '',
+    'location' => '/nl/user/1',
+    'translation' => 'Commandes screens',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Screens bestellingen', array(), array('context' => ''));
   $translations['fr:default']['f72c162cd7524cfcd8df67a5a5ed6d39'] = array(
     'source' => 'Gaatjes',
     'context' => 'field_ophanging:#allowed_values:gaatjes',
@@ -109,6 +277,15 @@ function feneko_translations_translations_fr_defaults() {
     'plural' => 0,
   );
   $translatables[] = t('Bestelling', array(), array('context' => 'field_order_type:#allowed_values:order'));
+  $translations['fr:field']['667d5390b792b72a634adf0215ae9045'] = array(
+    'source' => 'Klantennummers',
+    'context' => 'field_klantennummer:user:label',
+    'location' => 'field:field_klantennummer:user:label',
+    'translation' => 'Numéros de client',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('Klantennummers', array(), array('context' => 'field_klantennummer:user:label'));
   $translations['fr:field']['affb9247a339b7a31f3680f2ea1e6a82'] = array(
     'source' => 'Haakjes',
     'context' => 'field_ophanging:#allowed_values:haakjes',
