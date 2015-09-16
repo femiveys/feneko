@@ -119,8 +119,8 @@ function feneko_code_orders_form($form, &$form_state) {
     ),
     'GEREED GEMELD'           => array(
       'label' => array(
-        'nl' => 'GEREED GEMELD',
-        'fr' => 'PRÊT',
+        'nl' => 'PRODUCTIE',
+        'fr' => 'PRODUCTION',
       ),
       'description' => array(
         'nl' => 'Orders is klaar voor levering',
