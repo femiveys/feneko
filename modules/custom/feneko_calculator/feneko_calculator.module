@@ -370,11 +370,14 @@ function feneko_calculator_form_commerce_cart_add_to_cart_form_alter(&$form, &$f
   // Prepare the destination for links
   $url_options = array('query' => drupal_get_destination());
 
-  // Load the cart and create one of needed
+  // Load the cart and create one if needed
   global $user;
+
+  if(!$user) return;
 
   if(!$cart = commerce_cart_order_load($user->uid)) {
     $cart = commerce_cart_order_new($user->uid);
+    watchdog('feneko_calculator', 'No cart found for current user. We just created one.');
   }
 
   $cart_wrapper = entity_metadata_wrapper('commerce_order', $cart);

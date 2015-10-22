@@ -2,3 +2,4 @@
 /libraries
 /modules/contrib
 /modules/custom/manyforms/mpdf
+*.DS_Store
