@@ -375,7 +375,9 @@ function feneko_calculator_form_commerce_cart_add_to_cart_form_alter(&$form, &$f
 
   if(!$user) return;
 
-  if(!$cart = commerce_cart_order_load($user->uid)) {
+  $cart = commerce_cart_order_load($user->uid);
+
+  if(!$cart && $user->uid) {
     $cart = commerce_cart_order_new($user->uid);
     watchdog('feneko_calculator', 'No cart found for current user. We just created one.');
   }

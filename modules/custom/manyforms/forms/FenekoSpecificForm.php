@@ -176,7 +176,6 @@ class FenekoSpecificForm extends FenekoForm {
       max-height: 70px;
       max-width: 170px;
     }
-
     </style>
     </head>
     <body>";
