@@ -10,7 +10,7 @@
 function feneko_features_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-product-body'
+  // Exported field_instance: 'node-product-body'.
   $field_instances['node-product-body'] = array(
     'bundle' => 'product',
     'default_value' => NULL,
@@ -85,7 +85,7 @@ function feneko_features_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-product-field_afbeeldingen'
+  // Exported field_instance: 'node-product-field_afbeeldingen'.
   $field_instances['node-product-field_afbeeldingen'] = array(
     'bundle' => 'product',
     'deleted' => 0,
@@ -206,7 +206,7 @@ function feneko_features_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-product-field_afbeeldingen_multiple'
+  // Exported field_instance: 'node-product-field_afbeeldingen_multiple'.
   $field_instances['node-product-field_afbeeldingen_multiple'] = array(
     'bundle' => 'product',
     'deleted' => 0,
@@ -311,7 +311,7 @@ function feneko_features_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-product-field_basic_product'
+  // Exported field_instance: 'node-product-field_basic_product'.
   $field_instances['node-product-field_basic_product'] = array(
     'bundle' => 'product',
     'default_value' => NULL,
@@ -381,7 +381,7 @@ function feneko_features_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-product-field_bijlage_secured'
+  // Exported field_instance: 'node-product-field_bijlage_secured'.
   $field_instances['node-product-field_bijlage_secured'] = array(
     'bundle' => 'product',
     'deleted' => 0,
@@ -455,7 +455,7 @@ function feneko_features_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-product-field_catalogus_link'
+  // Exported field_instance: 'node-product-field_catalogus_link'.
   $field_instances['node-product-field_catalogus_link'] = array(
     'bundle' => 'product',
     'default_value' => array(
@@ -538,7 +538,7 @@ function feneko_features_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-product-field_levertermijn'
+  // Exported field_instance: 'node-product-field_levertermijn'.
   $field_instances['node-product-field_levertermijn'] = array(
     'bundle' => 'product',
     'default_value' => array(
@@ -611,7 +611,7 @@ function feneko_features_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-product-field_order_link'
+  // Exported field_instance: 'node-product-field_order_link'.
   $field_instances['node-product-field_order_link'] = array(
     'bundle' => 'product',
     'default_value' => array(
@@ -701,7 +701,7 @@ function feneko_features_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-product-field_orderable_products'
+  // Exported field_instance: 'node-product-field_orderable_products'.
   $field_instances['node-product-field_orderable_products'] = array(
     'bundle' => 'product',
     'deleted' => 0,
@@ -770,7 +770,7 @@ function feneko_features_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-product-field_productcategorie'
+  // Exported field_instance: 'node-product-field_productcategorie'.
   $field_instances['node-product-field_productcategorie'] = array(
     'bundle' => 'product',
     'default_value' => NULL,
@@ -830,7 +830,7 @@ function feneko_features_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-product-field_technische_documenten'
+  // Exported field_instance: 'node-product-field_technische_documenten'.
   $field_instances['node-product-field_technische_documenten'] = array(
     'bundle' => 'product',
     'deleted' => 0,
@@ -905,7 +905,7 @@ function feneko_features_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-product-field_technische_informatie'
+  // Exported field_instance: 'node-product-field_technische_informatie'.
   $field_instances['node-product-field_technische_informatie'] = array(
     'bundle' => 'product',
     'default_value' => NULL,
@@ -974,7 +974,7 @@ function feneko_features_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-product-field_technische_tekening'
+  // Exported field_instance: 'node-product-field_technische_tekening'.
   $field_instances['node-product-field_technische_tekening'] = array(
     'bundle' => 'product',
     'deleted' => 0,
@@ -1073,7 +1073,7 @@ function feneko_features_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'taxonomy_term-product_category-field_bestelbonnen'
+  // 'taxonomy_term-product_category-field_bestelbonnen'.
   $field_instances['taxonomy_term-product_category-field_bestelbonnen'] = array(
     'bundle' => 'product_category',
     'deleted' => 0,
@@ -1138,7 +1138,7 @@ function feneko_features_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'taxonomy_term-product_category-field_korte_prijslijst'
+  // 'taxonomy_term-product_category-field_korte_prijslijst'.
   $field_instances['taxonomy_term-product_category-field_korte_prijslijst'] = array(
     'bundle' => 'product_category',
     'deleted' => 0,
@@ -1202,7 +1202,7 @@ function feneko_features_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-product_category-field_prijslijst'
+  // Exported field_instance: 'taxonomy_term-product_category-field_prijslijst'.
   $field_instances['taxonomy_term-product_category-field_prijslijst'] = array(
     'bundle' => 'product_category',
     'deleted' => 0,
@@ -1267,7 +1267,7 @@ function feneko_features_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'taxonomy_term-product_category-field_product_category_image'
+  // 'taxonomy_term-product_category-field_product_category_image'.
   $field_instances['taxonomy_term-product_category-field_product_category_image'] = array(
     'bundle' => 'product_category',
     'deleted' => 0,

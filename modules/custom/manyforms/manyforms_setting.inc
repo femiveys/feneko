@@ -7,7 +7,7 @@
 function manyforms_setting_form($form, &$form_state) {
   $form['manyforms_notification_email'] = array(
     '#type' => 'textfield',
-    '#title' => 'e-mail',
+    '#title' => 'E-mail',
     '#size' => 20,
     '#maxlength' => 30,
     '#element_validate' => array('element_validate_mail'),

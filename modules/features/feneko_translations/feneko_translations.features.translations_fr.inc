@@ -10,6 +10,19 @@
 function feneko_translations_translations_fr_defaults() {
   $translations = array();
   $translatables = array();
+  $translations['fr:commerce']['dabd8232b9d6575cd581f0815cf9c908'] = array(
+    'source' => '<p>Je bestellingsnummer is: [commerce-order:order-number].</p>
+<p>Je kan je <a href="[commerce-order:url]">bestelling bekijken</a> op je profiel.</p>
+<p><a href="/cart/init">Bestel iets anders</a></p>',
+    'context' => 'checkout:complete:message',
+    'location' => 'commerce:checkout:complete:message',
+    'translation' => '<p>Ton numéro de ordre est : [commerce-order:order-number].</p><p>Vous pouvez regarder vorte commande sur: <a href="/user/[commerce-order:uid]/feneko_orders">Ordres en cours</a> sur ton profil.</p>',
+    'plid' => 0,
+    'plural' => 0,
+  );
+  $translatables[] = t('<p>Je bestellingsnummer is: [commerce-order:order-number].</p>
+<p>Je kan je <a href="[commerce-order:url]">bestelling bekijken</a> op je profiel.</p>
+<p><a href="/cart/init">Bestel iets anders</a></p>', array(), array('context' => 'checkout:complete:message'));
   $translations['fr:default']['09bc5f9df1cb5ea352fb427ef7a8080a'] = array(
     'source' => 'Plaats bestelling',
     'context' => '',
