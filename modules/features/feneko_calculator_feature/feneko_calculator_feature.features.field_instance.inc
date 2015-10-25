@@ -11,7 +11,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   $field_instances = array();
 
   // Exported field_instance:
-  // 'commerce_line_item-dorpel_stuk-commerce_display_path'
+  // 'commerce_line_item-dorpel_stuk-commerce_display_path'.
   $field_instances['commerce_line_item-dorpel_stuk-commerce_display_path'] = array(
     'bundle' => 'dorpel_stuk',
     'default_value' => NULL,
@@ -51,7 +51,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_line_item-dorpel_stuk-commerce_product'
+  // Exported field_instance: 'commerce_line_item-dorpel_stuk-commerce_product'.
   $field_instances['commerce_line_item-dorpel_stuk-commerce_product'] = array(
     'bundle' => 'dorpel_stuk',
     'default_value' => NULL,
@@ -106,7 +106,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_line_item-dorpel_stuk-commerce_total'
+  // Exported field_instance: 'commerce_line_item-dorpel_stuk-commerce_total'.
   $field_instances['commerce_line_item-dorpel_stuk-commerce_total'] = array(
     'bundle' => 'dorpel_stuk',
     'default_value' => NULL,
@@ -168,7 +168,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_line_item-dorpel_stuk-commerce_unit_price'
+  // 'commerce_line_item-dorpel_stuk-commerce_unit_price'.
   $field_instances['commerce_line_item-dorpel_stuk-commerce_unit_price'] = array(
     'bundle' => 'dorpel_stuk',
     'default_value' => NULL,
@@ -229,8 +229,49 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'commerce_line_item-dorpel_stuk-field_comment'.
+  $field_instances['commerce_line_item-dorpel_stuk-field_comment'] = array(
+    'bundle' => 'dorpel_stuk',
+    'commerce_cart_settings' => array(
+      'field_access' => 1,
+    ),
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 6,
+      ),
+    ),
+    'entity_type' => 'commerce_line_item',
+    'field_name' => 'field_comment',
+    'label' => 'Opmerking',
+    'required' => 0,
+    'settings' => array(
+      'linkit' => array(
+        'enable' => 0,
+        'insert_plugin' => '',
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 1,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 7,
+    ),
+  );
+
   // Exported field_instance:
-  // 'commerce_line_item-dorpel_stuk-field_raamtablet_diepte'
+  // 'commerce_line_item-dorpel_stuk-field_raamtablet_diepte'.
   $field_instances['commerce_line_item-dorpel_stuk-field_raamtablet_diepte'] = array(
     'bundle' => 'dorpel_stuk',
     'commerce_cart_settings' => array(
@@ -268,7 +309,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_line_item-dorpel_stuk-field_rug'
+  // Exported field_instance: 'commerce_line_item-dorpel_stuk-field_rug'.
   $field_instances['commerce_line_item-dorpel_stuk-field_rug'] = array(
     'bundle' => 'dorpel_stuk',
     'commerce_cart_settings' => array(
@@ -306,7 +347,8 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_line_item-muurkap-commerce_display_path'
+  // Exported field_instance:
+  // 'commerce_line_item-muurkap-commerce_display_path'.
   $field_instances['commerce_line_item-muurkap-commerce_display_path'] = array(
     'bundle' => 'muurkap',
     'default_value' => NULL,
@@ -346,7 +388,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_line_item-muurkap-commerce_product'
+  // Exported field_instance: 'commerce_line_item-muurkap-commerce_product'.
   $field_instances['commerce_line_item-muurkap-commerce_product'] = array(
     'bundle' => 'muurkap',
     'default_value' => NULL,
@@ -401,7 +443,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_line_item-muurkap-commerce_total'
+  // Exported field_instance: 'commerce_line_item-muurkap-commerce_total'.
   $field_instances['commerce_line_item-muurkap-commerce_total'] = array(
     'bundle' => 'muurkap',
     'default_value' => NULL,
@@ -462,7 +504,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_line_item-muurkap-commerce_unit_price'
+  // Exported field_instance: 'commerce_line_item-muurkap-commerce_unit_price'.
   $field_instances['commerce_line_item-muurkap-commerce_unit_price'] = array(
     'bundle' => 'muurkap',
     'default_value' => NULL,
@@ -523,7 +565,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_line_item-muurkap-field_base_price'
+  // Exported field_instance: 'commerce_line_item-muurkap-field_base_price'.
   $field_instances['commerce_line_item-muurkap-field_base_price'] = array(
     'bundle' => 'muurkap',
     'commerce_cart_settings' => array(
@@ -561,7 +603,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_line_item-muurkap-field_beugels'
+  // Exported field_instance: 'commerce_line_item-muurkap-field_beugels'.
   $field_instances['commerce_line_item-muurkap-field_beugels'] = array(
     'bundle' => 'muurkap',
     'commerce_cart_settings' => array(
@@ -608,7 +650,48 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_line_item-muurkap-field_eindstukken'
+  // Exported field_instance: 'commerce_line_item-muurkap-field_comment'.
+  $field_instances['commerce_line_item-muurkap-field_comment'] = array(
+    'bundle' => 'muurkap',
+    'commerce_cart_settings' => array(
+      'field_access' => 1,
+    ),
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 10,
+      ),
+    ),
+    'entity_type' => 'commerce_line_item',
+    'field_name' => 'field_comment',
+    'label' => 'Opmerking',
+    'required' => 0,
+    'settings' => array(
+      'linkit' => array(
+        'enable' => 0,
+        'insert_plugin' => '',
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 1,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 13,
+    ),
+  );
+
+  // Exported field_instance: 'commerce_line_item-muurkap-field_eindstukken'.
   $field_instances['commerce_line_item-muurkap-field_eindstukken'] = array(
     'bundle' => 'muurkap',
     'commerce_cart_settings' => array(
@@ -651,7 +734,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_line_item-muurkap-field_hoeken'
+  // Exported field_instance: 'commerce_line_item-muurkap-field_hoeken'.
   $field_instances['commerce_line_item-muurkap-field_hoeken'] = array(
     'bundle' => 'muurkap',
     'commerce_cart_settings' => array(
@@ -698,7 +781,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_line_item-muurkap-field_koppelstukken'
+  // Exported field_instance: 'commerce_line_item-muurkap-field_koppelstukken'.
   $field_instances['commerce_line_item-muurkap-field_koppelstukken'] = array(
     'bundle' => 'muurkap',
     'commerce_cart_settings' => array(
@@ -745,7 +828,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_line_item-muurkap-field_lengte'
+  // Exported field_instance: 'commerce_line_item-muurkap-field_lengte'.
   $field_instances['commerce_line_item-muurkap-field_lengte'] = array(
     'bundle' => 'muurkap',
     'commerce_cart_settings' => array(
@@ -793,7 +876,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_line_item-plaatbewerking-commerce_display_path'
+  // 'commerce_line_item-plaatbewerking-commerce_display_path'.
   $field_instances['commerce_line_item-plaatbewerking-commerce_display_path'] = array(
     'bundle' => 'plaatbewerking',
     'default_value' => NULL,
@@ -834,7 +917,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_line_item-plaatbewerking-commerce_product'
+  // 'commerce_line_item-plaatbewerking-commerce_product'.
   $field_instances['commerce_line_item-plaatbewerking-commerce_product'] = array(
     'bundle' => 'plaatbewerking',
     'default_value' => NULL,
@@ -889,7 +972,8 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_line_item-plaatbewerking-commerce_total'
+  // Exported field_instance:
+  // 'commerce_line_item-plaatbewerking-commerce_total'.
   $field_instances['commerce_line_item-plaatbewerking-commerce_total'] = array(
     'bundle' => 'plaatbewerking',
     'default_value' => NULL,
@@ -951,7 +1035,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_line_item-plaatbewerking-commerce_unit_price'
+  // 'commerce_line_item-plaatbewerking-commerce_unit_price'.
   $field_instances['commerce_line_item-plaatbewerking-commerce_unit_price'] = array(
     'bundle' => 'plaatbewerking',
     'default_value' => NULL,
@@ -1013,7 +1097,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_line_item-plaatbewerking-field_base_price'
+  // 'commerce_line_item-plaatbewerking-field_base_price'.
   $field_instances['commerce_line_item-plaatbewerking-field_base_price'] = array(
     'bundle' => 'plaatbewerking',
     'commerce_cart_settings' => array(
@@ -1051,7 +1135,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_line_item-plaatbewerking-field_breedte'
+  // Exported field_instance: 'commerce_line_item-plaatbewerking-field_breedte'.
   $field_instances['commerce_line_item-plaatbewerking-field_breedte'] = array(
     'bundle' => 'plaatbewerking',
     'commerce_cart_settings' => array(
@@ -1098,7 +1182,49 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_line_item-plaatbewerking-field_lakzijde'
+  // Exported field_instance: 'commerce_line_item-plaatbewerking-field_comment'.
+  $field_instances['commerce_line_item-plaatbewerking-field_comment'] = array(
+    'bundle' => 'plaatbewerking',
+    'commerce_cart_settings' => array(
+      'field_access' => 1,
+    ),
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 14,
+      ),
+    ),
+    'entity_type' => 'commerce_line_item',
+    'field_name' => 'field_comment',
+    'label' => 'Opmerking',
+    'required' => 0,
+    'settings' => array(
+      'linkit' => array(
+        'enable' => 0,
+        'insert_plugin' => '',
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 1,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 17,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'commerce_line_item-plaatbewerking-field_lakzijde'.
   $field_instances['commerce_line_item-plaatbewerking-field_lakzijde'] = array(
     'bundle' => 'plaatbewerking',
     'commerce_cart_settings' => array(
@@ -1132,7 +1258,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_line_item-plaatbewerking-field_lengte'
+  // Exported field_instance: 'commerce_line_item-plaatbewerking-field_lengte'.
   $field_instances['commerce_line_item-plaatbewerking-field_lengte'] = array(
     'bundle' => 'plaatbewerking',
     'commerce_cart_settings' => array(
@@ -1180,7 +1306,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_line_item-plaatbewerking-field_multi_breedte'
+  // 'commerce_line_item-plaatbewerking-field_multi_breedte'.
   $field_instances['commerce_line_item-plaatbewerking-field_multi_breedte'] = array(
     'bundle' => 'plaatbewerking',
     'commerce_cart_settings' => array(
@@ -1228,7 +1354,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_line_item-plaatbewerking-field_multi_hoek'
+  // 'commerce_line_item-plaatbewerking-field_multi_hoek'.
   $field_instances['commerce_line_item-plaatbewerking-field_multi_hoek'] = array(
     'bundle' => 'plaatbewerking',
     'commerce_cart_settings' => array(
@@ -1276,7 +1402,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_line_item-plaatbewerking-field_ophanging'
+  // 'commerce_line_item-plaatbewerking-field_ophanging'.
   $field_instances['commerce_line_item-plaatbewerking-field_ophanging'] = array(
     'bundle' => 'plaatbewerking',
     'commerce_cart_settings' => array(
@@ -1310,7 +1436,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_line_item-plaatbewerking-field_plooien'
+  // Exported field_instance: 'commerce_line_item-plaatbewerking-field_plooien'.
   $field_instances['commerce_line_item-plaatbewerking-field_plooien'] = array(
     'bundle' => 'plaatbewerking',
     'commerce_cart_settings' => array(
@@ -1357,7 +1483,8 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_line_item-plaatbewerking-field_tekening'
+  // Exported field_instance:
+  // 'commerce_line_item-plaatbewerking-field_tekening'.
   $field_instances['commerce_line_item-plaatbewerking-field_tekening'] = array(
     'bundle' => 'plaatbewerking',
     'commerce_cart_settings' => array(
@@ -1397,7 +1524,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_line_item-plaatbewerking-field_type_bewerking'
+  // 'commerce_line_item-plaatbewerking-field_type_bewerking'.
   $field_instances['commerce_line_item-plaatbewerking-field_type_bewerking'] = array(
     'bundle' => 'plaatbewerking',
     'commerce_cart_settings' => array(
@@ -1436,7 +1563,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_line_item-raamtablet-commerce_display_path'
+  // 'commerce_line_item-raamtablet-commerce_display_path'.
   $field_instances['commerce_line_item-raamtablet-commerce_display_path'] = array(
     'bundle' => 'raamtablet',
     'default_value' => NULL,
@@ -1476,7 +1603,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_line_item-raamtablet-commerce_product'
+  // Exported field_instance: 'commerce_line_item-raamtablet-commerce_product'.
   $field_instances['commerce_line_item-raamtablet-commerce_product'] = array(
     'bundle' => 'raamtablet',
     'default_value' => NULL,
@@ -1531,7 +1658,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_line_item-raamtablet-commerce_total'
+  // Exported field_instance: 'commerce_line_item-raamtablet-commerce_total'.
   $field_instances['commerce_line_item-raamtablet-commerce_total'] = array(
     'bundle' => 'raamtablet',
     'default_value' => NULL,
@@ -1593,7 +1720,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_line_item-raamtablet-commerce_unit_price'
+  // 'commerce_line_item-raamtablet-commerce_unit_price'.
   $field_instances['commerce_line_item-raamtablet-commerce_unit_price'] = array(
     'bundle' => 'raamtablet',
     'default_value' => NULL,
@@ -1654,7 +1781,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_line_item-raamtablet-field_aantal_adsn'
+  // Exported field_instance: 'commerce_line_item-raamtablet-field_aantal_adsn'.
   $field_instances['commerce_line_item-raamtablet-field_aantal_adsn'] = array(
     'bundle' => 'raamtablet',
     'commerce_cart_settings' => array(
@@ -1702,7 +1829,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_line_item-raamtablet-field_anti_dreunstrook'
+  // 'commerce_line_item-raamtablet-field_anti_dreunstrook'.
   $field_instances['commerce_line_item-raamtablet-field_anti_dreunstrook'] = array(
     'bundle' => 'raamtablet',
     'commerce_cart_settings' => array(
@@ -1736,7 +1863,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_line_item-raamtablet-field_base_price'
+  // Exported field_instance: 'commerce_line_item-raamtablet-field_base_price'.
   $field_instances['commerce_line_item-raamtablet-field_base_price'] = array(
     'bundle' => 'raamtablet',
     'commerce_cart_settings' => array(
@@ -1774,7 +1901,48 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_line_item-raamtablet-field_eindstukken'
+  // Exported field_instance: 'commerce_line_item-raamtablet-field_comment'.
+  $field_instances['commerce_line_item-raamtablet-field_comment'] = array(
+    'bundle' => 'raamtablet',
+    'commerce_cart_settings' => array(
+      'field_access' => 1,
+    ),
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 13,
+      ),
+    ),
+    'entity_type' => 'commerce_line_item',
+    'field_name' => 'field_comment',
+    'label' => 'Opmerking',
+    'required' => 0,
+    'settings' => array(
+      'linkit' => array(
+        'enable' => 0,
+        'insert_plugin' => '',
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 1,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 16,
+    ),
+  );
+
+  // Exported field_instance: 'commerce_line_item-raamtablet-field_eindstukken'.
   $field_instances['commerce_line_item-raamtablet-field_eindstukken'] = array(
     'bundle' => 'raamtablet',
     'commerce_cart_settings' => array(
@@ -1821,7 +1989,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_line_item-raamtablet-field_gaatjes_rug'
+  // Exported field_instance: 'commerce_line_item-raamtablet-field_gaatjes_rug'.
   $field_instances['commerce_line_item-raamtablet-field_gaatjes_rug'] = array(
     'bundle' => 'raamtablet',
     'commerce_cart_settings' => array(
@@ -1859,7 +2027,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_line_item-raamtablet-field_hoeken'
+  // Exported field_instance: 'commerce_line_item-raamtablet-field_hoeken'.
   $field_instances['commerce_line_item-raamtablet-field_hoeken'] = array(
     'bundle' => 'raamtablet',
     'commerce_cart_settings' => array(
@@ -1907,7 +2075,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_line_item-raamtablet-field_koppelstukken'
+  // 'commerce_line_item-raamtablet-field_koppelstukken'.
   $field_instances['commerce_line_item-raamtablet-field_koppelstukken'] = array(
     'bundle' => 'raamtablet',
     'commerce_cart_settings' => array(
@@ -1954,7 +2122,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_line_item-raamtablet-field_lengte'
+  // Exported field_instance: 'commerce_line_item-raamtablet-field_lengte'.
   $field_instances['commerce_line_item-raamtablet-field_lengte'] = array(
     'bundle' => 'raamtablet',
     'commerce_cart_settings' => array(
@@ -2001,7 +2169,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_line_item-raamtablet-field_rug'
+  // Exported field_instance: 'commerce_line_item-raamtablet-field_rug'.
   $field_instances['commerce_line_item-raamtablet-field_rug'] = array(
     'bundle' => 'raamtablet',
     'commerce_cart_settings' => array(
@@ -2040,7 +2208,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_line_item-raamtablet_eindstuk-commerce_display_path'
+  // 'commerce_line_item-raamtablet_eindstuk-commerce_display_path'.
   $field_instances['commerce_line_item-raamtablet_eindstuk-commerce_display_path'] = array(
     'bundle' => 'raamtablet_eindstuk',
     'default_value' => NULL,
@@ -2081,7 +2249,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_line_item-raamtablet_eindstuk-commerce_product'
+  // 'commerce_line_item-raamtablet_eindstuk-commerce_product'.
   $field_instances['commerce_line_item-raamtablet_eindstuk-commerce_product'] = array(
     'bundle' => 'raamtablet_eindstuk',
     'default_value' => NULL,
@@ -2137,7 +2305,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_line_item-raamtablet_eindstuk-commerce_total'
+  // 'commerce_line_item-raamtablet_eindstuk-commerce_total'.
   $field_instances['commerce_line_item-raamtablet_eindstuk-commerce_total'] = array(
     'bundle' => 'raamtablet_eindstuk',
     'default_value' => NULL,
@@ -2199,7 +2367,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_line_item-raamtablet_eindstuk-commerce_unit_price'
+  // 'commerce_line_item-raamtablet_eindstuk-commerce_unit_price'.
   $field_instances['commerce_line_item-raamtablet_eindstuk-commerce_unit_price'] = array(
     'bundle' => 'raamtablet_eindstuk',
     'default_value' => NULL,
@@ -2261,7 +2429,49 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_line_item-raamtablet_eindstuk-field_kant'
+  // 'commerce_line_item-raamtablet_eindstuk-field_comment'.
+  $field_instances['commerce_line_item-raamtablet_eindstuk-field_comment'] = array(
+    'bundle' => 'raamtablet_eindstuk',
+    'commerce_cart_settings' => array(
+      'field_access' => 1,
+    ),
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 7,
+      ),
+    ),
+    'entity_type' => 'commerce_line_item',
+    'field_name' => 'field_comment',
+    'label' => 'Opmerking',
+    'required' => 0,
+    'settings' => array(
+      'linkit' => array(
+        'enable' => 0,
+        'insert_plugin' => '',
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 1,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'commerce_line_item-raamtablet_eindstuk-field_kant'.
   $field_instances['commerce_line_item-raamtablet_eindstuk-field_kant'] = array(
     'bundle' => 'raamtablet_eindstuk',
     'commerce_cart_settings' => array(
@@ -2300,7 +2510,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_line_item-raamtablet_eindstuk-field_raamtablet_diepte'
+  // 'commerce_line_item-raamtablet_eindstuk-field_raamtablet_diepte'.
   $field_instances['commerce_line_item-raamtablet_eindstuk-field_raamtablet_diepte'] = array(
     'bundle' => 'raamtablet_eindstuk',
     'commerce_cart_settings' => array(
@@ -2339,7 +2549,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_line_item-sandwichpaneel-commerce_display_path'
+  // 'commerce_line_item-sandwichpaneel-commerce_display_path'.
   $field_instances['commerce_line_item-sandwichpaneel-commerce_display_path'] = array(
     'bundle' => 'sandwichpaneel',
     'default_value' => NULL,
@@ -2380,7 +2590,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_line_item-sandwichpaneel-commerce_product'
+  // 'commerce_line_item-sandwichpaneel-commerce_product'.
   $field_instances['commerce_line_item-sandwichpaneel-commerce_product'] = array(
     'bundle' => 'sandwichpaneel',
     'default_value' => NULL,
@@ -2435,7 +2645,8 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_line_item-sandwichpaneel-commerce_total'
+  // Exported field_instance:
+  // 'commerce_line_item-sandwichpaneel-commerce_total'.
   $field_instances['commerce_line_item-sandwichpaneel-commerce_total'] = array(
     'bundle' => 'sandwichpaneel',
     'default_value' => NULL,
@@ -2497,7 +2708,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_line_item-sandwichpaneel-commerce_unit_price'
+  // 'commerce_line_item-sandwichpaneel-commerce_unit_price'.
   $field_instances['commerce_line_item-sandwichpaneel-commerce_unit_price'] = array(
     'bundle' => 'sandwichpaneel',
     'default_value' => NULL,
@@ -2559,7 +2770,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_line_item-sandwichpaneel-field_base_price'
+  // 'commerce_line_item-sandwichpaneel-field_base_price'.
   $field_instances['commerce_line_item-sandwichpaneel-field_base_price'] = array(
     'bundle' => 'sandwichpaneel',
     'default_value' => NULL,
@@ -2594,7 +2805,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_line_item-sandwichpaneel-field_bicolor_kleur'
+  // 'commerce_line_item-sandwichpaneel-field_bicolor_kleur'.
   $field_instances['commerce_line_item-sandwichpaneel-field_bicolor_kleur'] = array(
     'bundle' => 'sandwichpaneel',
     'commerce_cart_settings' => array(
@@ -2635,7 +2846,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_line_item-sandwichpaneel-field_breedte'
+  // Exported field_instance: 'commerce_line_item-sandwichpaneel-field_breedte'.
   $field_instances['commerce_line_item-sandwichpaneel-field_breedte'] = array(
     'bundle' => 'sandwichpaneel',
     'commerce_cart_settings' => array(
@@ -2682,8 +2893,49 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'commerce_line_item-sandwichpaneel-field_comment'.
+  $field_instances['commerce_line_item-sandwichpaneel-field_comment'] = array(
+    'bundle' => 'sandwichpaneel',
+    'commerce_cart_settings' => array(
+      'field_access' => 1,
+    ),
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 9,
+      ),
+    ),
+    'entity_type' => 'commerce_line_item',
+    'field_name' => 'field_comment',
+    'label' => 'Opmerking',
+    'required' => 0,
+    'settings' => array(
+      'linkit' => array(
+        'enable' => 0,
+        'insert_plugin' => '',
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 1,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 12,
+    ),
+  );
+
   // Exported field_instance:
-  // 'commerce_line_item-sandwichpaneel-field_isolatie_dikte'
+  // 'commerce_line_item-sandwichpaneel-field_isolatie_dikte'.
   $field_instances['commerce_line_item-sandwichpaneel-field_isolatie_dikte'] = array(
     'bundle' => 'sandwichpaneel',
     'commerce_cart_settings' => array(
@@ -2721,7 +2973,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_line_item-sandwichpaneel-field_lengte'
+  // Exported field_instance: 'commerce_line_item-sandwichpaneel-field_lengte'.
   $field_instances['commerce_line_item-sandwichpaneel-field_lengte'] = array(
     'bundle' => 'sandwichpaneel',
     'commerce_cart_settings' => array(
@@ -2769,7 +3021,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_line_item-standaardprofiel-commerce_display_path'
+  // 'commerce_line_item-standaardprofiel-commerce_display_path'.
   $field_instances['commerce_line_item-standaardprofiel-commerce_display_path'] = array(
     'bundle' => 'standaardprofiel',
     'default_value' => NULL,
@@ -2810,7 +3062,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_line_item-standaardprofiel-commerce_product'
+  // 'commerce_line_item-standaardprofiel-commerce_product'.
   $field_instances['commerce_line_item-standaardprofiel-commerce_product'] = array(
     'bundle' => 'standaardprofiel',
     'default_value' => NULL,
@@ -2866,7 +3118,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_line_item-standaardprofiel-commerce_total'
+  // 'commerce_line_item-standaardprofiel-commerce_total'.
   $field_instances['commerce_line_item-standaardprofiel-commerce_total'] = array(
     'bundle' => 'standaardprofiel',
     'default_value' => NULL,
@@ -2928,7 +3180,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_line_item-standaardprofiel-commerce_unit_price'
+  // 'commerce_line_item-standaardprofiel-commerce_unit_price'.
   $field_instances['commerce_line_item-standaardprofiel-commerce_unit_price'] = array(
     'bundle' => 'standaardprofiel',
     'default_value' => NULL,
@@ -2990,7 +3242,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_line_item-standaardprofiel-field_base_price'
+  // 'commerce_line_item-standaardprofiel-field_base_price'.
   $field_instances['commerce_line_item-standaardprofiel-field_base_price'] = array(
     'bundle' => 'standaardprofiel',
     'commerce_cart_settings' => array(
@@ -3029,7 +3281,49 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_line_item-standaardprofiel-field_knippen'
+  // 'commerce_line_item-standaardprofiel-field_comment'.
+  $field_instances['commerce_line_item-standaardprofiel-field_comment'] = array(
+    'bundle' => 'standaardprofiel',
+    'commerce_cart_settings' => array(
+      'field_access' => 1,
+    ),
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 10,
+      ),
+    ),
+    'entity_type' => 'commerce_line_item',
+    'field_name' => 'field_comment',
+    'label' => 'Opmerking',
+    'required' => 0,
+    'settings' => array(
+      'linkit' => array(
+        'enable' => 0,
+        'insert_plugin' => '',
+      ),
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 1,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 11,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'commerce_line_item-standaardprofiel-field_knippen'.
   $field_instances['commerce_line_item-standaardprofiel-field_knippen'] = array(
     'bundle' => 'standaardprofiel',
     'commerce_cart_settings' => array(
@@ -3072,7 +3366,8 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_line_item-standaardprofiel-field_lengte'
+  // Exported field_instance:
+  // 'commerce_line_item-standaardprofiel-field_lengte'.
   $field_instances['commerce_line_item-standaardprofiel-field_lengte'] = array(
     'bundle' => 'standaardprofiel',
     'commerce_cart_settings' => array(
@@ -3120,7 +3415,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_line_item-standaardprofiel-field_standaardprofiel_lengte'
+  // 'commerce_line_item-standaardprofiel-field_standaardprofiel_lengte'.
   $field_instances['commerce_line_item-standaardprofiel-field_standaardprofiel_lengte'] = array(
     'bundle' => 'standaardprofiel',
     'commerce_cart_settings' => array(
@@ -3155,7 +3450,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_order-commerce_order-commerce_line_items'
+  // 'commerce_order-commerce_order-commerce_line_items'.
   $field_instances['commerce_order-commerce_order-commerce_line_items'] = array(
     'bundle' => 'commerce_order',
     'deleted' => 0,
@@ -3205,7 +3500,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_order-commerce_order-commerce_order_total'
+  // 'commerce_order-commerce_order-commerce_order_total'.
   $field_instances['commerce_order-commerce_order-commerce_order_total'] = array(
     'bundle' => 'commerce_order',
     'default_value' => NULL,
@@ -3282,7 +3577,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_order-commerce_order-field_color'
+  // Exported field_instance: 'commerce_order-commerce_order-field_color'.
   $field_instances['commerce_order-commerce_order-field_color'] = array(
     'bundle' => 'commerce_order',
     'default_value' => NULL,
@@ -3320,7 +3615,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_order-commerce_order-field_comment'
+  // Exported field_instance: 'commerce_order-commerce_order-field_comment'.
   $field_instances['commerce_order-commerce_order-field_comment'] = array(
     'bundle' => 'commerce_order',
     'default_value' => NULL,
@@ -3358,7 +3653,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_order-commerce_order-field_maritime'
+  // Exported field_instance: 'commerce_order-commerce_order-field_maritime'.
   $field_instances['commerce_order-commerce_order-field_maritime'] = array(
     'bundle' => 'commerce_order',
     'default_value' => array(
@@ -3395,7 +3690,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_order-commerce_order-field_order4'
+  // Exported field_instance: 'commerce_order-commerce_order-field_order4'.
   $field_instances['commerce_order-commerce_order-field_order4'] = array(
     'bundle' => 'commerce_order',
     'default_value' => NULL,
@@ -3426,7 +3721,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_order-commerce_order-field_order_type'
+  // Exported field_instance: 'commerce_order-commerce_order-field_order_type'.
   $field_instances['commerce_order-commerce_order-field_order_type'] = array(
     'bundle' => 'commerce_order',
     'default_value' => array(
@@ -3461,7 +3756,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_order-commerce_order-field_reference'
+  // Exported field_instance: 'commerce_order-commerce_order-field_reference'.
   $field_instances['commerce_order-commerce_order-field_reference'] = array(
     'bundle' => 'commerce_order',
     'default_value' => NULL,
@@ -3500,7 +3795,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_product-dorpel_anti_dreunstrook-commerce_price'
+  // 'commerce_product-dorpel_anti_dreunstrook-commerce_price'.
   $field_instances['commerce_product-dorpel_anti_dreunstrook-commerce_price'] = array(
     'bundle' => 'dorpel_anti_dreunstrook',
     'default_value' => NULL,
@@ -3652,7 +3947,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_product-dorpel_anti_dreunstrook-field_anti_dreunstrook'
+  // 'commerce_product-dorpel_anti_dreunstrook-field_anti_dreunstrook'.
   $field_instances['commerce_product-dorpel_anti_dreunstrook-field_anti_dreunstrook'] = array(
     'bundle' => 'dorpel_anti_dreunstrook',
     'commerce_cart_settings' => array(
@@ -3704,7 +3999,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_product-dorpel_eindstuk-commerce_price'
+  // Exported field_instance: 'commerce_product-dorpel_eindstuk-commerce_price'.
   $field_instances['commerce_product-dorpel_eindstuk-commerce_price'] = array(
     'bundle' => 'dorpel_eindstuk',
     'default_value' => NULL,
@@ -3856,7 +4151,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_product-dorpel_eindstuk-field_raamtablet_afwerking'
+  // 'commerce_product-dorpel_eindstuk-field_raamtablet_afwerking'.
   $field_instances['commerce_product-dorpel_eindstuk-field_raamtablet_afwerking'] = array(
     'bundle' => 'dorpel_eindstuk',
     'commerce_cart_settings' => array(
@@ -3905,7 +4200,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_product-dorpel_eindstuk-field_raamtablet_eindstuk_type'
+  // 'commerce_product-dorpel_eindstuk-field_raamtablet_eindstuk_type'.
   $field_instances['commerce_product-dorpel_eindstuk-field_raamtablet_eindstuk_type'] = array(
     'bundle' => 'dorpel_eindstuk',
     'commerce_cart_settings' => array(
@@ -3957,7 +4252,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_product-dorpel_hoek-commerce_price'
+  // Exported field_instance: 'commerce_product-dorpel_hoek-commerce_price'.
   $field_instances['commerce_product-dorpel_hoek-commerce_price'] = array(
     'bundle' => 'dorpel_hoek',
     'default_value' => NULL,
@@ -4108,7 +4403,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_product-dorpel_hoek-field_hoek_type'
+  // Exported field_instance: 'commerce_product-dorpel_hoek-field_hoek_type'.
   $field_instances['commerce_product-dorpel_hoek-field_hoek_type'] = array(
     'bundle' => 'dorpel_hoek',
     'commerce_cart_settings' => array(
@@ -4161,7 +4456,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_product-dorpel_hoek-field_raamtablet_afwerking'
+  // 'commerce_product-dorpel_hoek-field_raamtablet_afwerking'.
   $field_instances['commerce_product-dorpel_hoek-field_raamtablet_afwerking'] = array(
     'bundle' => 'dorpel_hoek',
     'commerce_cart_settings' => array(
@@ -4210,7 +4505,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_product-dorpel_koppelstuk-commerce_price'
+  // 'commerce_product-dorpel_koppelstuk-commerce_price'.
   $field_instances['commerce_product-dorpel_koppelstuk-commerce_price'] = array(
     'bundle' => 'dorpel_koppelstuk',
     'default_value' => NULL,
@@ -4362,7 +4657,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_product-dorpel_koppelstuk-field_raamtablet_afwerking'
+  // 'commerce_product-dorpel_koppelstuk-field_raamtablet_afwerking'.
   $field_instances['commerce_product-dorpel_koppelstuk-field_raamtablet_afwerking'] = array(
     'bundle' => 'dorpel_koppelstuk',
     'commerce_cart_settings' => array(
@@ -4410,7 +4705,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_product-muurkap-commerce_price'
+  // Exported field_instance: 'commerce_product-muurkap-commerce_price'.
   $field_instances['commerce_product-muurkap-commerce_price'] = array(
     'bundle' => 'muurkap',
     'default_value' => NULL,
@@ -4561,7 +4856,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_product-muurkap-field_muurkap_diepte'
+  // Exported field_instance: 'commerce_product-muurkap-field_muurkap_diepte'.
   $field_instances['commerce_product-muurkap-field_muurkap_diepte'] = array(
     'bundle' => 'muurkap',
     'commerce_cart_settings' => array(
@@ -4609,7 +4904,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_product-muurkap-field_muurkap_type'
+  // Exported field_instance: 'commerce_product-muurkap-field_muurkap_type'.
   $field_instances['commerce_product-muurkap-field_muurkap_type'] = array(
     'bundle' => 'muurkap',
     'commerce_cart_settings' => array(
@@ -4657,7 +4952,8 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_product-muurkap-field_raamtablet_lengte'
+  // Exported field_instance:
+  // 'commerce_product-muurkap-field_raamtablet_lengte'.
   $field_instances['commerce_product-muurkap-field_raamtablet_lengte'] = array(
     'bundle' => 'muurkap',
     'commerce_cart_settings' => array(
@@ -4706,7 +5002,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_product-muurkap-field_standaardprofiel_afwerking'
+  // 'commerce_product-muurkap-field_standaardprofiel_afwerking'.
   $field_instances['commerce_product-muurkap-field_standaardprofiel_afwerking'] = array(
     'bundle' => 'muurkap',
     'commerce_cart_settings' => array(
@@ -4754,7 +5050,8 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_product-muurkap_eindstuk-commerce_price'
+  // Exported field_instance:
+  // 'commerce_product-muurkap_eindstuk-commerce_price'.
   $field_instances['commerce_product-muurkap_eindstuk-commerce_price'] = array(
     'bundle' => 'muurkap_eindstuk',
     'default_value' => NULL,
@@ -4905,7 +5202,8 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_product-muurkap_eindstuk-field_mke_type'
+  // Exported field_instance:
+  // 'commerce_product-muurkap_eindstuk-field_mke_type'.
   $field_instances['commerce_product-muurkap_eindstuk-field_mke_type'] = array(
     'bundle' => 'muurkap_eindstuk',
     'commerce_cart_settings' => array(
@@ -4954,7 +5252,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_product-muurkap_eindstuk-field_muurkap_diepte'
+  // 'commerce_product-muurkap_eindstuk-field_muurkap_diepte'.
   $field_instances['commerce_product-muurkap_eindstuk-field_muurkap_diepte'] = array(
     'bundle' => 'muurkap_eindstuk',
     'commerce_cart_settings' => array(
@@ -5003,7 +5301,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_product-muurkap_eindstuk-field_muurkap_type'
+  // 'commerce_product-muurkap_eindstuk-field_muurkap_type'.
   $field_instances['commerce_product-muurkap_eindstuk-field_muurkap_type'] = array(
     'bundle' => 'muurkap_eindstuk',
     'commerce_cart_settings' => array(
@@ -5052,7 +5350,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_product-muurkap_eindstuk-field_standaardprofiel_afwerking'
+  // 'commerce_product-muurkap_eindstuk-field_standaardprofiel_afwerking'.
   $field_instances['commerce_product-muurkap_eindstuk-field_standaardprofiel_afwerking'] = array(
     'bundle' => 'muurkap_eindstuk',
     'commerce_cart_settings' => array(
@@ -5100,7 +5398,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_product-plaatbewerking-commerce_price'
+  // Exported field_instance: 'commerce_product-plaatbewerking-commerce_price'.
   $field_instances['commerce_product-plaatbewerking-commerce_price'] = array(
     'bundle' => 'plaatbewerking',
     'default_value' => NULL,
@@ -5252,7 +5550,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_product-plaatbewerking-field_plaatbewerking_afwerking'
+  // 'commerce_product-plaatbewerking-field_plaatbewerking_afwerking'.
   $field_instances['commerce_product-plaatbewerking-field_plaatbewerking_afwerking'] = array(
     'bundle' => 'plaatbewerking',
     'commerce_cart_settings' => array(
@@ -5301,7 +5599,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_product-plaatbewerking-field_plaatbewerking_dikte'
+  // 'commerce_product-plaatbewerking-field_plaatbewerking_dikte'.
   $field_instances['commerce_product-plaatbewerking-field_plaatbewerking_dikte'] = array(
     'bundle' => 'plaatbewerking',
     'commerce_cart_settings' => array(
@@ -5355,7 +5653,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_product-plaatbewerking-field_sandwichpaneel_lengte'
+  // 'commerce_product-plaatbewerking-field_sandwichpaneel_lengte'.
   $field_instances['commerce_product-plaatbewerking-field_sandwichpaneel_lengte'] = array(
     'bundle' => 'plaatbewerking',
     'commerce_cart_settings' => array(
@@ -5407,7 +5705,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_product-raamtablet-commerce_price'
+  // Exported field_instance: 'commerce_product-raamtablet-commerce_price'.
   $field_instances['commerce_product-raamtablet-commerce_price'] = array(
     'bundle' => 'raamtablet',
     'default_value' => NULL,
@@ -5559,7 +5857,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_product-raamtablet-field_raamtablet_afwerking'
+  // 'commerce_product-raamtablet-field_raamtablet_afwerking'.
   $field_instances['commerce_product-raamtablet-field_raamtablet_afwerking'] = array(
     'bundle' => 'raamtablet',
     'commerce_cart_settings' => array(
@@ -5608,7 +5906,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_product-raamtablet-field_raamtablet_diepte'
+  // 'commerce_product-raamtablet-field_raamtablet_diepte'.
   $field_instances['commerce_product-raamtablet-field_raamtablet_diepte'] = array(
     'bundle' => 'raamtablet',
     'commerce_cart_settings' => array(
@@ -5661,7 +5959,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_product-raamtablet-field_raamtablet_lengte'
+  // 'commerce_product-raamtablet-field_raamtablet_lengte'.
   $field_instances['commerce_product-raamtablet-field_raamtablet_lengte'] = array(
     'bundle' => 'raamtablet',
     'commerce_cart_settings' => array(
@@ -5710,7 +6008,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_product-raamtablet_eindstuk-commerce_price'
+  // 'commerce_product-raamtablet_eindstuk-commerce_price'.
   $field_instances['commerce_product-raamtablet_eindstuk-commerce_price'] = array(
     'bundle' => 'raamtablet_eindstuk',
     'default_value' => NULL,
@@ -5862,7 +6160,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_product-raamtablet_eindstuk-field_raamtablet_afwerking'
+  // 'commerce_product-raamtablet_eindstuk-field_raamtablet_afwerking'.
   $field_instances['commerce_product-raamtablet_eindstuk-field_raamtablet_afwerking'] = array(
     'bundle' => 'raamtablet_eindstuk',
     'commerce_cart_settings' => array(
@@ -5910,7 +6208,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_product-sandwichpaneel-commerce_price'
+  // Exported field_instance: 'commerce_product-sandwichpaneel-commerce_price'.
   $field_instances['commerce_product-sandwichpaneel-commerce_price'] = array(
     'bundle' => 'sandwichpaneel',
     'default_value' => NULL,
@@ -6062,7 +6360,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_product-sandwichpaneel-field_sandwichpaneel_afwerking'
+  // 'commerce_product-sandwichpaneel-field_sandwichpaneel_afwerking'.
   $field_instances['commerce_product-sandwichpaneel-field_sandwichpaneel_afwerking'] = array(
     'bundle' => 'sandwichpaneel',
     'commerce_cart_settings' => array(
@@ -6111,7 +6409,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_product-sandwichpaneel-field_sandwichpaneel_afwerking_2'
+  // 'commerce_product-sandwichpaneel-field_sandwichpaneel_afwerking_2'.
   $field_instances['commerce_product-sandwichpaneel-field_sandwichpaneel_afwerking_2'] = array(
     'bundle' => 'sandwichpaneel',
     'commerce_cart_settings' => array(
@@ -6160,7 +6458,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_product-sandwichpaneel-field_sandwichpaneel_lengte'
+  // 'commerce_product-sandwichpaneel-field_sandwichpaneel_lengte'.
   $field_instances['commerce_product-sandwichpaneel-field_sandwichpaneel_lengte'] = array(
     'bundle' => 'sandwichpaneel',
     'commerce_cart_settings' => array(
@@ -6209,7 +6507,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_product-sandwichpaneel_isolatie-commerce_price'
+  // 'commerce_product-sandwichpaneel_isolatie-commerce_price'.
   $field_instances['commerce_product-sandwichpaneel_isolatie-commerce_price'] = array(
     'bundle' => 'sandwichpaneel_isolatie',
     'default_value' => NULL,
@@ -6361,7 +6659,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_product-sandwichpaneel_isolatie-field_isolatie_dikte'
+  // 'commerce_product-sandwichpaneel_isolatie-field_isolatie_dikte'.
   $field_instances['commerce_product-sandwichpaneel_isolatie-field_isolatie_dikte'] = array(
     'bundle' => 'sandwichpaneel_isolatie',
     'commerce_cart_settings' => array(
@@ -6414,7 +6712,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_product-sandwichpaneel_isolatie-field_sandwichpaneel_lengte'
+  // 'commerce_product-sandwichpaneel_isolatie-field_sandwichpaneel_lengte'.
   $field_instances['commerce_product-sandwichpaneel_isolatie-field_sandwichpaneel_lengte'] = array(
     'bundle' => 'sandwichpaneel_isolatie',
     'commerce_cart_settings' => array(
@@ -6462,7 +6760,8 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_product-standaardprofiel-commerce_price'
+  // Exported field_instance:
+  // 'commerce_product-standaardprofiel-commerce_price'.
   $field_instances['commerce_product-standaardprofiel-commerce_price'] = array(
     'bundle' => 'standaardprofiel',
     'default_value' => NULL,
@@ -6613,7 +6912,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_product-standaardprofiel-field_maat'
+  // Exported field_instance: 'commerce_product-standaardprofiel-field_maat'.
   $field_instances['commerce_product-standaardprofiel-field_maat'] = array(
     'bundle' => 'standaardprofiel',
     'commerce_cart_settings' => array(
@@ -6662,7 +6961,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_product-standaardprofiel-field_product_image'
+  // 'commerce_product-standaardprofiel-field_product_image'.
   $field_instances['commerce_product-standaardprofiel-field_product_image'] = array(
     'bundle' => 'standaardprofiel',
     'deleted' => 0,
@@ -6732,7 +7031,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_product-standaardprofiel-field_standaardprofiel_afwerking'
+  // 'commerce_product-standaardprofiel-field_standaardprofiel_afwerking'.
   $field_instances['commerce_product-standaardprofiel-field_standaardprofiel_afwerking'] = array(
     'bundle' => 'standaardprofiel',
     'commerce_cart_settings' => array(
@@ -6781,7 +7080,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_product-standaardprofiel-field_standaardprofiel_type'
+  // 'commerce_product-standaardprofiel-field_standaardprofiel_type'.
   $field_instances['commerce_product-standaardprofiel-field_standaardprofiel_type'] = array(
     'bundle' => 'standaardprofiel',
     'commerce_cart_settings' => array(
@@ -6830,7 +7129,7 @@ function feneko_calculator_feature_field_default_field_instances() {
   );
 
   // Exported field_instance:
-  // 'commerce_product-standaardprofiel-field_stockprofiel'
+  // 'commerce_product-standaardprofiel-field_stockprofiel'.
   $field_instances['commerce_product-standaardprofiel-field_stockprofiel'] = array(
     'bundle' => 'standaardprofiel',
     'commerce_cart_settings' => array(
@@ -6884,7 +7183,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'commerce_product-unit-commerce_price'
+  // Exported field_instance: 'commerce_product-unit-commerce_price'.
   $field_instances['commerce_product-unit-commerce_price'] = array(
     'bundle' => 'unit',
     'default_value' => NULL,
@@ -7035,7 +7334,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-dorpel_anti_dreunstrook-field_product'
+  // Exported field_instance: 'node-dorpel_anti_dreunstrook-field_product'.
   $field_instances['node-dorpel_anti_dreunstrook-field_product'] = array(
     'bundle' => 'dorpel_anti_dreunstrook',
     'default_value' => NULL,
@@ -7104,7 +7403,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-dorpel_eindstuk-field_product'
+  // Exported field_instance: 'node-dorpel_eindstuk-field_product'.
   $field_instances['node-dorpel_eindstuk-field_product'] = array(
     'bundle' => 'dorpel_eindstuk',
     'default_value' => NULL,
@@ -7164,7 +7463,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-dorpel_hoek-field_product'
+  // Exported field_instance: 'node-dorpel_hoek-field_product'.
   $field_instances['node-dorpel_hoek-field_product'] = array(
     'bundle' => 'dorpel_hoek',
     'default_value' => NULL,
@@ -7233,7 +7532,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-dorpel_koppelstuk-field_product'
+  // Exported field_instance: 'node-dorpel_koppelstuk-field_product'.
   $field_instances['node-dorpel_koppelstuk-field_product'] = array(
     'bundle' => 'dorpel_koppelstuk',
     'default_value' => NULL,
@@ -7302,7 +7601,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-muurkap-field_product'
+  // Exported field_instance: 'node-muurkap-field_product'.
   $field_instances['node-muurkap-field_product'] = array(
     'bundle' => 'muurkap',
     'default_value' => NULL,
@@ -7371,7 +7670,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-plaatbewerking-field_product'
+  // Exported field_instance: 'node-plaatbewerking-field_product'.
   $field_instances['node-plaatbewerking-field_product'] = array(
     'bundle' => 'plaatbewerking',
     'default_value' => NULL,
@@ -7440,7 +7739,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-raamtablet-field_product'
+  // Exported field_instance: 'node-raamtablet-field_product'.
   $field_instances['node-raamtablet-field_product'] = array(
     'bundle' => 'raamtablet',
     'default_value' => NULL,
@@ -7509,7 +7808,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-sandwichpaneel-field_product'
+  // Exported field_instance: 'node-sandwichpaneel-field_product'.
   $field_instances['node-sandwichpaneel-field_product'] = array(
     'bundle' => 'sandwichpaneel',
     'default_value' => NULL,
@@ -7578,7 +7877,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-standaardprofiel-field_product'
+  // Exported field_instance: 'node-standaardprofiel-field_product'.
   $field_instances['node-standaardprofiel-field_product'] = array(
     'bundle' => 'standaardprofiel',
     'default_value' => NULL,
@@ -7631,7 +7930,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-stuk-field_product'
+  // Exported field_instance: 'node-stuk-field_product'.
   $field_instances['node-stuk-field_product'] = array(
     'bundle' => 'stuk',
     'default_value' => NULL,
@@ -7687,7 +7986,7 @@ function feneko_calculator_feature_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-unit-field_product'
+  // Exported field_instance: 'node-unit-field_product'.
   $field_instances['node-unit-field_product'] = array(
     'bundle' => 'unit',
     'default_value' => NULL,

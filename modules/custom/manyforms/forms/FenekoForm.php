@@ -1727,7 +1727,6 @@ class FenekoForm {
     );
     $textara = array(
       '#type' => 'textarea',
-      '#rows' => 1,
     );
 
     // THE TABLE ROWS

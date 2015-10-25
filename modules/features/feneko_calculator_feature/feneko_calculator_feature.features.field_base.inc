@@ -10,7 +10,7 @@
 function feneko_calculator_feature_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'commerce_display_path'
+  // Exported field_base: 'commerce_display_path'.
   $field_bases['commerce_display_path'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -33,7 +33,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'commerce_line_items'
+  // Exported field_base: 'commerce_line_items'.
   $field_bases['commerce_line_items'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -54,7 +54,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'commerce_line_item_reference',
   );
 
-  // Exported field_base: 'commerce_order_total'
+  // Exported field_base: 'commerce_order_total'.
   $field_bases['commerce_order_total'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -76,7 +76,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'commerce_price',
   );
 
-  // Exported field_base: 'commerce_price'
+  // Exported field_base: 'commerce_price'.
   $field_bases['commerce_price'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -98,7 +98,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'commerce_price',
   );
 
-  // Exported field_base: 'commerce_product'
+  // Exported field_base: 'commerce_product'.
   $field_bases['commerce_product'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -121,7 +121,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'commerce_product_reference',
   );
 
-  // Exported field_base: 'commerce_total'
+  // Exported field_base: 'commerce_total'.
   $field_bases['commerce_total'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -143,7 +143,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'commerce_price',
   );
 
-  // Exported field_base: 'commerce_unit_price'
+  // Exported field_base: 'commerce_unit_price'.
   $field_bases['commerce_unit_price'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -165,7 +165,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'commerce_price',
   );
 
-  // Exported field_base: 'field_aantal_adsn'
+  // Exported field_base: 'field_aantal_adsn'.
   $field_bases['field_aantal_adsn'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -183,7 +183,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'number_integer',
   );
 
-  // Exported field_base: 'field_anti_dreunstrook'
+  // Exported field_base: 'field_anti_dreunstrook'.
   $field_bases['field_anti_dreunstrook'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -216,7 +216,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'list_text',
   );
 
-  // Exported field_base: 'field_base_price'
+  // Exported field_base: 'field_base_price'.
   $field_bases['field_base_price'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -239,7 +239,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'commerce_price',
   );
 
-  // Exported field_base: 'field_beugels'
+  // Exported field_base: 'field_beugels'.
   $field_bases['field_beugels'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -257,7 +257,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'number_integer',
   );
 
-  // Exported field_base: 'field_bicolor_kleur'
+  // Exported field_base: 'field_bicolor_kleur'.
   $field_bases['field_bicolor_kleur'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -281,7 +281,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_breedte'
+  // Exported field_base: 'field_breedte'.
   $field_bases['field_breedte'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -299,7 +299,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'number_integer',
   );
 
-  // Exported field_base: 'field_color'
+  // Exported field_base: 'field_color'.
   $field_bases['field_color'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -323,7 +323,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_comment'
+  // Exported field_base: 'field_comment'.
   $field_bases['field_comment'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -345,7 +345,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'text_long',
   );
 
-  // Exported field_base: 'field_eindstukken'
+  // Exported field_base: 'field_eindstukken'.
   $field_bases['field_eindstukken'] = array(
     'active' => 1,
     'cardinality' => 4,
@@ -363,7 +363,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'number_integer',
   );
 
-  // Exported field_base: 'field_gaatjes_rug'
+  // Exported field_base: 'field_gaatjes_rug'.
   $field_bases['field_gaatjes_rug'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -391,7 +391,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'list_integer',
   );
 
-  // Exported field_base: 'field_hoek_type'
+  // Exported field_base: 'field_hoek_type'.
   $field_bases['field_hoek_type'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -419,7 +419,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'list_text',
   );
 
-  // Exported field_base: 'field_hoeken'
+  // Exported field_base: 'field_hoeken'.
   $field_bases['field_hoeken'] = array(
     'active' => 1,
     'cardinality' => 2,
@@ -437,7 +437,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'number_integer',
   );
 
-  // Exported field_base: 'field_isolatie_dikte'
+  // Exported field_base: 'field_isolatie_dikte'.
   $field_bases['field_isolatie_dikte'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -470,7 +470,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'list_integer',
   );
 
-  // Exported field_base: 'field_kant'
+  // Exported field_base: 'field_kant'.
   $field_bases['field_kant'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -498,7 +498,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'list_text',
   );
 
-  // Exported field_base: 'field_knippen'
+  // Exported field_base: 'field_knippen'.
   $field_bases['field_knippen'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -516,7 +516,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'number_integer',
   );
 
-  // Exported field_base: 'field_koppelstukken'
+  // Exported field_base: 'field_koppelstukken'.
   $field_bases['field_koppelstukken'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -534,7 +534,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'number_integer',
   );
 
-  // Exported field_base: 'field_lakzijde'
+  // Exported field_base: 'field_lakzijde'.
   $field_bases['field_lakzijde'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -563,7 +563,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'list_text',
   );
 
-  // Exported field_base: 'field_lengte'
+  // Exported field_base: 'field_lengte'.
   $field_bases['field_lengte'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -581,7 +581,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'number_integer',
   );
 
-  // Exported field_base: 'field_maat'
+  // Exported field_base: 'field_maat'.
   $field_bases['field_maat'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -1162,7 +1162,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'list_text',
   );
 
-  // Exported field_base: 'field_maritime'
+  // Exported field_base: 'field_maritime'.
   $field_bases['field_maritime'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -1190,7 +1190,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'list_boolean',
   );
 
-  // Exported field_base: 'field_mke_type'
+  // Exported field_base: 'field_mke_type'.
   $field_bases['field_mke_type'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -1224,7 +1224,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'list_text',
   );
 
-  // Exported field_base: 'field_multi_breedte'
+  // Exported field_base: 'field_multi_breedte'.
   $field_bases['field_multi_breedte'] = array(
     'active' => 1,
     'cardinality' => 5,
@@ -1242,7 +1242,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'number_integer',
   );
 
-  // Exported field_base: 'field_multi_hoek'
+  // Exported field_base: 'field_multi_hoek'.
   $field_bases['field_multi_hoek'] = array(
     'active' => 1,
     'cardinality' => 4,
@@ -1260,7 +1260,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'number_integer',
   );
 
-  // Exported field_base: 'field_muurkap_diepte'
+  // Exported field_base: 'field_muurkap_diepte'.
   $field_bases['field_muurkap_diepte'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -1297,7 +1297,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'list_integer',
   );
 
-  // Exported field_base: 'field_muurkap_type'
+  // Exported field_base: 'field_muurkap_type'.
   $field_bases['field_muurkap_type'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -1326,7 +1326,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'list_integer',
   );
 
-  // Exported field_base: 'field_ophanging'
+  // Exported field_base: 'field_ophanging'.
   $field_bases['field_ophanging'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -1355,7 +1355,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'list_text',
   );
 
-  // Exported field_base: 'field_order4'
+  // Exported field_base: 'field_order4'.
   $field_bases['field_order4'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -1380,7 +1380,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'list_text',
   );
 
-  // Exported field_base: 'field_order_type'
+  // Exported field_base: 'field_order_type'.
   $field_bases['field_order_type'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -1408,7 +1408,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'list_text',
   );
 
-  // Exported field_base: 'field_plaatbewerking_afwerking'
+  // Exported field_base: 'field_plaatbewerking_afwerking'.
   $field_bases['field_plaatbewerking_afwerking'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -1440,7 +1440,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'list_text',
   );
 
-  // Exported field_base: 'field_plaatbewerking_dikte'
+  // Exported field_base: 'field_plaatbewerking_dikte'.
   $field_bases['field_plaatbewerking_dikte'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -1469,7 +1469,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'list_text',
   );
 
-  // Exported field_base: 'field_plooien'
+  // Exported field_base: 'field_plooien'.
   $field_bases['field_plooien'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -1487,7 +1487,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'number_integer',
   );
 
-  // Exported field_base: 'field_product'
+  // Exported field_base: 'field_product'.
   $field_bases['field_product'] = array(
     'active' => 1,
     'cardinality' => -1,
@@ -1511,7 +1511,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'commerce_product_reference',
   );
 
-  // Exported field_base: 'field_product_image'
+  // Exported field_base: 'field_product_image'.
   $field_bases['field_product_image'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -1536,7 +1536,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'image',
   );
 
-  // Exported field_base: 'field_raamtablet_afwerking'
+  // Exported field_base: 'field_raamtablet_afwerking'.
   $field_bases['field_raamtablet_afwerking'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -1566,7 +1566,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'list_text',
   );
 
-  // Exported field_base: 'field_raamtablet_diepte'
+  // Exported field_base: 'field_raamtablet_diepte'.
   $field_bases['field_raamtablet_diepte'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -1608,7 +1608,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'list_integer',
   );
 
-  // Exported field_base: 'field_raamtablet_eindstuk_type'
+  // Exported field_base: 'field_raamtablet_eindstuk_type'.
   $field_bases['field_raamtablet_eindstuk_type'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -1636,7 +1636,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'list_integer',
   );
 
-  // Exported field_base: 'field_raamtablet_lengte'
+  // Exported field_base: 'field_raamtablet_lengte'.
   $field_bases['field_raamtablet_lengte'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -1666,7 +1666,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'list_integer',
   );
 
-  // Exported field_base: 'field_reference'
+  // Exported field_base: 'field_reference'.
   $field_bases['field_reference'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -1690,7 +1690,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_rug'
+  // Exported field_base: 'field_rug'.
   $field_bases['field_rug'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -1719,7 +1719,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'list_integer',
   );
 
-  // Exported field_base: 'field_sandwichpaneel_afwerking'
+  // Exported field_base: 'field_sandwichpaneel_afwerking'.
   $field_bases['field_sandwichpaneel_afwerking'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -1750,7 +1750,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'list_text',
   );
 
-  // Exported field_base: 'field_sandwichpaneel_afwerking_2'
+  // Exported field_base: 'field_sandwichpaneel_afwerking_2'.
   $field_bases['field_sandwichpaneel_afwerking_2'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -1780,7 +1780,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'list_text',
   );
 
-  // Exported field_base: 'field_sandwichpaneel_lengte'
+  // Exported field_base: 'field_sandwichpaneel_lengte'.
   $field_bases['field_sandwichpaneel_lengte'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -1816,7 +1816,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'list_integer',
   );
 
-  // Exported field_base: 'field_standaardprofiel_afwerking'
+  // Exported field_base: 'field_standaardprofiel_afwerking'.
   $field_bases['field_standaardprofiel_afwerking'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -1845,7 +1845,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'list_text',
   );
 
-  // Exported field_base: 'field_standaardprofiel_lengte'
+  // Exported field_base: 'field_standaardprofiel_lengte'.
   $field_bases['field_standaardprofiel_lengte'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -1875,7 +1875,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'list_integer',
   );
 
-  // Exported field_base: 'field_standaardprofiel_type'
+  // Exported field_base: 'field_standaardprofiel_type'.
   $field_bases['field_standaardprofiel_type'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -1911,7 +1911,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'list_text',
   );
 
-  // Exported field_base: 'field_stockprofiel'
+  // Exported field_base: 'field_stockprofiel'.
   $field_bases['field_stockprofiel'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -1939,7 +1939,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'list_boolean',
   );
 
-  // Exported field_base: 'field_tekening'
+  // Exported field_base: 'field_tekening'.
   $field_bases['field_tekening'] = array(
     'active' => 1,
     'cardinality' => 1,
@@ -1965,7 +1965,7 @@ function feneko_calculator_feature_field_default_field_bases() {
     'type' => 'file',
   );
 
-  // Exported field_base: 'field_type_bewerking'
+  // Exported field_base: 'field_type_bewerking'.
   $field_bases['field_type_bewerking'] = array(
     'active' => 1,
     'cardinality' => 1,
