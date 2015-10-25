@@ -95,7 +95,7 @@ function feneko_code_retours_form_submit($form, &$form_state) {
 
   $record = array_merge($form_state['values'], $record);
 
-  // drupal_write_record(FENEKO_CODE_RETOUR_TABLE, $record);
+  drupal_write_record(FENEKO_CODE_RETOUR_TABLE, $record);
 
   // Send mails
   $to = array(
