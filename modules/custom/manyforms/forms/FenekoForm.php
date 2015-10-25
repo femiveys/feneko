@@ -1725,14 +1725,15 @@ class FenekoForm {
       '#type' => 'textfield',
       '#element_validate' => array('element_validate_integer_positive'),
     );
-    $text = array(
-      '#type' => 'textfield',
+    $textara = array(
+      '#type' => 'textarea',
+      '#rows' => 1,
     );
 
     // THE TABLE ROWS
     for ($i = 0; $i < $count; $i++) {
       $aantal = $breedte = $hoogte = $rails = $int;
-      $opmerking = $text;
+      $opmerking = $textara;
 
       $t1 = $t2 = $t3 = array(
         '#type' => 'textfield',

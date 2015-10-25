@@ -9,3 +9,12 @@
 #manyforms-form .form-submit {
 	margin: 2em 0;
 }
+
+#manyforms-form .grippie {
+	display: none;
+}
+
+#manyforms-form textarea {
+	min-height: 18px;
+	padding: 0;
+}
