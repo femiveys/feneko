@@ -1,13 +1,10 @@
 <?php
 function feneko_code_retours_form($form, &$form_state) {
-  $date_format = "d/m/Y";
-
   return array(
-    'date' => array(
-      '#type' => 'date_popup',
-      '#title' => t('Date'),
-      '#date_format' => $date_format,
-      '#title_display' => 'invisible',
+    'type'        => array(
+      '#type' => 'radios',
+      '#title' => t('Type'),
+      '#options' => array('screens' => 'Screens', 'colors' => 'Colors'),
       '#required' => true,
     ),
     'chauffeur'   => feneko_code_get_text_widget('chauffeur'),
@@ -15,8 +12,8 @@ function feneko_code_retours_form($form, &$form_state) {
     'reference'   => feneko_code_get_text_widget('reference'),
     'contact'     => feneko_code_get_text_widget('contact'),
     'product'     => feneko_code_get_text_widget('product'),
-    'num_prod'    => feneko_code_get_text_widget('num_prod'),
-    'description' => feneko_code_get_text_widget('description'),
+    'num_prod'    => feneko_code_get_text_widget('num_prod', 'textfield', null),
+    'description' => feneko_code_get_text_widget('description', 'textarea'),
     'submit' => array(
       '#type' => 'submit',
       '#value' => t('Send'),
@@ -24,7 +21,7 @@ function feneko_code_retours_form($form, &$form_state) {
   );
 }
 
-function feneko_code_get_text_widget($key, $size = 20, $type = 'textfield') {
+function feneko_code_get_text_widget($key, $type = 'textfield', $size = 20) {
   global $language;
 
   $lang = $language->language;
@@ -41,39 +38,33 @@ function feneko_code_get_text_widget($key, $size = 20, $type = 'textfield') {
 
 function feneko_code_retours_mapping() {
   return array(
-    'date' => array(
+    'created' => array(
       'nl' => 'Datum',
       'fr' => 'Date',
     ),
-    'chauffeur'   => array(
+    'chauffeur' => array(
       'nl' => 'Chauffeur',
       'fr' => 'Chauffeur',
     ),
-    'client'      => array(
+    'client' => array(
       'nl' => 'Klant',
       'fr' => 'Client',
     ),
-    'reference'   => array(
+    'reference' => array(
       'nl' => 'Referentie',
       'fr' => 'Référence',
     ),
-    'contact'     => array(
+    'contact' => array(
       'nl' => 'Contact',
       'fr' => 'Contact',
     ),
-    'screens'     => array(
-      'nl' => 'Screens',
-      'fr' => 'Screens',
-    ),
-    'colors'     => array(
-      'nl' => 'Colors',
-      'fr' => 'Colors',
-    ),
-    'product'     => array(
+    'screens' => 'Screens',
+    'colors' => 'Colors',
+    'product' => array(
       'nl' => 'Product',
       'fr' => 'Produit',
     ),
-    'num_prod'    => array(
+    'num_prod' => array(
       'nl' => 'Aantal stukken',
       'fr' => 'Nombre de pièces',
     ),
@@ -90,7 +81,6 @@ function feneko_code_retours_form_submit($form, &$form_state) {
   $record = array(
     'uid' => $user->uid,
     'created' => time(),
-    'date' => strtotime($form_state['values']['date']),
   );
 
   $record = array_merge($form_state['values'], $record);
@@ -164,7 +154,7 @@ function feneko_code_retours_pdf($record) {
     text-transform: uppercase;
   }
 
- .fr {
+  .fr {
     font-style: italic;
   }
 
@@ -207,11 +197,12 @@ function feneko_code_retours_pdf($record) {
     float: left;
     clear: none;
     margin: 0;
+    text-align: center;
   }
 
   .order .field-screens .label,
   .order .field-colors .label {
-    width: 150px;
+    width: 266px;
     float: right;
     height: $height;
     line-height: $height;
@@ -229,11 +220,6 @@ function feneko_code_retours_pdf($record) {
     float: left;
   }
 
-  .field-screens .fr,
-  .field-colors .fr {
-    display: none;
-  }
-
   .order .field-description {
     border: none
   }
@@ -247,6 +233,7 @@ function feneko_code_retours_pdf($record) {
   .field-description .value {
     border: $border;
     height: 200px;
+    margin: 0;
   }
 
   .help {
@@ -267,14 +254,14 @@ function feneko_code_retours_pdf($record) {
   $html.= '<span class="feneko_fenek">Fenek</span><span class="feneko_o">O</span>';
   $html .= '</div>';
   $html .= '<div class="id">';
-  $html .= feneko_code_parse_pdf_field('date', $record);
+  $html .= feneko_code_parse_pdf_field('created', $record);
   $html .= feneko_code_parse_pdf_field('chauffeur', $record);
   $html .= feneko_code_parse_pdf_field('client', $record);
   $html .= feneko_code_parse_pdf_field('reference', $record);
   $html .= feneko_code_parse_pdf_field('contact', $record);
   $html .= '</div>';
   $html .= '<div class="order">';
-  $html .= '<div class="cols">';
+  $html .= '<div class="type">';
   $html .= feneko_code_parse_pdf_field('screens', $record);
   $html .= feneko_code_parse_pdf_field('colors', $record);
   $html .= '</div>';
@@ -288,8 +275,9 @@ function feneko_code_retours_pdf($record) {
   $html .= '</div>';
   $html .= "</body></html>";
 
-  $footer = '<footer>RETOUR - ' . date('F Y', $record['date']) . "</footer>";
+  $footer = '<footer>RETOUR - ' . date('F Y', $record['created']) . "</footer>";
 
+// For test
 // echo $html;
 // exit;
 
@@ -298,6 +286,10 @@ function feneko_code_retours_pdf($record) {
   $mpdf->WriteHTML($html);
   $mpdf->SetHTMLFooter($footer);
 
+  // For test
+  // $mpdf->Output();
+  // exit;
+
   return $mpdf->Output('', 'S');
 }
 
@@ -305,12 +297,36 @@ function feneko_code_parse_pdf_field($name, $record) {
   $form = feneko_code_retours_form(array());
   $mapping = feneko_code_retours_mapping();
 
+  switch ($name) {
+    case 'screens':
+    case 'colors':
+      $label = "<div>" . $mapping[$name] . "</div>";
+      $value = $record['type'] === $name ? 'X' : '';
+      break;
+
+    default:
+      $label  = "<div class=\"nl\">" . $mapping[$name]['nl'] . "</div>";
+      $label .= "<div class=\"fr\">" . $mapping[$name]['fr'] . "</div>";
+
+      switch ($name) {
+        case 'created':
+          $value  = date('d-m-Y', $record[$name]);
+          break;
+
+        case 'description':
+          $value  = nl2br($record[$name]);
+          break;
+
+        default:
+          $value  = $record[$name];
+          break;
+      }
+      break;
+  }
+
   $html  = "<div class=\"field field-$name\">";
-  $html .= "<div class=\"label\">";
-  $html .= "<div class=\"nl\">" . $mapping[$name]['nl'] . "</div>";
-  $html .= "<div class=\"fr\">" . $mapping[$name]['fr'] . "</div>";
-  $html .= "</div>";
-  $html .= "<div class=\"value\">" . $record[$name] . "</div>";
+  $html .= "<div class=\"label\">$label</div>";
+  $html .= "<div class=\"value\">$value</div>";
   $html .= "</div>";
 
   return $html;

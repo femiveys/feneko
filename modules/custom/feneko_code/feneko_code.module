@@ -1,4 +1,5 @@
 <?php
+define('FENEKO_CODE', 'feneko_code');
 define('FENEKO_CODE_ORDER_STATUSES_TABLE', 'order_statuses');
 define('FENEKO_CODE_RETOUR_TABLE', 'retours');
 define('FENEKO_CODE_IMPORT_DELIMITER', ';');

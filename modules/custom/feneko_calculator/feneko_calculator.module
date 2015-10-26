@@ -165,6 +165,11 @@ function feneko_calculator_mail_alter(&$message) {
     $message['params']['attachments'][] = $attachment;
 
     if(strpos($message['id'], $mail_id_patterns['feneko']) !== false) {
+      // For feneko mail
+
+      // Set the to
+      $message['to'] = variable_get('fc_notification_email');
+
       // Set the body
       $body = variable_get('fc_notification_email_text') ;
 
