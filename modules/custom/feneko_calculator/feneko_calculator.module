@@ -1321,7 +1321,7 @@ function fc_disable_multi_fields(&$form, &$form_state, $number) {
   // For field_multi_hoek
   for($i = $number-1; $i < $multiHoek['#cardinality']; $i++) {
     $form_state['values']['line_item_fields']['field_multi_hoek']['und'][$i]['value'] = 0;
-    $multiHoek[$i]['value']['#default_value'] = 90;
+    $multiHoek[$i]['value']['#default_value'] = 0; // 90 gives unexpected results
     $multiHoek[$i]['value']['#disabled'] = TRUE;
   }
 }
